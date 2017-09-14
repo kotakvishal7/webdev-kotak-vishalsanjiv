@@ -1,3 +1,31 @@
+Hi,
+
+I am Vishal Sanjiv Kotak, currently pursuing Masters in Computer Science at Northeastern University. I have a Bachelors in Computer Engineering from the University of Mumbai with the concentration in Database Management Systems and Mobile Application Development.
+
+I have worked professionally for one and half years, firstly with Accenture Services Private Limited as a Systems Application Programming in Data Processing (SAP) - Advanced Business Application Programming (ABAP) and secondly, with TSS Consultancy Private Limited as a Software Developer. I got exposed to Single Page Web Applications (SPA) during my tenure and got a chance to create a scalable web application for one of the largest banks in the world.
+
+These skills intrigued me and motivated me to pursue a career in web application development. I am taking this course to learn new skills to be a better web developer.
+
+Please refer the below points for some of the projects I have worked on:
+
+**1. Diabetic Patient Readmission Application**
+- Created algorithms using Java to predict Diabetic patient readmission after being discharged from the hospital by exploring a real-world dataset which presents ten years (1999 - 2008) of clinical care data at one hundred and thirty US Hospitals
+- This repository is mainly focussed on showcasing my knowledge and skills learned in the course of Web Development at Northeastern University with help of Assignments and Projects.
+
+**2. Media Licensing Lab**
+- Developed a web platform using Java Spring - MVC, Angular.js, and MySQL for artists to collaborate, share compositions with followers and get their creations copyrighted
+
+
+Heroku Web Application Link: [https://webdev-kotak-vishalsanjiv.herokuapp.com](https://webdev-kotak-vishalsanjiv.herokuapp.com)
+
+MongoDB Test Link: [https://webdev-kotak-vishalsanjiv.herokuapp.com/test](https://webdev-kotak-vishalsanjiv.herokuapp.com/test)
+
+Course Website Link: [http://portal-cs5610online.rhcloud.com/#/](http://portal-cs5610online.rhcloud.com/#/)
+
+Assignment 1 Link: [Setting up Development Environment](https://docs.google.com/document/d/1rxZnIRpwCzqQVJwMm7HLfKHvXiI_GLpcfBjm0ymmWXI/edit)
+
+Steps related to the project:
+
 # AngularFourMEANSeed
 
 After you clone this repository and run "npm install"
