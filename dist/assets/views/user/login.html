@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!-- Meta tags for making website for mobile-->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="viewport" content="initial-scale=1.25, user-scalable=no">
-
-
-  <meta charset="UTF-8">
-  <title>User Login</title>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-
-
-  <!-- STYLE sheet comes after all the libraries are loaded. Document style-->
-
-  <!--<link href="../css/style.css" rel="stylesheet"/>-->
-</head>
-
-
-<body>
-<div class="container">
-  <h1>Login</h1>
-  <input placeholder="username"
-         type="text"
-         class="form-control"/>
-  <input placeholder="password"
-         type="password"
-         class="form-control"/>
-  <a class="btn btn-primary btn-block" href="profile.html" >Login</a>
-  <a class="btn btn-success btn-block" href="register.html" >Register</a>
-
-</div>
-</body>
+  <head>
+    <!-- Meta tags for making website for mobile-->
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1.25, user-scalable=no">
+    <title>User Login</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class = "row login-elements">
+        <div class = "col-sm-12">
+          <h1>Login</h1>
+        </div>
+      </div>
+      <div class = "row login-elements">
+        <div class = "col-sm-12">
+          <input placeholder="username" type="text" value = "kotakvishal" class="form-control"/>
+        </div>
+      </div>
+      <div class = "row login-elements">
+        <div class = "col-sm-12">
+          <input placeholder="password" type="password" value = "123456789" class="form-control"/>
+        </div>
+      </div>
+      <div class = "row login-elements">
+        <div class = "col-sm-12">
+          <button class="btn btn-primary btn-block" href="profile.html" >Login</button>
+        </div>
+      </div>
+      <div class = "row login-elements">
+        <div class = "col-sm-12">
+          <button class="btn btn-success btn-block" href="register.html" >Register</button>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

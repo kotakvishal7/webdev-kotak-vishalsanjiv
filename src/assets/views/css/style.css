@@ -10,6 +10,9 @@ body {
 .website-nav-text {
   color: #fff;
 }
+.website-nav-header {
+  padding-left: 50px;
+}
 #website-description-label {
   margin-top: 20px;
 }
@@ -36,4 +39,10 @@ body {
 }
 .widget-item {
   margin-top: 15px;
+}
+.login-elements {
+  margin-top: 10px;
+}
+.regitser-elements {
+  margin-top: 10px;
 }
