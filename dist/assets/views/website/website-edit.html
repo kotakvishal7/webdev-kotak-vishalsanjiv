@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1.25, user-scalable=no">
+    <title>Edit Website</title>
+    <link type = "text/css" rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link type = "text/css" rel = "stylesheet" href="../css/style.css">
+  </head>
+<body>
+  <nav class = "navbar navbar-default navbar-fixed-top website-nav-background">
+    <div class = "container-fluid">
+      <p class = "navbar-text pull-left">
+        <a href = "website-list.html" class = "website-nav-text">
+          <span class = "glyphicon glyphicon-chevron-left"></span>
+        </a>
+      </p>
+      <p class = "navbar-text">
+        <a href = "website-edit.html" class = "website-nav-text">
+          <label>Edit Website</label>
+        </a>
+      </p>
+      <p class = "navbar-text pull-right">
+        <a href = "website-list.html" class = "website-nav-text">
+          <span class = "glyphicon glyphicon-ok"></span>
+        </a>
+      </p>
+    </div>
+  </nav>
+  <div class = "container">
+    <div class = "row">
+      <div class = "col-sm-6">
+        <label for = "edit-website-name">Website Name</label>
+      </div>
+    </div>
+    <div class = "row">
+      <div class = "col-sm-12">
+        <input value = "Blogger" class = "form-control" id = "edit-website-name" type = "text">
+      </div>
+    </div>
+    <div class = "row">
+      <div class = "col-sm-6">
+        <label for = "edit-website-description" id = "edit-website-description-label">Website Description</label>
+      </div>
+    </div>
+    <div class = "row">
+      <div class = "col-sm-12">
+        <textarea rows = "5" class = "form-control" id = "edit-website-description">
+          Blogger is a blog publishing application.
+        </textarea>
+      </div>
+    </div>
+    <div class = "row delete-button">
+      <div class = "col-sm-12">
+        <button type = "button" href = "website-list.html" class = "btn btn-danger btn-block form-control">Delete</button>
+      </div>
+    </div>
+  </div>
+  <nav class = "navbar navbar-default navbar-fixed-bottom website-nav-background">
+    <div class = "container-fluid">
+      <p class = "navbar-text pull-right">
+        <a href = "../user/profile.html" class = "website-nav-text">
+          <span class="glyphicon glyphicon-user"></span>
+        </a>
+      </p>
+    </div>
+  </nav>
+</body>
+</html>

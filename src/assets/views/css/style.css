@@ -1,0 +1,39 @@
+body {
+  padding-top: 75px;
+}
+.website-item {
+  margin-top: 15px;
+}
+.website-nav-background {
+  background-color: #337ab7;
+}
+.website-nav-text {
+  color: #fff;
+}
+#website-description-label {
+  margin-top: 20px;
+}
+#edit-website-description-label{
+  margin-top: 20px;
+}
+.delete-button {
+  margin-top: 20px;
+}
+.page-item {
+  margin-top: 15px;
+}
+.page-nav-text {
+  color: #000;
+}
+.new-page-title-label {
+  margin-top: 15px;
+}
+.edit-page-title-label {
+  margin-top: 15px;
+}
+.widget-nav-text {
+  color: #000;
+}
+.widget-item {
+  margin-top: 15px;
+}
