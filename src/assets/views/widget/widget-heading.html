@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1.25, user-scalable=no">
+    <title>Widget Heading</title>
+    <link type = "text/css" rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link type = "text/css" rel = "stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <nav class = "navbar navbar-default navbar-fixed-top">
+      <div class = "container-fluid">
+        <p class = "navbar-text pull-left">
+          <a href = "widget-list.html" class = "widget-nav-text">
+            <span class = "glyphicon glyphicon-chevron-left"></span>
+          </a>
+        </p>
+        <p class = "navbar-text">
+          <a href = "#" class = "widget-nav-text">
+            <label>Widget Edit</label>
+          </a>
+        </p>
+        <p class = "navbar-text pull-right">
+          <a href = "widget-list.html" class = "widget-nav-text">
+            <span class = "glyphicon glyphicon-ok"></span>
+          </a>
+        </p>
+      </div>
+    </nav>
+    <div class = "container">
+      <div class = "row widget-item">
+        <div class = "col-sm-6">
+          <label for = "widget-header-name">Name</label>
+        </div>
+      </div>
+      <div class = "row">
+        <div class = "col-sm-12">
+          <input class = "form-control" placeholder = "Name" id = "widget-header-name" type = "text"
+                 value = "Web Development"/>
+        </div>
+      </div>
+      <div class = "row widget-item">
+        <div class = "col-sm-6">
+          <label for = "widget-header-text">Text</label>
+        </div>
+      </div>
+      <div class = "row">
+        <div class = "col-sm-12">
+          <input class = "form-control" placeholder = "Text" id = "widget-header-text" type = "text" value = "CS5610"/>
+        </div>
+      </div>
+      <div class = "row widget-item">
+        <div class = "col-sm-6">
+          <label for = "widget-header-size">Size</label>
+        </div>
+      </div>
+      <div class = "row">
+        <div class = "col-sm-12">
+          <input class = "form-control" placeholder = "Size" id = "widget-header-size" type = "text" value = "3"/>
+        </div>
+      </div>
+      <div class = "row delete-button">
+        <div class = "col-sm-12">
+          <button class = "btn btn-danger btn-block">Delete</button>
+        </div>
+      </div>
+    </div>
+    <nav class = "navbar navbar-default navbar-fixed-bottom">
+      <div class = "container-fluid">
+        <p class="navbar-text pull-right">
+          <a href = "../user/profile.html">
+            <span class = "glyphicon glyphicon-user"></span>
+          </a>
+        </p>
+      </div>
+    </nav>
+  </body>
+</html>
