@@ -5,6 +5,9 @@ body {
 .website-item {
   margin-top: 15px;
 }
+.website-item a {
+  text-decoration: none;
+}
 .website-nav-background {
   background-color: #337ab7;
 }
@@ -31,6 +34,9 @@ body {
 }
 .widget-item {
   margin-top: 15px;
+}
+.widget-item a {
+  text-decoration: none;
 }
 .login-elements {
   margin-top: 10px;
@@ -61,4 +67,7 @@ body {
 }
 .widget-nav-text {
   color:black;
+}
+.page-item a{
+  text-decoration: none;
 }
