@@ -11,9 +11,6 @@ body {
 .website-nav-text {
   color: #fff;
 }
-.website-nav-header {
-  padding-left: 20px;
-}
 #website-description-label {
   margin-top: 20px;
 }
@@ -46,4 +43,13 @@ body {
 }
 .regitser-elements {
   margin-top: 10px;
+}
+.justify-text {
+  text-align: justify;
+}
+.video-widget {
+  width: 100%;
+}
+.image-widget {
+  width: 100%;
 }
