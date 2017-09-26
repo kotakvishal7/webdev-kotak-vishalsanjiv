@@ -23,6 +23,7 @@ MongoDB Test Link: [https://webdev-kotak-vishalsanjiv.herokuapp.com/test](https:
 Course Website Link: [http://portal-cs5610online.rhcloud.com/#/](http://portal-cs5610online.rhcloud.com/#/)
 
 Assignment 1 Link: [Setting up Development Environment](https://docs.google.com/document/d/1rxZnIRpwCzqQVJwMm7HLfKHvXiI_GLpcfBjm0ymmWXI/edit)
+Assignment 2 Link: [User Interface Development](https://docs.google.com/document/d/1Xq-d8gEPmqGv3JElKocPiNsj8Ft82SY3yNOREHt6r2U/edit)
 
 Steps related to the project:
 
