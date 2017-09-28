@@ -11,46 +11,126 @@
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-        <p class="navbar-text pull-left">
-          <a href="page-list.html" class="navbar-link">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-          </a>
-        </p>
-        <p class="navbar-header pull-left">
-          <a class="navbar-brand thick">
-            <b class = "website-nav-header">New Page</b>
-          </a>
-        </p>
-        <p class="navbar-text pull-right">
-          <a href="page-list.html" class="navbar-link">
-            <span class="glyphicon glyphicon-ok"></span>
-          </a>
-        </p>
+      <div class="row container-fluid">
+        <div class="col-sm-1">
+          <div class="navbar-text pull-left">
+            <a href="page-list.html" class="navbar-link">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-5 hidden-xs">
+          <div class="navbar-header pull-left">
+            <a class="navbar-brand thick">
+              <b class = "website-nav-header">Pages</b>
+            </a>
+          </div>
+          <div class="navbar-text pull-right">
+            <a href="website-list.html" class="navbar-link">
+              <span class="glyphicon glyphicon-plus"></span>
+            </a>
+          </div>
+        </div>
+        <div class = "col-sm-6">
+          <div class="navbar-header pull-left">
+            <a class="navbar-brand thick">
+              <b class = "website-nav-header">New Page</b>
+            </a>
+          </div>
+          <div class="navbar-text pull-right">
+            <a href="page-list.html" class="navbar-link">
+              <span class="glyphicon glyphicon-ok"></span>
+            </a>
+          </div>
+        </div>
       </div>
     </nav>
     <div class = "container">
       <div class = "row">
-        <div class = "col-sm-6">
-          <label for = "new-page-name">Name</label>
+        <div class = "col-sm-6 hidden-xs">
+          <div class = "row page-item">
+            <div class = "col-xs-6">
+              <a href = "../widget/widget-list.html">
+                <span class = "text text-info">Blog Post</span>
+              </a>
+            </div>
+            <div class = "col-xs-6">
+              <a href = "page-edit.html">
+                <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
+              </a>
+            </div>
+          </div>
+          <div class = "row page-item">
+            <div class = "col-xs-6">
+              <a href = "../widget/widget-list.html">
+                <span class = "text text-info">Blogs</span>
+              </a>
+            </div>
+            <div class = "col-xs-6">
+              <a href = "page-edit.html">
+                <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
+              </a>
+            </div>
+          </div>
+          <div class = "row page-item">
+            <div class = "col-xs-6">
+              <a href = "../widget/widget-list.html">
+                <span class = "text text-info">Home</span>
+              </a>
+            </div>
+            <div class = "col-xs-6">
+              <a href = "page-edit.html">
+                <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
+              </a>
+            </div>
+          </div>
+          <div class = "row page-item">
+            <div class = "col-xs-6">
+              <a href = "../widget/widget-list.html">
+                <span class = "text text-info">About</span>
+              </a>
+            </div>
+            <div class = "col-xs-6">
+              <a href = "page-edit.html">
+                <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
+              </a>
+            </div>
+          </div>
+          <div class = "row page-item">
+            <div class = "col-xs-6">
+              <a href = "../widget/widget-list.html">
+                <span class = "text text-info">Contact Us</span>
+              </a>
+            </div>
+            <div class = "col-xs-6">
+              <a href = "page-edit.html">
+                <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class = "row">
-        <div class = "col-sm-12">
-          <input class = "form-control" placeholder = "Page Name" type = "text" id = "new-page-name"
-          value = "News Feed"/>
-        </div>
-      </div>
-      <div class = "row new-page-title-label">
-        <div class = "col-sm-6">
-          <label for = "new-page-title">Title</label>
-        </div>
-      </div>
-      <div class = "row">
-        <div class = "col-sm-12">
-          <input class = "form-control" placeholder = "Page Title" type = "text" id = "new-page-title"
-          value = "Latest News for you"/>
-        </div>
+        <div class = "col-sm-6 col-xs-12">
+            <div class = "row">
+              <div class = "col-sm-6">
+                <label for = "new-page-name">Name</label>
+              </div>
+            </div>
+            <div class = "row">
+              <div class = "col-sm-12">
+                <input class = "form-control" placeholder = "Page Name" type = "text" id = "new-page-name"/>
+              </div>
+            </div>
+            <div class = "row new-page-title-label">
+              <div class = "col-sm-6">
+                <label for = "new-page-title">Title</label>
+              </div>
+            </div>
+            <div class = "row">
+              <div class = "col-sm-12">
+                <input class = "form-control" placeholder = "Page Title" type = "text" id = "new-page-title"/>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
     <nav class = "navbar navbar-default navbar-fixed-bottom">
