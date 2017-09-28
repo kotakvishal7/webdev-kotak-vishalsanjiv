@@ -71,3 +71,6 @@ body {
 .page-item a{
   text-decoration: none;
 }
+.assignment-list-page {
+  text-align: center;
+}
