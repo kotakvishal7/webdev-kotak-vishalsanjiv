@@ -1,0 +1,66 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-text pull-left">
+      <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </div>
+    <div class="navbar-header pull-left">
+      <a class="navbar-brand thick">
+        <b class = "website-nav-header">Widget Edit</b>
+      </a>
+    </div>
+    <div class="navbar-text pull-right">
+      <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']" class="navbar-link">
+        <span class="glyphicon glyphicon-ok"></span>
+      </a>
+    </div>
+  </div>
+</nav>
+<div class = "container-fluid">
+  <div class = "row widget-item">
+    <div class = "col-xs-6">
+      <label for = "widget-header-name">Name</label>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-xs-12">
+      <input class = "form-control" placeholder = "Name" id = "widget-header-name" type = "text"
+             value = "Web Development"/>
+    </div>
+  </div>
+  <div class = "row widget-item">
+    <div class = "col-xs-6">
+      <label for = "widget-header-text">Text</label>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-xs-12">
+      <input class = "form-control" placeholder = "Text" id = "widget-header-text" type = "text" value = "CS5610"/>
+    </div>
+  </div>
+  <div class = "row widget-item">
+    <div class = "col-xs-6">
+      <label for = "widget-header-size">Size</label>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-xs-12">
+      <input class = "form-control" placeholder = "Size" id = "widget-header-size" type = "text" value = "3"/>
+    </div>
+  </div>
+  <div class = "row delete-button">
+    <div class = "col-xs-12">
+      <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']" class = "btn btn-danger btn-block">Delete</a>
+    </div>
+  </div>
+</div>
+<nav class = "navbar navbar-default navbar-fixed-bottom">
+  <div class = "container-fluid">
+    <p class="navbar-text pull-right">
+      <a [routerLink]="['/user/:uid']">
+        <span class = "glyphicon glyphicon-user"></span>
+      </a>
+    </p>
+  </div>
+</nav>

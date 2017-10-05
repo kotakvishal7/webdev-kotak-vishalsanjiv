@@ -1,0 +1,90 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-text pull-left">
+      <a [routerLink]="['/user/:uid/website/:wid']" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </div>
+    <div class="navbar-header pull-left">
+      <a class="navbar-brand thick">
+        <b class = "website-nav-header">Pages</b>
+      </a>
+    </div>
+    <div class="navbar-text pull-right">
+      <a [routerLink]="['/user/:uid/website/:wid/page/new']" class="navbar-link">
+        <span class="glyphicon glyphicon-plus"></span>
+      </a>
+    </div>
+  </div>
+</nav>
+<div class = "container-fluid">
+  <div class = "row page-item">
+    <div class = "col-xs-6">
+      <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']">
+        <span class = "text text-info">Blog Post</span>
+      </a>
+    </div>
+    <div class = "col-xs-6">
+      <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
+        <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
+      </a>
+    </div>
+  </div>
+  <div class = "row page-item">
+    <div class = "col-xs-6">
+      <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']">
+        <span class = "text text-info">Blogs</span>
+      </a>
+    </div>
+    <div class = "col-xs-6">
+      <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
+        <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
+      </a>
+    </div>
+  </div>
+  <div class = "row page-item">
+    <div class = "col-xs-6">
+      <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']">
+        <span class = "text text-info">Home</span>
+      </a>
+    </div>
+    <div class = "col-xs-6">
+      <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
+        <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
+      </a>
+    </div>
+  </div>
+  <div class = "row page-item">
+    <div class = "col-xs-6">
+      <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']">
+        <span class = "text text-info">About</span>
+      </a>
+    </div>
+    <div class = "col-xs-6">
+      <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
+        <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
+      </a>
+    </div>
+  </div>
+  <div class = "row page-item">
+    <div class = "col-xs-6">
+      <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']">
+        <span class = "text text-info">Contact Us</span>
+      </a>
+    </div>
+    <div class = "col-xs-6">
+      <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
+        <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
+      </a>
+    </div>
+  </div>
+</div>
+<nav class = "navbar navbar-default navbar-fixed-bottom">
+  <div class = "container-fluid">
+    <p class = "navbar-text pull-right">
+      <a [routerLink]="['/user/:uid']">
+        <span class = "glyphicon glyphicon-user"></span>
+      </a>
+    </p>
+  </div>
+</nav>

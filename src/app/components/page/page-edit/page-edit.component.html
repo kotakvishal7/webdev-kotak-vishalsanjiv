@@ -1,0 +1,137 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="row container-fluid">
+    <div class="col-sm-4">
+      <div class="navbar-text pull-left">
+        <a [routerLink]="['/user/:uid/website/:wid/page']" class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+      </div>
+      <div class="navbar-header pull-left hidden-xs">
+        <a class="navbar-brand thick">
+          <b>Pages</b>
+        </a>
+      </div>
+      <div class="navbar-text pull-right hidden-xs">
+        <a [routerLink]="['/user/:uid/website/:wid/page/new']" class="navbar-link">
+          <span class="glyphicon glyphicon-plus"></span>
+        </a>
+      </div>
+    </div>
+    <div class = "col-sm-8">
+      <div class="navbar-header pull-left">
+        <a class="navbar-brand thick">
+          <b>Edit Page</b>
+        </a>
+      </div>
+      <div class="navbar-text pull-right">
+        <a [routerLink]="['/user/:uid/website/:wid/page']" class="navbar-link">
+          <span class="glyphicon glyphicon-ok"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class = "container-fluid">
+  <div class = "row">
+    <div class = "col-sm-4 hidden-xs">
+      <div class = "row page-item">
+        <div class = "col-xs-6">
+          <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']">
+            <span class = "text text-info">Blog Post</span>
+          </a>
+        </div>
+        <div class = "col-xs-6">
+          <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
+            <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
+          </a>
+        </div>
+      </div>
+      <div class = "row page-item">
+        <div class = "col-xs-6">
+          <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']">
+            <span class = "text text-info">Blogs</span>
+          </a>
+        </div>
+        <div class = "col-xs-6">
+          <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
+            <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
+          </a>
+        </div>
+      </div>
+      <div class = "row page-item">
+        <div class = "col-xs-6">
+          <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']">
+            <span class = "text text-info">Home</span>
+          </a>
+        </div>
+        <div class = "col-xs-6">
+          <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
+            <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
+          </a>
+        </div>
+      </div>
+      <div class = "row page-item">
+        <div class = "col-xs-6">
+          <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']">
+            <span class = "text text-info">About</span>
+          </a>
+        </div>
+        <div class = "col-xs-6">
+          <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
+            <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
+          </a>
+        </div>
+      </div>
+      <div class = "row page-item">
+        <div class = "col-xs-6">
+          <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']">
+            <span class = "text text-info">Contact Us</span>
+          </a>
+        </div>
+        <div class = "col-xs-6">
+          <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
+            <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class = "col-sm-8 col-xs-12">
+      <div class = "row">
+        <div class = "col-sm-6">
+          <label for = "edit-page-name">Page Name</label>
+        </div>
+      </div>
+      <div class = "row">
+        <div class = "col-sm-12">
+          <input class = "form-control" value = "Blogpost" placeholder = "Page Name" type = "text"
+                 id = "edit-page-name" />
+        </div>
+      </div>
+      <div class = "row edit-page-title-label">
+        <div class = "col-sm-6">
+          <label for = "edit-page-title">Page Title</label>
+        </div>
+      </div>
+      <div class = "row">
+        <div class = "col-sm-12">
+          <input class = "form-control" placeholder = "Page Title" id = "edit-page-title" type = "text"
+                 value = "A Blogging application"/>
+        </div>
+      </div>
+      <div class = "row delete-button">
+        <div class = "col-sm-12">
+          <a class = "btn btn-danger btn-block" [routerLink]="['/user/:uid/website/:wid/page']">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<nav class = "navbar navbar-default navbar-fixed-bottom">
+  <div class = "container-fluid">
+    <p class = "navbar-text pull-right">
+      <a [routerLink]="['user/:uid']">
+        <span class="glyphicon glyphicon-user"></span>
+      </a>
+    </p>
+  </div>
+</nav>

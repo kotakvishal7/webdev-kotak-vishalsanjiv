@@ -1,0 +1,118 @@
+<nav class="navbar navbar-default navbar-fixed-top website-nav-background">
+  <div class="row container-fluid">
+    <div class="col-sm-4">
+      <div class="navbar-text pull-left">
+        <a [routerLink]="['/user/:uid/website']" class="navbar-link">
+          <span class="website-nav-text glyphicon glyphicon-chevron-left"></span>
+        </a>
+      </div>
+      <div class="navbar-header pull-left hidden-xs">
+        <a class="navbar-brand thick">
+          <b class = "website-nav-text website-nav-header">Websites</b>
+        </a>
+      </div>
+      <div class="navbar-text pull-right hidden-xs">
+        <a [routerLink]="['/user/:uid/website/new']" class="navbar-link">
+          <span class="website-nav-text glyphicon glyphicon-plus"></span>
+        </a>
+      </div>
+    </div>
+    <div class = "col-sm-8">
+      <div class="navbar-header pull-left">
+        <a class="navbar-brand thick">
+          <b class = "website-nav-text website-nav-header">New Website</b>
+        </a>
+      </div>
+      <div class="navbar-text pull-right">
+        <a [routerLink]="['/user/:uid/website']" class="navbar-link">
+          <span class="website-nav-text glyphicon glyphicon-ok"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class = "container-fluid">
+  <div class = "row">
+    <div class = "col-sm-4 hidden-xs">
+      <div class = "row website-item">
+        <div class = "col-sm-6">
+          <a [routerLink]="['/user/:uid/website/:wid/page']">
+            <span class = "text text-info">Address Book App</span>
+          </a>
+        </div>
+        <div class = "col-sm-6">
+          <a [routerLink]="['/user/:uid/website/:wid']">
+            <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
+          </a>
+        </div>
+      </div>
+      <div class = "row website-item">
+        <div class = "col-sm-6">
+          <a [routerLink]="['/user/:uid/website/:wid/page']">
+            <span class = "text text-info">Blogger</span>
+          </a>
+        </div>
+        <div class = "col-sm-6">
+          <a [routerLink]="['/user/:uid/website/:wid']">
+            <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
+          </a>
+        </div>
+      </div>
+      <div class = "row website-item">
+        <div class = "col-sm-6">
+          <a [routerLink]="['/user/:uid/website/:wid/page']">
+            <span class = "text text-info">Blogging App</span>
+          </a>
+        </div>
+        <div class = "col-sm-6">
+          <a [routerLink]="['/user/:uid/website/:wid']">
+            <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
+          </a>
+        </div>
+      </div>
+      <div class = "row website-item">
+        <div class = "col-sm-6">
+          <a [routerLink]="['/user/:uid/website/:wid/page']">
+            <span class = "text text-info">Script Testing App</span>
+          </a>
+        </div>
+        <div class = "col-sm-6">
+          <a [routerLink]="['/user/:uid/website/:wid']">
+            <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class = "col-sm-8 col-xs-12">
+      <div class = "row">
+        <div class = "col-sm-12 col-xs-12">
+          <label for = "website-name">Name</label>
+        </div>
+      </div>
+      <div class = "row">
+        <div class = "col-sm-12 col-xs-12">
+          <input placeholder = "Name" type = "text" class = "form-control" id = "website-name"/>
+        </div>
+      </div>
+      <div class = "row">
+        <div class = "col-sm-12 col-xs-12">
+          <label for = "website-description" id = "website-description-label">Description</label>
+        </div>
+      </div>
+      <div class = "row">
+        <div class = "col-sm-12 col-xs-12">
+          <textarea class = "form-control" rows = "5" id = "website-description" placeholder = "Description"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom website-nav-background">
+  <div class="container-fluid">
+    <p class="navbar-text pull-right">
+      <a [routerLink]="['/user/:uid']">
+        <span class="website-nav-text glyphicon glyphicon-user"></span>
+      </a>
+    </p>
+  </div>
+</nav>

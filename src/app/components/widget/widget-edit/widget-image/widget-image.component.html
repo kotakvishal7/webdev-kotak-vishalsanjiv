@@ -1,0 +1,94 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-text pull-left">
+      <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </div>
+    <div class="navbar-header pull-left">
+      <a class="navbar-brand thick">
+        <b class = "website-nav-header">Widget Edit</b>
+      </a>
+    </div>
+    <div class="navbar-text pull-right">
+      <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']" class="navbar-link">
+        <span class="glyphicon glyphicon-ok"></span>
+      </a>
+    </div>
+  </div>
+</nav>
+<div class = "container-fluid">
+  <div class = "row widget-item">
+    <div class = "col-sm-6">
+      <label for = "widget-image-name">Name</label>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-sm-12">
+      <input type = "text" placeholder = "Name" id = "widget-image-name" class = "form-control" value = "HTML" />
+    </div>
+  </div>
+  <div class = "row widget-item">
+    <div class = "col-sm-6">
+      <label for = "widget-image-text">Text</label>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-sm-12">
+      <input class = "form-control" placeholder = "Text" id = "widget-image-text" type = "text"
+             value  = "version 5"/>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-sm-6 widget-item">
+      <label for = "widget-image-url">URL</label>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-sm-12">
+      <input class = "form-control" placeholder = "Url" id = "widget-image-url" type = "text"
+             value = "http://www.codingdojo.com/blog/wp-content/uploads/html.png"/>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-sm-6 widget-item">
+      <label for = "widget-image-width">Width</label>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-sm-12">
+      <input class = "form-control" placeholder = "Width" id = "widget-image-width" type = "text" value = "300"/>
+    </div>
+  </div>
+  <div class = "row widget-item">
+    <div class = "col-sm-6">
+      <label for = "widget-image-upload">Upload</label>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-sm-12">
+      <input type = "file" class = "form-control" id = "widget-image-upload"/>
+    </div>
+  </div>
+  <div class = "row widget-item">
+    <div class = "col-sm-12">
+      <button class = "btn btn-primary btn-block"
+              [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']">Upload Image</button>
+    </div>
+  </div>
+  <div class = "row widget-item">
+    <div class = "col-sm-12">
+      <a class = "btn btn-danger btn-block"
+         [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']">Delete</a>
+    </div>
+  </div>
+</div>
+<nav class = "navbar navbar-default navbar-fixed-bottom">
+  <div class = "container-fluid">
+    <p class="navbar-text pull-right">
+      <a [routerLink]="['/user/:uid']">
+        <span class = "glyphicon glyphicon-user"></span>
+      </a>
+    </p>
+  </div>
+</nav>
