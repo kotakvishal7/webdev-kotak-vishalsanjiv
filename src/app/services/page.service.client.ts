@@ -3,18 +3,21 @@ import {Http, RequestOptions, Response} from '@angular/http';
 import 'rxjs/Rx';
 import {environment} from '../../environments/environment';
 import {Router} from '@angular/router';
+import { Page } from '../models/page.model.client';
 
 // injecting service into module
 @Injectable()
 
 export class PageService {
   constructor() {}
-  pages = [
+  pages: Page[] = [
     {_id: '321', name: 'Post 1', websiteId: '456', description: 'lorem'},
     {_id: '432', name: 'Post 2', websiteId: '456', description: 'lorem'},
-    {_id: '543', name: 'Post 3', websiteId: '456', description: 'lorem'}
+    {_id: '543', name: 'Post 3', websiteId: '456', description: 'lorem'},
+    {_id: '789', name: 'Post 4', websiteId: '890', description: 'lorem'},
+    {_id: '890', name: 'Post 5', websiteId: '567', description: 'lorem'},
+    {_id: '123', name: 'Post 6', websiteId: '678', description: 'lorem'},
   ];
-  websitePages = [];
   api = {
     createPage: this.createPage,
     findPagebyWebsiteId: this.findPagebyWebsiteId,
@@ -27,13 +30,14 @@ export class PageService {
     this.pages.push(page);
     return page;
   }
-  findPagebyWebsiteId(websiteId: string) {
+  findPagebyWebsiteId(websiteId: String) {
+    const websitePages: Page[] = [];
     for (let x = 0; x < this.pages.length; x++) {
-      if (this.pages[x].websiteId === websiteId) { this.websitePages.push(this.pages[x]); }
+      if (this.pages[x].websiteId === websiteId) { websitePages.push(this.pages[x]); }
     }
-    return this.websitePages;
+    return websitePages;
   }
-  findPageById(pageId: string) {
+  findPageById(pageId: String) {
     for (let x = 0; x < this.pages.length; x++) {
       if (this.pages[x]._id === pageId) { return this.pages[x]; }
     }

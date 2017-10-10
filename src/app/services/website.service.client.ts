@@ -3,13 +3,14 @@ import {Http, RequestOptions, Response} from '@angular/http';
 import 'rxjs/Rx';
 import {environment} from '../../environments/environment';
 import {Router} from '@angular/router';
+import { Website } from '../models/website.model.client';
 
 // injecting service into module
 @Injectable()
 
 export class WebsiteService {
   constructor() {}
-  websites = [
+  websites: Website[] =  [
     {_id: '123', name: 'Facebook', developerId: '456', description: 'Lorem'},
     {_id: '234', name: 'Twitter', developerId: '456', description: 'Lorem'},
     {_id: '456', name: 'Gizmodo', developerId: '456', description: 'Lorem'},
@@ -19,7 +20,7 @@ export class WebsiteService {
     {_id: '789', name: 'Chess', developerId: '234', description: 'Lorem'}
 
   ];
-  userWebsites = [];
+
   api = {
     createWebsite: this.createWebsite,
     findWebsiteByUser: this.findWebsitesByUser,
@@ -33,14 +34,17 @@ export class WebsiteService {
     return website;
   }
 
-  findWebsitesByUser(userId: string) {
+  findWebsitesByUser(userId: String) {
+    const userWebsites: Website[] = [];
     for (let x = 0; x < this.websites.length; x++) {
-      if (this.websites[x].developerId === userId) { this.userWebsites.push(this.websites[x]); }
+      if (this.websites[x].developerId === userId) {
+        userWebsites.push(this.websites[x]);
+      }
     }
-    return this.userWebsites;
+    return userWebsites;
   }
 
-  findWebsiteById(websiteId: string) {
+  findWebsiteById(websiteId: String) {
     for (let x = 0; x < this.websites.length; x++) {
       if (this.websites[x]._id === websiteId) { return this.websites[x]; }
     }

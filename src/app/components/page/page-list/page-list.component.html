@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-text pull-left">
-      <a [routerLink]="['/user/:uid/website']" class="navbar-link">
+      <a [routerLink]="['/user' , userId, 'website']" class="navbar-link">
         <span class="glyphicon glyphicon-chevron-left"></span>
       </a>
     </div>
@@ -11,69 +11,21 @@
       </a>
     </div>
     <div class="navbar-text pull-right">
-      <a [routerLink]="['/user/:uid/website/:wid/page/new']" class="navbar-link">
+      <a [routerLink]="['/user', userId, 'website', websiteId, 'page', 'new']" class="navbar-link">
         <span class="glyphicon glyphicon-plus"></span>
       </a>
     </div>
   </div>
 </nav>
 <div class = "container-fluid">
-  <div class = "row page-item">
+  <div *ngFor="let page of pages" class = "row page-item">
     <div class = "col-xs-6">
-      <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']">
-        <span class = "text text-info">Blog Post</span>
+      <a [routerLink]="['/user', userId, 'website', websiteId, 'page', page._id, 'widget']">
+        <span class = "text text-info">{{page.name}}</span>
       </a>
     </div>
     <div class = "col-xs-6">
-      <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
-        <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
-      </a>
-    </div>
-  </div>
-  <div class = "row page-item">
-    <div class = "col-xs-6">
-      <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']">
-        <span class = "text text-info">Blogs</span>
-      </a>
-    </div>
-    <div class = "col-xs-6">
-      <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
-        <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
-      </a>
-    </div>
-  </div>
-  <div class = "row page-item">
-    <div class = "col-xs-6">
-      <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']">
-        <span class = "text text-info">Home</span>
-      </a>
-    </div>
-    <div class = "col-xs-6">
-      <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
-        <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
-      </a>
-    </div>
-  </div>
-  <div class = "row page-item">
-    <div class = "col-xs-6">
-      <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']">
-        <span class = "text text-info">About</span>
-      </a>
-    </div>
-    <div class = "col-xs-6">
-      <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
-        <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
-      </a>
-    </div>
-  </div>
-  <div class = "row page-item">
-    <div class = "col-xs-6">
-      <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']">
-        <span class = "text text-info">Contact Us</span>
-      </a>
-    </div>
-    <div class = "col-xs-6">
-      <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
+      <a [routerLink]="['/user', userId, 'website', websiteId, 'page', page._id]">
         <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
       </a>
     </div>
@@ -82,7 +34,7 @@
 <nav class = "navbar navbar-default navbar-fixed-bottom">
   <div class = "container-fluid">
     <p class = "navbar-text pull-right">
-      <a [routerLink]="['/user/:uid']">
+      <a [routerLink]="['/user', userId]">
         <span class = "glyphicon glyphicon-user"></span>
       </a>
     </p>

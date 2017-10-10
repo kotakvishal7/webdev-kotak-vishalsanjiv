@@ -3,6 +3,7 @@ import {Http, RequestOptions, Response} from '@angular/http';
 import 'rxjs/Rx';
 import {environment} from '../../environments/environment';
 import {Router} from '@angular/router';
+import {Widget} from '../models/widget.model.client';
 
 // injecting service into module
 @Injectable()
@@ -10,15 +11,16 @@ import {Router} from '@angular/router';
 export class WidgetService {
   constructor() {
   }
-
-  widgets = [
-    {_id: '123', widgetType: 'HEADING', pageId: '321', size: 2, text: 'Lorem'},
-    {_id: '234', widgetType: 'HEADING', pageId: '321', size: 4, text: 'Lorem'},
-    {_id: '345', widgetType: 'IMAGE', pageId: '321', width: '100%', url: 'http://lorempixel.com/400/200/'},
-    {_id: '456', widgetType: 'HTML', pageId: '321', text: 'Lorem'},
-    {_id: '567', widgetType: 'HEADING', pageId: '321', size: 4, text: 'Lorem'},
-    {_id: '678', widgetType: 'YOUTUBE', pageId: '321', width: '100%', text: 'https://youtube.com/AM2Ivdi9c4E'},
-    {_id: '789', widgetType: 'HTML', pageId: '321', text: 'Lorem'}
+  widgets: Widget[] =  [
+    {_id: '123', widgetType: 'HEADING', pageId: '321', size: '2', text: 'Lorem', url: '', width: ''},
+    {_id: '234', widgetType: 'HEADING', pageId: '321', size: '4', text: 'Lorem', url: '', width: ''},
+    {_id: '345', widgetType: 'IMAGE', pageId: '321', width: '100%', url: 'http://lorempixel.com/400/200/', size: ''
+      , text: ''},
+    {_id: '456', widgetType: 'HTML', pageId: '321', text: 'Lorem', url: '', width: '', size: ''},
+    {_id: '567', widgetType: 'HEADING', pageId: '321', size: '4', text: 'Lorem', url: '', width: ''},
+    {_id: '678', widgetType: 'YOUTUBE', pageId: '321', width: '100%', text: 'https://youtube.com/AM2Ivdi9c4E', url: ''
+      , size: ''},
+    {_id: '789', widgetType: 'HTML', pageId: '321', text: 'Lorem', url: '', size: '', width: ''}
   ]
   pageWidgets = [];
   api = {

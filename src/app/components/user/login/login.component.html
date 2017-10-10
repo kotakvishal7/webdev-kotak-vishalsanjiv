@@ -1,6 +1,6 @@
 <div class="container-fluid">
-  <div *ngIf="errorFlag" class="alert alert-danger" {{errorMsg}}>
-  ng</div>
+
+
   <div class = "row login-elements">
     <div class = "col-sm-12">
       <h1>Login</h1>
@@ -8,17 +8,20 @@
   </div>
   <div class = "row login-elements">
     <div class = "col-sm-12">
-      <input placeholder="username" type="text" class="form-control"/>
+      <input placeholder="username" [(ngModel)]="username"
+             type="text" class="form-control"/>
     </div>
   </div>
   <div class = "row login-elements">
     <div class = "col-sm-12">
-      <input placeholder="password" type="password" class="form-control"/>
+      <input placeholder="password" [(ngModel)]="password"
+             type="password" class="form-control"/>
     </div>
   </div>
   <div class = "row login-elements">
     <div class = "col-sm-12">
-      <a class="btn btn-primary btn-block" [routerLink]="['/user/:uid']">Login</a>
+      <a class="btn btn-primary btn-block" (click)="login(username, password)"
+              >Login</a>
     </div>
   </div>
   <div class = "row login-elements">
