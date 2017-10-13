@@ -26,4 +26,13 @@ export class WebsiteEditComponent implements OnInit {
     });
   }
 
+  deleteWebsite(websiteId: String) {
+    this.websiteService.deleteWebsite(websiteId);
+  }
+  updateWebsite(websiteName: String, websiteDescription: String, websiteId: String) {
+    this.website.name = websiteName;
+    this.website.description = websiteDescription;
+    this.websiteService.updateWebsite(websiteId, this.website);
+  }
+
 }

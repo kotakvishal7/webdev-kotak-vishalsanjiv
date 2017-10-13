@@ -25,7 +25,7 @@
       </div>
       <div class="navbar-text pull-right">
         <a [routerLink]="['/user', userId, 'website', websiteId,  'page']" class="navbar-link">
-          <span class="glyphicon glyphicon-ok"></span>
+          <span class="glyphicon glyphicon-ok" (click)="createPage(pageName, pageTitle, websiteId)"></span>
         </a>
       </div>
     </div>
@@ -55,7 +55,8 @@
       </div>
       <div class = "row">
         <div class = "col-sm-12">
-          <input class = "form-control" placeholder = "Page Name" type = "text" id = "new-page-name"/>
+          <input class = "form-control" placeholder = "Page Name" type = "text" id = "new-page-name"
+          [(ngModel)]="pageName"/>
         </div>
       </div>
       <div class = "row new-page-title-label">
@@ -65,7 +66,8 @@
       </div>
       <div class = "row">
         <div class = "col-sm-12">
-          <input class = "form-control" placeholder = "Page Title" type = "text" id = "new-page-title"/>
+          <input class = "form-control" placeholder = "Page Title" type = "text" id = "new-page-title"
+          [(ngModel)]="pageTitle"/>
         </div>
       </div>
     </div>

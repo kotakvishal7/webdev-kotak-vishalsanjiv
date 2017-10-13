@@ -27,4 +27,8 @@ export class PageEditComponent implements OnInit {
     });
   }
 
+  deletePage(pageId: String) {
+    this.pageService.deletePage(pageId);
+  }
+
 }

@@ -28,8 +28,8 @@ export class WebsiteService {
     updateWebsite: this.updateWebsite,
     deleteWebsite: this.deleteWebsite
   }
-  createWebsite(userId: string, website: any) {
-    website._id = Math.random();
+  createWebsite(userId: String, website: Website) {
+    website._id = '' + Math.floor(Math.random() * 20);
     this.websites.push(website);
     return website;
   }
@@ -50,13 +50,13 @@ export class WebsiteService {
     }
   }
 
-  updateWebsite(websiteId: string, website: any) {
+  updateWebsite(websiteId: String, website: Website) {
     for (let x = 0; x < this.websites.length; x++) {
       if (this.websites[x]._id === websiteId) { this.websites[x] = website; }
     }
   }
 
-  deleteWebsite(websiteId: string) {
+  deleteWebsite(websiteId: String) {
     for (let x = 0; x < this.websites.length; x++) {
       if (this.websites[x]._id === websiteId) { this.websites.splice(x, 1); }
     }

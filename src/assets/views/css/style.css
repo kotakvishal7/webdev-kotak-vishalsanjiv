@@ -54,17 +54,6 @@ body {
 .image-widget {
   width: 100%;
 }
-.widget-toolbar-item {
-  position: absolute;
-  right: 7px;
-  background-color: #fff;
-  padding: 2px;
-  border-bottom-left-radius: 10px;
-  z-index: 1;
-}
-.settings-icon {
-  color: 	#428bca;
-}
 .widget-nav-text {
   color:black;
 }

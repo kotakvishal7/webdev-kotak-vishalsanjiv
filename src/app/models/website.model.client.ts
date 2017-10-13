@@ -3,10 +3,10 @@ export class Website {
   name: String;
   developerId: String;
   description: String;
-  constructor(_id, name, developerId, description) {
-    this._id = _id;
+  constructor(name: String, developerId: String, description: String) {
     this.name = name;
     this.developerId = developerId;
     this.description = description;
   }
 }
+

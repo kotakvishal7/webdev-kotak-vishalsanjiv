@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
   <div class = "row regitser-elements">
     <div class = "col-xs-12">
       <h1>Register</h1>
@@ -6,22 +6,22 @@
   </div>
   <div class = "row regitser-elements">
     <div class = "col-xs-12">
-      <input placeholder="username" type="text"class="form-control"/>
+      <input placeholder="username" type="text"class="form-control" [(ngModel)]="username"/>
     </div>
   </div>
   <div class = "row regitser-elements">
     <div class = "col-xs-12">
-      <input placeholder="password" type="password" class="form-control"/>
+      <input placeholder="password" type="password" class="form-control" [(ngModel)]="password"/>
     </div>
   </div>
   <div class = "row regitser-elements">
     <div class = "col-xs-12">
-      <input placeholder="verify password" type="password" class="form-control"/>
+      <input placeholder="verify password" type="password" class="form-control" [(ngModel)]="verifypassword"/>
     </div>
   </div>
   <div class = "row regitser-elements">
     <div class = "col-sm-12">
-      <a class="btn btn-primary btn-block" [routerLink]="['/user/:uid']">Register</a>
+      <a class="btn btn-primary btn-block" (click)="createUser(username, password, verifypassword)">Register</a>
     </div>
   </div>
   <div class = "row regitser-elements">

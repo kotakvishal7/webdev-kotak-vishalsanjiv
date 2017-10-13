@@ -22,6 +22,13 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  updateUser(userName: String, emailId: String, firstName: String, lastName: String) {
+    const user = new User(this.userId, userName, this.user.password);
+    user.emailId = emailId;
+    user.firstName = firstName;
+    user.lastName = lastName;
+    this.userService.updateUser(this.userId, user);
+  }
 
 
 }

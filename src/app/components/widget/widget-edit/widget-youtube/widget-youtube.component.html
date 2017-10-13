@@ -1,22 +1,47 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-text pull-left">
-      <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-      </a>
+<div [hidden]="!editFlag">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-text pull-left">
+        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+      </div>
+      <div class="navbar-header pull-left">
+        <a class="navbar-brand thick">
+          <b class = "website-nav-header">Widget Edit</b>
+        </a>
+      </div>
+      <div class="navbar-text pull-right">
+        <a class="navbar-link" [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">
+            <span class="glyphicon glyphicon-ok"
+                  (click)="updateWidget(widget.text, widget.name, widget.width, widget.url, widget._id)"></span>
+        </a>
+      </div>
     </div>
-    <div class="navbar-header pull-left">
-      <a class="navbar-brand thick">
-        <b class = "website-nav-header">Widget Edit</b>
-      </a>
+  </nav>
+</div>
+<div [hidden]="editFlag">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-text pull-left">
+        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+      </div>
+      <div class="navbar-header pull-left">
+        <a class="navbar-brand thick">
+          <b class = "website-nav-header">Widget New</b>
+        </a>
+      </div>
+      <div class="navbar-text pull-right">
+        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
+          <span class="glyphicon glyphicon-ok"
+                (click)="createWidget(widget.text, widget.name, widget.width, widget.url)"></span>
+        </a>
+      </div>
     </div>
-    <div class="navbar-text pull-right">
-      <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
-        <span class="glyphicon glyphicon-ok"></span>
-      </a>
-    </div>
-  </div>
-</nav>
+  </nav>
+</div>
 <div class = "container-fluid">
   <div class = "row widget-item">
     <div class = "col-xs-6">
@@ -25,8 +50,8 @@
   </div>
   <div class = "row">
     <div class = "col-xs-12">
-      <input class = "form-control" placeholder = "Youtube Video Name" value = "JSP MySQL" type = "text"
-             id  = "widget-youtube-name"/>
+      <input class = "form-control" placeholder = "Youtube Video Name" type = "text"
+             [(ngModel)]="widget.name" id  = "widget-youtube-name"/>
     </div>
   </div>
   <div class = "row widget-item">
@@ -36,8 +61,8 @@
   </div>
   <div class = "row">
     <div class = "col-xs-12">
-      <input  value = "Creating a Simple Java Server Pages Web Application Connecting to MySQL"
-              id = "widget-youtube-text" type = "text" class = "form-control" placeholder = "Youtube video text"/>
+      <input id = "widget-youtube-text" type = "text" class = "form-control"
+             [(ngModel)]="widget.text" placeholder = "Youtube video text"/>
     </div>
   </div>
   <div class = "row widget-item">
@@ -47,8 +72,8 @@
   </div>
   <div class = "row">
     <div class = "col-xs-12">
-      <input value = "https://www.youtube.com/watch?v=LcTi546vj_A" type = "text" class = "form-control"
-             id = "widget-youtube-url" placeholder = "Youtube video URl"/>
+      <input type = "text" class = "form-control" id = "widget-youtube-url"
+             [(ngModel)]="widget.url" placeholder = "Youtube video URl"/>
     </div>
   </div>
   <div class = "row widget-item">
@@ -58,15 +83,16 @@
   </div>
   <div class = "row">
     <div class = "col-xs-12">
-      <input value = "300" type = "text" class = "form-control"
-             id = "widget-youtube-width" placeholder = "Youtube video width"/>
+      <input type = "text" class = "form-control" id = "widget-youtube-width"
+             [(ngModel)]="widget.width" placeholder = "Youtube video width"/>
     </div>
   </div>
-  <div class = "row delete-button">
+  <div class = "row delete-button"  [hidden]="!editFlag">
     <div class = "col-xs-12">
-      <a class = "btn btn-danger btn-block form-control"
+      <a class = "btn btn-danger btn-block form-control" (click)="deleteWidget(widget._id)"
          [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">
-        Delete</a>
+        <span>Delete</span>
+      </a>
     </div>
   </div>
 </div>

@@ -28,6 +28,7 @@ import {UserService} from './services/user.service.client';
 import {WebsiteService} from './services/website.service.client';
 import {PageService} from './services/page.service.client';
 import {WidgetService} from './services/widget.service.client';
+import {SafePipe} from './components/safepipe';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import {WidgetService} from './services/widget.service.client';
     WidgetHeaderComponent,
     WidgetImageComponent,
     WidgetYoutubeComponent,
-    WebsiteNewComponent
+    WebsiteNewComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

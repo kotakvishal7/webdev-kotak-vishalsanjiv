@@ -24,8 +24,8 @@ export class UserService {
     'updateUser': this.updateUser,
     'deleteUser': this.deleteUser
   };
-  createUser(user: any) {
-    user._id = Math.random();
+  createUser(user: User) {
+    user._id = '' + Math.floor(Math.random() * 20);
     this.users.push(user);
     return user;
   }
@@ -36,7 +36,7 @@ export class UserService {
     });
   }
 
-  findUserByUsername(username: string) {
+  findUserByUsername(username: String) {
     for (let x = 0; x < this.users.length; x++) {
       if (this.users[x].username === username) { return this.users[x]; }
     }
@@ -46,12 +46,14 @@ export class UserService {
       return user.username === username && user.password === password;
     });
   }
-  updateUser(userId: string, user: any) {
+  updateUser(userId: String, user: any) {
     for (let x = 0; x < this.users.length; x++) {
-      if (this.users[x]._id === userId) { this.users[x] = user; }
+      if (this.users[x]._id === userId) {
+        this.users[x] = user;
+      }
     }
   }
-  deleteUser(userId: string) {
+  deleteUser(userId: String) {
     for (let x = 0; x < this.users.length; x++) {
       if (this.users[x]._id === userId) { this.users.splice(x, 1); }
     }

@@ -18,89 +18,72 @@
   </div>
 </nav>
 <div class = "container-fluid">
-  <div class = "row">
-    <div class = "col-xs-12">
-      <div class = "widget-toolbar-item">
-        <span class = "glyphicon glyphicon-menu-hamburger"></span>
-        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">
-          <span class = "glyphicon glyphicon-cog settings-icon"></span>
-        </a>
-      </div>
-      <h3 class = "justify-text">WEB DEVELOPMENT</h3>
-    </div>
-  </div>
-  <div class = "row">
-    <div class = "col-xs-12">
-      <div class = "widget-toolbar-item">
-        <span class = "glyphicon glyphicon-menu-hamburger"></span>
-        <span class = "glyphicon glyphicon-cog settings-icon"></span>
-      </div>
-      <label class = "justify-text">Prof. Jose Annunziato has been a software developer for the last 20 years
-        , he has been teaching in various Universities around the Boston area for 15 years.</label>
-    </div>
-  </div>
-  <div class = "row">
-    <div class = "col-xs-12">
-      <div class = "widget-toolbar-item">
-        <span class = "glyphicon glyphicon-menu-hamburger"></span>
-        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">
-          <span class = "glyphicon glyphicon-cog settings-icon"></span>
-        </a>
-      </div>
-      <img src = "mean.png" class = "img-responsive image-widget" alt = "MEAN Stack"/>
-    </div>
-  </div>
-  <div class = "row">
-    <div class = "col-xs-12">
-      <div class = "widget-toolbar-item">
-        <span class = "glyphicon glyphicon-menu-hamburger"></span>
-        <span class = "glyphicon glyphicon-cog settings-icon"></span>
-      </div>
-      <p class = "justify-text">
-        MEAN is a free and open-source <a href = "https://en.wikipedia.org/wiki/JavaScript">
-        JavaScript</a> <a href = "https://en.wikipedia.org/wiki/Solution_stack"> software stack</a>
-        for building dynamic web sites and web applications. The MEAN stack is MongoDB, Express.js, AngularJS
-        (or Angular), and Node.js. Because all components of the MEAN stack support programs are written in
-        JavaScript, MEAN applications can be written in one language for both server-side and client-side
-        execution environments.</p>
-    </div>
-  </div>
-  <div class = "row">
-    <div class = "col-xs-12">
-      <label class = "justify-text">
-        <div class = "widget-toolbar-item">
-          <span class = "glyphicon glyphicon-menu-hamburger"></span>
-          <span class = "glyphicon glyphicon-cog settings-icon"></span>
+  <div *ngFor="let widget of widgets">
+    <div [ngSwitch]="widget.type">
+      <div *ngSwitchCase="'HEADING'">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class = "widget-toolbar-item">
+              <span class = "glyphicon glyphicon-menu-hamburger"></span>
+              <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget', widget._id]">
+                <span class = "glyphicon glyphicon-cog settings-icon"></span>
+              </a>
+            </div>
+            <div [ngSwitch]="widget.size">
+              <div *ngSwitchCase="1">
+                <h1>{{widget.text}}</h1>
+              </div>
+              <div *ngSwitchCase="2">
+                <h2>{{widget.text}}</h2>
+              </div>
+              <div *ngSwitchCase="3">
+                <h3>{{widget.text}}</h3>
+              </div>
+              <div *ngSwitchCase="4">
+                <h4>{{widget.text}}</h4>
+              </div>
+              <div *ngSwitchCase="5">
+                <h4>{{widget.text}}</h4>
+              </div>
+              <div *ngSwitchCase="6">
+                <h4>{{widget.text}}</h4>
+              </div>
+            </div>
+          </div>
         </div>
-        Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network
-        applications. In this video, we will go through the steps to set up Node.js in your machine.</label>
-    </div>
-  </div>
-  <div class = "row">
-    <div class = "col-xs-12">
-      <div class = "widget-toolbar-item">
-        <span class = "glyphicon glyphicon-menu-hamburger"></span>
-        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">
-          <span class = "glyphicon glyphicon-cog settings-icon"></span>
-        </a>
       </div>
-      <iframe class = "video-widget" src="https://www.youtube.com/embed/-u-j7uqU7sI"
-              frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-  <div class = "row">
-    <div class = "col-xs-12">
-      <div class = "widget-toolbar-item">
-        <span class = "glyphicon glyphicon-menu-hamburger"></span>
-        <span class = "glyphicon glyphicon-cog settings-icon"></span>
+      <div *ngSwitchCase="'YOUTUBE'">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class = "widget-toolbar-item">
+              <span class = "glyphicon glyphicon-menu-hamburger"></span>
+              <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget', widget._id]">
+                <span class = "glyphicon glyphicon-cog settings-icon"></span>
+              </a>
+            </div>
+            <iframe [width]="widget.width"
+                    height="315"
+                    frameborder="0"
+                    [src]="widget.url | safe">
+            </iframe>
+          </div>
+        </div>
       </div>
-      <p class = "justify-text">
-        Node.js is an <a href = "https://en.wikipedia.org/wiki/Open-source_software">open-source</a>,
-        cross-platform JavaScript run-time environment for executing JavaScript code
-        <a href = "https://en.wikipedia.org/wiki/Server-side">server-side</a>. Historically, JavaScript was used
-        primarily for client-side scripting, in which scripts written in JavaScript are embedded in a webpage's
-        HTML, to be run client-side by a JavaScript engine in the user's web browser.
-      </p>
+      <div *ngSwitchCase="'IMAGE'">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class = "widget-toolbar-item">
+              <span class = "glyphicon glyphicon-menu-hamburger"></span>
+              <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget', widget._id]">
+                <span class = "glyphicon glyphicon-cog settings-icon"></span>
+              </a>
+            </div>
+            <img [width]="widget.width"
+                 height="350"
+                 [src]="widget.url | safe" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

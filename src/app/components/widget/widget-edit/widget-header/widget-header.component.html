@@ -1,34 +1,47 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-text pull-left">
-      <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-      </a>
+<div [hidden]="!editFlag">
+  <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-text pull-left">
+          <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+        </div>
+        <div class="navbar-header pull-left">
+          <a class="navbar-brand thick">
+            <b class = "website-nav-header">Widget Edit</b>
+          </a>
+        </div>
+        <div class="navbar-text pull-right">
+          <a class="navbar-link" [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">
+            <span class="glyphicon glyphicon-ok"
+                  (click)="updateWidget(widget.text, widget.size, widget._id)"></span>
+          </a>
+        </div>
+      </div>
+    </nav>
+</div>
+<div [hidden]="editFlag">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-text pull-left">
+        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+      </div>
+      <div class="navbar-header pull-left">
+        <a class="navbar-brand thick">
+          <b class = "website-nav-header">Widget New</b>
+        </a>
+      </div>
+      <div class="navbar-text pull-right">
+        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
+          <span class="glyphicon glyphicon-ok" (click)="createWidget(widget.text, widget.size)"></span>
+        </a>
+      </div>
     </div>
-    <div class="navbar-header pull-left">
-      <a class="navbar-brand thick">
-        <b class = "website-nav-header">Widget Edit</b>
-      </a>
-    </div>
-    <div class="navbar-text pull-right">
-      <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
-        <span class="glyphicon glyphicon-ok"></span>
-      </a>
-    </div>
-  </div>
-</nav>
+  </nav>
+</div>
 <div class = "container-fluid">
-  <div class = "row widget-item">
-    <div class = "col-xs-6">
-      <label for = "widget-header-name">Name</label>
-    </div>
-  </div>
-  <div class = "row">
-    <div class = "col-xs-12">
-      <input class = "form-control" placeholder = "Name" id = "widget-header-name" type = "text"
-             value = "Web Development"/>
-    </div>
-  </div>
   <div class = "row widget-item">
     <div class = "col-xs-6">
       <label for = "widget-header-text">Text</label>
@@ -36,7 +49,8 @@
   </div>
   <div class = "row">
     <div class = "col-xs-12">
-      <input class = "form-control" placeholder = "Text" id = "widget-header-text" type = "text" value = "CS5610"/>
+      <input class = "form-control" placeholder = "Text" id = "widget-header-text"
+             type = "text" required [(ngModel)]="widget.text"/>
     </div>
   </div>
   <div class = "row widget-item">
@@ -46,12 +60,14 @@
   </div>
   <div class = "row">
     <div class = "col-xs-12">
-      <input class = "form-control" placeholder = "Size" id = "widget-header-size" type = "text" value = "3"/>
+      <input class = "form-control" placeholder = "Size" id = "widget-header-size"
+             type = "number" required [(ngModel)]="widget.size"/>
     </div>
   </div>
-  <div class = "row delete-button">
+  <div class = "row delete-button" [hidden]="!editFlag">
     <div class = "col-xs-12">
-      <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']" class = "btn btn-danger btn-block">Delete</a>
+      <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']"
+         class = "btn btn-danger btn-block" (click)="deleteWidget(widget._id)">Delete</a>
     </div>
   </div>
 </div>

@@ -25,8 +25,8 @@ export class PageService {
     updatePage: this.updatePage,
     deletePage: this.deletePage
   };
-  createPage(websiteId: string, page: any) {
-    page._id = Math.random();
+  createPage(websiteId: String, page: Page) {
+    page._id = '' + Math.floor(Math.random() * 20);
     this.pages.push(page);
     return page;
   }
@@ -47,7 +47,7 @@ export class PageService {
       if (this.pages[x]._id === pageId) { this.pages[x] = page; }
     }
   }
-  deletePage(pageId: string) {
+  deletePage(pageId: String) {
     for (let x = 0; x < this.pages.length; x++) {
       if (this.pages[x]._id === pageId) { this.pages.splice(x, 1); }
     }

@@ -1,32 +1,35 @@
-<nav class="navbar navbar-default navbar-fixed-top website-nav-background">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="row container-fluid">
-    <div class="col-sm-4">
-      <div class="navbar-text pull-left">
-        <a [routerLink]="['/user', userId, 'website']" class="navbar-link">
-          <span class="website-nav-text glyphicon glyphicon-chevron-left"></span>
-        </a>
+    <div class = "row">
+      <div class="col-sm-4">
+        <div class="navbar-text pull-left">
+          <a [routerLink]="['/user', userId, 'website']" class="navbar-link">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+        </div>
+        <div class="navbar-header pull-left hidden-xs">
+          <a class="navbar-brand thick">
+            <span>Websites</span>
+          </a>
+        </div>
+        <div class="navbar-text pull-right hidden-xs">
+          <a [routerLink]="['/user', userId, 'website' ,'new']" class="navbar-link">
+            <span class="glyphicon glyphicon-plus"></span>
+          </a>
+        </div>
       </div>
-      <div class="navbar-header pull-left hidden-xs">
-        <a class="navbar-brand thick">
-          <b class = "website-nav-text website-nav-header">Websites</b>
-        </a>
-      </div>
-      <div class="navbar-text pull-right hidden-xs">
-        <a [routerLink]="['/user', userId, 'website' ,'new']" class="navbar-link">
-          <span class="website-nav-text glyphicon glyphicon-plus"></span>
-        </a>
-      </div>
-    </div>
-    <div class = "col-sm-8">
-      <div class="navbar-header pull-left">
-        <a class="navbar-brand thick">
-          <b class = "website-nav-text website-nav-header">Edit Website</b>
-        </a>
-      </div>
-      <div class="navbar-text pull-right">
-        <a [routerLink]="['/user', userId, 'website']" class="navbar-link">
-          <span class="website-nav-text glyphicon glyphicon-ok"></span>
-        </a>
+      <div class = "col-sm-8">
+        <div class="navbar-header pull-left">
+          <a class="navbar-brand thick">
+            <span>Edit Website</span>
+          </a>
+        </div>
+        <div class="navbar-text pull-right">
+          <a [routerLink]="['/user', userId, 'website']" class="navbar-link"
+             (click)="updateWebsite(website.name, website.description)">
+            <span class="glyphicon glyphicon-ok"></span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -34,14 +37,14 @@
 <div class = "container-fluid">
   <div class = "row">
     <div class = "col-sm-4 hidden-xs">
-      <div *ngFor="let website of websites" class = "row website-item">
+      <div *ngFor="let w of websites" class = "row website-item">
         <div class = "col-sm-6">
-          <a a [routerLink]="['/user', userId, 'website' ,  website._id, 'page']">
-            <span class = "text text-info">{{website.name}}</span>
+          <a a [routerLink]="['/user', userId, 'website' ,  w._id, 'page']">
+            <span class = "text text-info">{{w.name}}</span>
           </a>
         </div>
         <div class = "col-sm-6">
-          <a [routerLink]="['/user', userId, 'website', website._id]">
+          <a [routerLink]="['/user', userId, 'website', w._id]">
             <span class = "glyphicon glyphicon-cog pull-right text-info"></span>
           </a>
         </div>
@@ -55,7 +58,8 @@
       </div>
       <div class = "row">
         <div class = "col-sm-12 col-xs-12">
-          <input placeholder = "Name" type = "text" class = "form-control" id = "website-name" [(ngModel)]="website.name"/>
+          <input placeholder = "Name" type = "text" class = "form-control" id = "website-name"
+                 [(ngModel)]="website.name"/>
         </div>
       </div>
       <div class = "row">
@@ -72,7 +76,7 @@
       <div class = "row delete-button">
         <div class = "col-sm-12 col-xs-12">
           <a type = "button" [routerLink]="['/user', userId, 'website']"
-             class = "btn btn-danger btn-block form-control">Delete</a>
+             class = "btn btn-danger btn-block form-control" (click)="deleteWebsite(website._id)">Delete</a>
         </div>
       </div>
     </div>

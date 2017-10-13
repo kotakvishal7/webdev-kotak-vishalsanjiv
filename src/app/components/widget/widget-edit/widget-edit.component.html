@@ -1,79 +1,13 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-text pull-left">
-      <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']" class="navbar-link">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-      </a>
-    </div>
-    <div class="navbar-header pull-left">
-      <a class="navbar-brand thick">
-        <b class = "website-nav-header">Widget Edit</b>
-      </a>
-    </div>
-    <div class="navbar-text pull-right">
-      <a href="widget-list.html" class="navbar-link">
-        <span class="glyphicon glyphicon-ok"></span>
-      </a>
-    </div>
-  </div>
-</nav>
 <div class = "container-fluid">
-  <div class = "row widget-item">
-    <div class = "col-xs-6">
-      <label for = "widget-youtube-name">Name</label>
+  <div [ngSwitch]="widget.type">
+    <div *ngSwitchCase="'HEADING'">
+      <app-widget-header></app-widget-header>
     </div>
-  </div>
-  <div class = "row">
-    <div class = "col-xs-12">
-      <input class = "form-control" placeholder = "Youtube Video Name" value = "JSP MySQL" type = "text"
-             id  = "widget-youtube-name"/>
+    <div *ngSwitchCase="'IMAGE'">
+      <app-widget-image></app-widget-image>
     </div>
-  </div>
-  <div class = "row widget-item">
-    <div class = "col-xs-6">
-      <label for = "widget-youtube-text">Text</label>
-    </div>
-  </div>
-  <div class = "row">
-    <div class = "col-xs-12">
-      <input  value = "Creating a Simple Java Server Pages Web Application Connecting to MySQL"
-              id = "widget-youtube-text" type = "text" class = "form-control" placeholder = "Youtube video text"/>
-    </div>
-  </div>
-  <div class = "row widget-item">
-    <div class = "col-xs-6">
-      <label for = "widget-youtube-url">URL</label>
-    </div>
-  </div>
-  <div class = "row">
-    <div class = "col-xs-12">
-      <input value = "https://www.youtube.com/watch?v=LcTi546vj_A" type = "text" class = "form-control"
-             id = "widget-youtube-url" placeholder = "Youtube video URl"/>
-    </div>
-  </div>
-  <div class = "row widget-item">
-    <div class = "col-xs-6">
-      <label for = "widget-youtube-width">Width</label>
-    </div>
-  </div>
-  <div class = "row">
-    <div class = "col-xs-12">
-      <input value = "300" type = "text" class = "form-control"
-             id = "widget-youtube-width" placeholder = "Youtube video width"/>
-    </div>
-  </div>
-  <div class = "row delete-button">
-    <div class = "col-xs-12">
-      <a class = "btn btn-danger btn-block form-control" href = "widget-list.html">Delete</a>
+    <div *ngSwitchCase="'YOUTUBE'">
+      <app-widget-youtube></app-widget-youtube>
     </div>
   </div>
 </div>
-<nav class = "navbar navbar-default navbar-fixed-bottom">
-  <div class = "container-fluid">
-    <p class="navbar-text pull-right">
-      <a href = "../user/profile.html">
-        <span class = "glyphicon glyphicon-user"></span>
-      </a>
-    </p>
-  </div>
-</nav>

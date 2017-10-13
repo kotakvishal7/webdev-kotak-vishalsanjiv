@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {WidgetService} from "../../../../services/widget.service.client";
+import {Widget} from "../../../../models/widget.model.client";
 
 @Component({
   selector: 'app-widget-youtube',
@@ -11,7 +13,11 @@ export class WidgetYoutubeComponent implements OnInit {
   websiteId: String;
   pageId: String;
   widgetId: String;
-  constructor(private route: ActivatedRoute) { }
+  widget: Widget;
+  editFlag: Boolean;
+  constructor(private route: ActivatedRoute,
+              private widgetService: WidgetService,
+              private  router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -19,7 +25,33 @@ export class WidgetYoutubeComponent implements OnInit {
       this.websiteId = params['wid'];
       this.pageId = params['pid'];
       this.widgetId = params['wgid'];
+      this.editFlag = false;
+      this.widget = new Widget('', '', this.pageId);
+      if (this.widgetId) {
+        this.widget = this.widgetService.findWidgetById(this.widgetId);
+        this.editFlag = true;
+      }
     });
   }
 
+  createWidget(text: String, name: String, width: String, url: String) {
+    let widget = new Widget('', '', this.pageId);
+    widget.text = text;
+    widget.name = name;
+    widget.width = width;
+    widget.url = url;
+    widget.type = 'YOUTUBE';
+    widget = this.widgetService.createWidget(this.pageId, widget);
+  }
+  deleteWidget(widgetId: String) {
+    this.widgetService.deleteWidget(widgetId);
+  }
+  updateWidget(text: String, width: String, name: String, widgetId: String, url: String) {
+    const widget = new Widget(widgetId, 'YOUTUBE', this.pageId);
+    widget.text = text;
+    widget.name = name;
+    widget.width = width;
+    widget.url = url;
+    this.widgetService.updateWidget(widgetId, widget);
+  }
 }

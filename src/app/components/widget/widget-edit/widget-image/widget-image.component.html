@@ -1,22 +1,47 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-text pull-left">
-      <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-      </a>
+<div [hidden]="!editFlag">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-text pull-left">
+        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+      </div>
+      <div class="navbar-header pull-left">
+        <a class="navbar-brand thick">
+          <b class = "website-nav-header">Widget Edit</b>
+        </a>
+      </div>
+      <div class="navbar-text pull-right">
+        <a class="navbar-link" [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">
+            <span class="glyphicon glyphicon-ok"
+                  (click)="updateWidget(widget.text, widget.name, widget.width, widget.url, widget._id)"></span>
+        </a>
+      </div>
     </div>
-    <div class="navbar-header pull-left">
-      <a class="navbar-brand thick">
-        <b class = "website-nav-header">Widget Edit</b>
-      </a>
+  </nav>
+</div>
+<div [hidden]="editFlag">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-text pull-left">
+        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+      </div>
+      <div class="navbar-header pull-left">
+        <a class="navbar-brand thick">
+          <b class = "website-nav-header">Widget New</b>
+        </a>
+      </div>
+      <div class="navbar-text pull-right">
+        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
+          <span class="glyphicon glyphicon-ok"
+                (click)="createWidget(widget.text, widget.name, widget.width, widget.url)"></span>
+        </a>
+      </div>
     </div>
-    <div class="navbar-text pull-right">
-      <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
-        <span class="glyphicon glyphicon-ok"></span>
-      </a>
-    </div>
-  </div>
-</nav>
+  </nav>
+</div>
 <div class = "container-fluid">
   <div class = "row widget-item">
     <div class = "col-sm-6">
@@ -25,7 +50,8 @@
   </div>
   <div class = "row">
     <div class = "col-sm-12">
-      <input type = "text" placeholder = "Name" id = "widget-image-name" class = "form-control" value = "HTML" />
+      <input type = "text" placeholder = "Name" id = "widget-image-name" class = "form-control"
+      [(ngModel)]="widget.name"/>
     </div>
   </div>
   <div class = "row widget-item">
@@ -36,7 +62,7 @@
   <div class = "row">
     <div class = "col-sm-12">
       <input class = "form-control" placeholder = "Text" id = "widget-image-text" type = "text"
-             value  = "version 5"/>
+           [(ngModel)]="widget.text"/>
     </div>
   </div>
   <div class = "row">
@@ -47,7 +73,7 @@
   <div class = "row">
     <div class = "col-sm-12">
       <input class = "form-control" placeholder = "Url" id = "widget-image-url" type = "text"
-             value = "http://www.codingdojo.com/blog/wp-content/uploads/html.png"/>
+             [(ngModel)]="widget.url">
     </div>
   </div>
   <div class = "row">
@@ -57,7 +83,8 @@
   </div>
   <div class = "row">
     <div class = "col-sm-12">
-      <input class = "form-control" placeholder = "Width" id = "widget-image-width" type = "text" value = "300"/>
+      <input class = "form-control" placeholder = "Width" id = "widget-image-width" type = "number"
+      [(ngModel)]="widget.width"/>
     </div>
   </div>
   <div class = "row widget-item">
@@ -76,9 +103,9 @@
               [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">Upload Image</button>
     </div>
   </div>
-  <div class = "row widget-item">
+  <div class = "row widget-item" [hidden]="!editFlag">
     <div class = "col-sm-12">
-      <a class = "btn btn-danger btn-block"
+      <a class = "btn btn-danger btn-block" (click)="deleteWidget(widget._id)"
          [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">Delete</a>
     </div>
   </div>
