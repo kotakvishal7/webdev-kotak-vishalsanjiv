@@ -26,7 +26,7 @@
         </div>
         <div class="navbar-text pull-right">
           <a [routerLink]="['/user', userId, 'website']" class="navbar-link"
-             (click)="updateWebsite(website.name, website.description)">
+             (click)="updateWebsite(websiteName, websiteDescription)">
             <span class="glyphicon glyphicon-ok"></span>
           </a>
         </div>
@@ -59,7 +59,7 @@
       <div class = "row">
         <div class = "col-sm-12 col-xs-12">
           <input placeholder = "Name" type = "text" class = "form-control" id = "website-name"
-                 [(ngModel)]="website.name"/>
+                 [(ngModel)]="websiteName"/>
         </div>
       </div>
       <div class = "row">
@@ -69,7 +69,7 @@
       </div>
       <div class = "row">
         <div class = "col-sm-12 col-xs-12">
-              <textarea class = "form-control" rows = "5" id = "website-description" [(ngModel)]="website.description"
+              <textarea class = "form-control" rows = "5" id = "website-description" [(ngModel)]="websiteDescription"
                         placeholder = "Description"></textarea>
         </div>
       </div>

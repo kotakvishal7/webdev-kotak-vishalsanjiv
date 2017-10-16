@@ -14,6 +14,8 @@ export class PageEditComponent implements OnInit {
   pageId: String;
   pages: Page[];
   page: Page;
+  pageName: String;
+  pageDescription: String;
   constructor(private pageService: PageService,
               private route: ActivatedRoute) { }
 
@@ -24,11 +26,17 @@ export class PageEditComponent implements OnInit {
       this.pageId = params['pid'];
       this.pages = this.pageService.findPagebyWebsiteId(this.websiteId);
       this.page = this.pageService.findPageById(this.pageId);
+      this.pageName = this.page.name;
+      this.pageDescription = this.page.description;
     });
   }
 
   deletePage(pageId: String) {
     this.pageService.deletePage(pageId);
   }
-
+  updatePage(pageName: String, pageTitle: String, pageId: String) {
+    this.page.name = pageName;
+    this.page.description = pageTitle;
+    this.pageService.updatePage(pageId, this.page);
+  }
 }

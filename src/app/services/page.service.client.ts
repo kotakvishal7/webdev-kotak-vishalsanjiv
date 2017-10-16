@@ -42,7 +42,7 @@ export class PageService {
       if (this.pages[x]._id === pageId) { return this.pages[x]; }
     }
   }
-  updatePage(pageId: string, page: any) {
+  updatePage(pageId: String, page: Page) {
     for (let x = 0; x < this.pages.length; x++) {
       if (this.pages[x]._id === pageId) { this.pages[x] = page; }
     }
