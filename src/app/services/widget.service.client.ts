@@ -32,12 +32,9 @@ export class WidgetService {
     deleteWidget: this.deleteWidget
   };
   createWidget(pageId: String, widget: Widget) {
-    console.log(this.widgets);
     widget._id = '' + Math.floor(Math.random() * 20);
     widget.pageId = pageId;
-    console.log(widget);
     this.widgets.push(widget);
-    console.log(this.widgets);
     return widget;
   }
   findWidgetsByPageId(pageId: String) {

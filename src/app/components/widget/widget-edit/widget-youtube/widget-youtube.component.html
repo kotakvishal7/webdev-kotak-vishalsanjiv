@@ -83,7 +83,7 @@
   </div>
   <div class = "row">
     <div class = "col-xs-12">
-      <input type = "text" class = "form-control" id = "widget-youtube-width"
+      <input type = "number" class = "form-control" id = "widget-youtube-width"
              [(ngModel)]="widget.width" placeholder = "Youtube video width"/>
     </div>
   </div>
@@ -96,7 +96,7 @@
     </div>
   </div>
   <div class="row errorBlock" [hidden]="!showError">
-    <div class = "col-sm-12 col-xs-12 col-sm-offset-5 col-xs-offset-1">
+    <div class = "col-xs-12 col-sm-12 col-sm-offset-3">
       <span class="errorMessage">Youtube data missing</span>
     </div>
   </div>
