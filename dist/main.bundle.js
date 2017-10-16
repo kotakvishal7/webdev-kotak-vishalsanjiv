@@ -2181,14 +2181,14 @@ var WidgetService = (function () {
         this.widgets = [
             { _id: '123', type: 'HEADING', pageId: '123', size: '2', text: 'Lorem', url: '', width: '', name: '' },
             { _id: '234', type: 'HEADING', pageId: '123', size: '4', text: 'Lorem', url: '', width: '', name: '' },
-            { _id: '345', type: 'IMAGE', pageId: '321', width: '100%', url: 'http://lorempixel.com/400/200/', size: '',
+            { _id: '345', type: 'IMAGE', pageId: '321', width: '200', url: 'http://lorempixel.com/400/200/', size: '',
                 text: '', name: 'Test Image' },
             { _id: '456', type: 'HTML', pageId: '321', text: 'Lorem', url: '', width: '', size: '', name: '' },
             { _id: '567', type: 'HEADING', pageId: '789', size: '4', text: 'Lorem', url: '', width: '', name: '' },
             { _id: '678', type: 'YOUTUBE', pageId: '789', width: '100%', text: 'Introduction to HTML',
                 url: 'https://www.youtube.com/embed/ekIRCLFFvBI', size: '', name: 'Web Development' },
             { _id: '789', type: 'IMAGE', pageId: '789', text: 'Lorem', url: 'http://lorempixel.com/400/200/',
-                size: '', width: '500', name: 'Test Image' }
+                size: '', width: '200', name: 'Test Image' }
         ];
         this.api = {
             createWidget: this.createWidget,
