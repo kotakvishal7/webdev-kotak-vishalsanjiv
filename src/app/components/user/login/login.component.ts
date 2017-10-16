@@ -11,7 +11,7 @@ import {NgForm} from "@angular/forms";
 })
 export class LoginComponent implements OnInit {
 
-  @ViewChild('f') loginForm: NgForm;
+  @ViewChild('form') loginForm: NgForm;
 
   username: String;
   password: String;
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   constructor(private userService: UserService, private  router: Router) { }
-
+  // Form Metod
   login() {
     this.username = this.loginForm.value.username;
     this.password = this.loginForm.value.password;
