@@ -15,6 +15,7 @@ export class WidgetHeaderComponent implements OnInit {
   widgetId: String;
   widget: Widget;
   editFlag: Boolean;
+  showError: Boolean;
   constructor(private route: ActivatedRoute,
               private widgetService: WidgetService,
               private  router: Router) { }
@@ -29,6 +30,7 @@ export class WidgetHeaderComponent implements OnInit {
       this.widget.text = '';
       this.widget.size = '';
       this.editFlag = false;
+      this.showError = false;
       if (this.widgetId) {
         this.widget = this.widgetService.findWidgetById(this.widgetId);
         this.editFlag = true;
@@ -36,11 +38,19 @@ export class WidgetHeaderComponent implements OnInit {
     });
   }
   createWidget(text: String, size: String) {
+      if (!text || !size) {
+        this.showError = true;
+        return;
+      }
       let widget = new Widget('', '', this.pageId);
       widget.text = text;
       widget.size = size;
       widget.type = 'HEADING';
       widget = this.widgetService.createWidget(this.pageId, widget);
+      if (widget) {
+        this.router.navigate(['/user', this.userId, 'website',
+          this.websiteId, 'page', this.pageId, 'widget']);
+      }
   }
   deleteWidget(widgetId: String) {
     this.widgetService.deleteWidget(widgetId);

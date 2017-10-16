@@ -23,7 +23,14 @@ MongoDB Test Link: [https://webdev-kotak-vishalsanjiv.herokuapp.com/test](https:
 Course Website Link: [http://portal-cs5610online.rhcloud.com/#/](http://portal-cs5610online.rhcloud.com/#/)
 
 Assignment 1 Link: [Setting up Development Environment](https://docs.google.com/document/d/1rxZnIRpwCzqQVJwMm7HLfKHvXiI_GLpcfBjm0ymmWXI/edit)
+
 Assignment 2 Link: [User Interface Development](https://docs.google.com/document/d/1Xq-d8gEPmqGv3JElKocPiNsj8Ft82SY3yNOREHt6r2U/edit)
+
+Assignment 3 Link: [Client Side development](https://docs.google.com/document/d/1weLoMKGV1ALlpNUk6oVPUFRC1MX7wqyt9kRZ9hedZxA/edit)
+
+## Assignment 3
+
+The static pages for page, user, website, widgets have been made dynamic by creating components, services and single page routing.
 
 Steps related to the project:
 

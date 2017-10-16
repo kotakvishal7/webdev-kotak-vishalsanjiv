@@ -12,8 +12,8 @@ export class WidgetService {
   constructor() {
   }
   widgets: Widget[] =  [
-    {_id: '123', type: 'HEADING', pageId: '321', size: '2', text: 'Lorem', url: '', width: '', name: ''},
-    {_id: '234', type: 'HEADING', pageId: '321', size: '4', text: 'Lorem', url: '', width: '', name: ''},
+    {_id: '123', type: 'HEADING', pageId: '123', size: '2', text: 'Lorem', url: '', width: '', name: ''},
+    {_id: '234', type: 'HEADING', pageId: '123', size: '4', text: 'Lorem', url: '', width: '', name: ''},
     {_id: '345', type: 'IMAGE', pageId: '321', width: '100%', url: 'http://lorempixel.com/400/200/', size: ''
       , text: '', name: 'Test Image'},
     {_id: '456', type: 'HTML', pageId: '321', text: 'Lorem', url: '', width: '', size: '', name: ''},

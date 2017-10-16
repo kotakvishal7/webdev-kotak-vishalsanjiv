@@ -34,7 +34,7 @@
         </a>
       </div>
       <div class="navbar-text pull-right">
-        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
+        <a class="navbar-link">
           <span class="glyphicon glyphicon-ok"
                 (click)="createWidget(widget.text, widget.name, widget.width, widget.url)"></span>
         </a>
@@ -93,6 +93,11 @@
          [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">
         <span>Delete</span>
       </a>
+    </div>
+  </div>
+  <div class="row errorBlock" [hidden]="!showError">
+    <div class = "col-sm-12 col-xs-12 col-sm-offset-5 col-xs-offset-1">
+      <span class="errorMessage">Youtube data missing</span>
     </div>
   </div>
 </div>

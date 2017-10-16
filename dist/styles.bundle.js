@@ -35,7 +35,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n", ""]);
+exports.push([module.i, "body {\n  padding-top: 75px;\n  padding-bottom: 75px;\n}\n.website-item {\n  margin-top: 15px;\n}\n.website-item a {\n  text-decoration: none;\n}\n.website-nav-background {\n  background-color: #337ab7;\n}\n.website-nav-text {\n  color: #fff;\n}\n#website-description-label {\n  margin-top: 20px;\n}\n#edit-website-description-label{\n  margin-top: 20px;\n}\n.delete-button {\n  margin-top: 20px;\n}\n.page-item {\n  margin-top: 15px;\n}\n.new-page-title-label {\n  margin-top: 15px;\n}\n.edit-page-title-label {\n  margin-top: 15px;\n}\n.widget-item {\n  margin-top: 15px;\n}\n.widget-item a {\n  text-decoration: none;\n}\n.login-elements {\n  margin-bottom: 20px;\n}\n.regitser-elements {\n  margin-top: 10px;\n}\n.justify-text {\n  text-align: justify;\n}\n.video-widget {\n  width: 100%;\n  height: 350px;\n}\n.image-widget {\n  width: 100%;\n}\n.widget-nav-text {\n  color:black;\n}\n.page-item a{\n  text-decoration: none;\n}\n.assignment-list-page {\n  text-align: center;\n}\n.errorMessage {\n  color:red;\n  background-color: #ffe5e5;\n  padding: 10px 50px 10px 50px;\n  border-radius: 10px;\n}\n.errorBlock {\n  margin-top: 10px;\n}\n", ""]);
 
 // exports
 

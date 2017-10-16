@@ -1,4 +1,5 @@
 <div class="container">
+
   <div class = "row regitser-elements">
     <div class = "col-xs-12">
       <h1>Register</h1>
@@ -20,13 +21,18 @@
     </div>
   </div>
   <div class = "row regitser-elements">
-    <div class = "col-sm-12">
+    <div class = "col-xs-12">
       <a class="btn btn-primary btn-block" (click)="createUser(username, password, verifypassword)">Register</a>
     </div>
   </div>
   <div class = "row regitser-elements">
-    <div class = "col-sm-12">
+    <div class = "col-xs-12">
       <a class="btn btn-danger btn-block" [routerLink]="['/login']">Cancel</a>
+    </div>
+  </div>
+  <div class="row errorBlock" [hidden]="!showError">
+    <div class = "col-sm-12 col-xs-12 col-sm-offset-4 col-xs-offset-1">
+      <span class="errorMessage">Please enter Username and Passwords</span>
     </div>
   </div>
 </div>

@@ -16,6 +16,7 @@ export class WidgetImageComponent implements OnInit {
   widgetId: String;
   widget: Widget;
   editFlag: Boolean;
+  showError: Boolean;
   constructor(private route: ActivatedRoute,
               private widgetService: WidgetService,
               private router: Router) { }
@@ -30,6 +31,7 @@ export class WidgetImageComponent implements OnInit {
       this.widget.text = '';
       this.widget.url = '';
       this.editFlag = false;
+      this.showError = false;
       if (this.widgetId) {
         this.widget = this.widgetService.findWidgetById(this.widgetId);
         this.editFlag = true;
@@ -38,6 +40,10 @@ export class WidgetImageComponent implements OnInit {
   }
 
   createWidget(text: String, name: String, width: String, url: String) {
+    if (!text || !name || !width || !url) {
+      this.showError = true;
+      return;
+    }
     let widget = new Widget('', '', this.pageId);
     widget.text = text;
     widget.name = name;
@@ -45,6 +51,10 @@ export class WidgetImageComponent implements OnInit {
     widget.url = url;
     widget.type = 'IMAGE';
     widget = this.widgetService.createWidget(this.pageId, widget);
+    if (widget) {
+      this.router.navigate(['/user', this.userId, 'website',
+        this.websiteId, 'page', this.pageId, 'widget']);
+    }
   }
   updateWidget(text: String, width: String, name: String, widgetId: String, url: String) {
     const widget = new Widget(widgetId, 'IMAGE', this.pageId);
