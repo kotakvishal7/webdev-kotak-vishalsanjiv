@@ -24,7 +24,7 @@
         </a>
       </div>
       <div class="navbar-text pull-right">
-        <a [routerLink]="['/user', userId, 'website', websiteId, 'page']" class="navbar-link"
+        <a class="navbar-link"
            (click)="updatePage(pageName, pageDescription)">
           <span class="glyphicon glyphicon-ok"></span>
         </a>
@@ -73,9 +73,7 @@
       </div>
       <div class = "row delete-button">
         <div class = "col-sm-12">
-          <a class = "btn btn-danger btn-block" [routerLink]="['/user', userId, 'website', websiteId, 'page']"
-          (click)="deletePage(page._id)">
-            Delete</a>
+          <a class = "btn btn-danger btn-block" (click)="deletePage(page._id)">Delete</a>
         </div>
       </div>
     </div>

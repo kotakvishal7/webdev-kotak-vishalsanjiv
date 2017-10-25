@@ -23,19 +23,25 @@ export class PageNewComponent implements OnInit {
       this.showError = false;
       this.userId = params['uid'];
       this.websiteId = params['wid'];
-      this.pages = this.pageService.findPagebyWebsiteId(this.websiteId);
+      this.pageService
+        .findPagebyWebsiteId(this.userId, this.websiteId)
+        .subscribe((pages) => {
+          this.pages = pages;
+        });
     });
   }
-  createPage(pageName: String, pageTitle: String, websiteId: String) {
+  createPage(pageName: String, pageTitle: String) {
     if (!pageName || !pageTitle) {
       this.showError = true;
       return;
     }
-    let page = new Page(pageName, pageTitle, websiteId);
-    page = this.pageService.createPage(websiteId, page);
-    if (page) {
-      this.router.navigate(['/user', this.userId, 'website', this.websiteId,  'page']);
-    }
+    const page = new Page(pageName, pageTitle, this.websiteId);
+    this.pageService
+      .createPage(this.userId, this.websiteId, page)
+      .subscribe((pages) => {
+        this.pages = pages;
+        this.router.navigate(['/user', this.userId, 'website', this.websiteId,  'page']);
+      });
   }
 
 }

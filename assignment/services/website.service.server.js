@@ -85,6 +85,5 @@ module.exports = function(app) {
         response.json(websites);
       }
     }
-
   }
 };
