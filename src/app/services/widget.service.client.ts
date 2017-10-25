@@ -9,7 +9,7 @@ import {Widget} from '../models/widget.model.client';
 @Injectable()
 
 export class WidgetService {
-  constructor() {
+  constructor(private http: Http) {
   }
   widgets: Widget[] =  [
     {_id: '123', type: 'HEADING', pageId: '123', size: '2', text: 'Lorem', url: '', width: '', name: ''},
@@ -24,43 +24,42 @@ export class WidgetService {
       , size: '', width: '200', name: 'Test Image'}
   ]
 
-  api = {
-    createWidget: this.createWidget,
-    findWidgetsByPageId: this.findWidgetsByPageId,
-    findWidgetById: this.findWidgetById,
-    updateWidget: this.updateWidget,
-    deleteWidget: this.deleteWidget
-  };
-  createWidget(pageId: String, widget: Widget) {
-    widget._id = '' + Math.floor(Math.random() * 20);
-    widget.pageId = pageId;
-    this.widgets.push(widget);
-    return widget;
+  createWidget(userId: String, websiteId: String, pageId: String, widget: Widget) {
+    const url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId + '/page/' + pageId + '/widget';
+    return this.http.post(url, widget)
+      .map((response: Response) => {
+        return response.json();
+      });
   }
-  findWidgetsByPageId(pageId: String) {
-    const pageWidgets: Widget[] = [];
-    for (let x = 0; x < this.widgets.length; x++) {
-      if (this.widgets[x].pageId === pageId) {
-        pageWidgets.push(this.widgets[x]);
-      }
-    }
-    return pageWidgets;
+  findWidgetsByPageId(userId: String, websiteId: String, pageId: String) {
+    const url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId + '/page/' + pageId + '/widget';
+    return this.http.get(url)
+      .map((response: Response) => {
+        return response.json();
+      });
   }
-  findWidgetById(widgetId: String) {
-    for (let x = 0; x < this.widgets.length; x++) {
-      if (this.widgets[x]._id === widgetId) {
-        return this.widgets[x];
-      }
-    }
+  findWidgetById(userId: String, websiteId: String, pageId: String, widgetId: String) {
+    const url = 'http://localhost:3100/api/user/' + userId + '/website/'
+      + websiteId + '/page/' + pageId + '/widget/' + widgetId;
+    return this.http.get(url)
+      .map((response: Response) => {
+        return response.json();
+      });
   }
-  updateWidget(widgetId: String, widget: any) {
-    for (let x = 0; x < this.widgets.length; x++) {
-      if (this.widgets[x]._id === widgetId) { this.widgets[x] = widget; }
-    }
+  updateWidget(userId: String, websiteId: String, pageId: String, widgetId: String, widget: Widget) {
+    const url = 'http://localhost:3100/api/user/' + userId + '/website/'
+      + websiteId + '/page/' + pageId + '/widget/' + widgetId;
+    return this.http.put(url, widget)
+      .map((response: Response) => {
+        return response.json();
+      });
   }
-  deleteWidget(widgetId: String) {
-    for (let x = 0; x < this.widgets.length; x++) {
-      if (this.widgets[x]._id === widgetId) { this.widgets.splice(x, 1); }
-    }
+  deleteWidget(userId: String, websiteId: String, pageId: String, widgetId: String) {
+    const url = 'http://localhost:3100/api/user/' + userId + '/website/'
+      + websiteId + '/page/' + pageId + '/widget/' + widgetId ;
+    return this.http.delete(url)
+      .map((response: Response) => {
+        return response.json();
+      });
   }
 }

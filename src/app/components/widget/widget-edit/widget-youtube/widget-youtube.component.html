@@ -12,9 +12,9 @@
         </a>
       </div>
       <div class="navbar-text pull-right">
-        <a class="navbar-link" [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">
+        <a class="navbar-link">
             <span class="glyphicon glyphicon-ok"
-                  (click)="updateWidget(widget.text, widget.name, widget.width, widget.url, widget._id)"></span>
+                  (click)="updateWidget(widgetText, widgetName, widgetWidth, widgetUrl, widget._id)"></span>
         </a>
       </div>
     </div>
@@ -36,7 +36,7 @@
       <div class="navbar-text pull-right">
         <a class="navbar-link">
           <span class="glyphicon glyphicon-ok"
-                (click)="createWidget(widget.text, widget.name, widget.width, widget.url)"></span>
+                (click)="createWidget(widgetText, widgetName, widgetWidth, widgetUrl)"></span>
         </a>
       </div>
     </div>
@@ -51,7 +51,7 @@
   <div class = "row">
     <div class = "col-xs-12">
       <input class = "form-control" placeholder = "Youtube Video Name" type = "text"
-             [(ngModel)]="widget.name" id  = "widget-youtube-name"/>
+             [(ngModel)]="widgetName" id  = "widget-youtube-name"/>
     </div>
   </div>
   <div class = "row widget-item">
@@ -62,7 +62,7 @@
   <div class = "row">
     <div class = "col-xs-12">
       <input id = "widget-youtube-text" type = "text" class = "form-control"
-             [(ngModel)]="widget.text" placeholder = "Youtube video text"/>
+             [(ngModel)]="widgetText" placeholder = "Youtube video text"/>
     </div>
   </div>
   <div class = "row widget-item">
@@ -73,7 +73,7 @@
   <div class = "row">
     <div class = "col-xs-12">
       <input type = "text" class = "form-control" id = "widget-youtube-url"
-             [(ngModel)]="widget.url" placeholder = "Youtube video URl"/>
+             [(ngModel)]="widgetUrl" placeholder = "Youtube video URl"/>
     </div>
   </div>
   <div class = "row widget-item">
@@ -84,7 +84,7 @@
   <div class = "row">
     <div class = "col-xs-12">
       <input type = "number" class = "form-control" id = "widget-youtube-width"
-             [(ngModel)]="widget.width" placeholder = "Youtube video width"/>
+             [(ngModel)]="widgetWidth" placeholder = "Youtube video width"/>
     </div>
   </div>
   <div class = "row delete-button"  [hidden]="!editFlag">

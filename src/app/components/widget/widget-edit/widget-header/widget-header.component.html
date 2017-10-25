@@ -12,9 +12,9 @@
           </a>
         </div>
         <div class="navbar-text pull-right">
-          <a class="navbar-link" [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">
+          <a class="navbar-link">
             <span class="glyphicon glyphicon-ok"
-                  (click)="updateWidget(widget.text, widget.size, widget._id)"></span>
+                  (click)="updateWidget(widgetText, widgetSize, widget._id)"></span>
           </a>
         </div>
       </div>
@@ -35,7 +35,7 @@
       </div>
       <div class="navbar-text pull-right">
         <a class="navbar-link">
-          <span class="glyphicon glyphicon-ok" (click)="createWidget(widget.text, widget.size)"></span>
+          <span class="glyphicon glyphicon-ok" (click)="createWidget(widgetText, widgetSize)"></span>
         </a>
       </div>
     </div>
@@ -50,7 +50,7 @@
   <div class = "row">
     <div class = "col-xs-12">
       <input class = "form-control" placeholder = "Text" id = "widget-header-text"
-             type = "text" required [(ngModel)]="widget.text"/>
+             type = "text" required [(ngModel)]="widgetText"/>
     </div>
   </div>
   <div class = "row widget-item">
@@ -61,13 +61,12 @@
   <div class = "row">
     <div class = "col-xs-12">
       <input class = "form-control" placeholder = "Size" id = "widget-header-size"
-             type = "number" required [(ngModel)]="widget.size"/>
+             type = "number" required [(ngModel)]="widgetSize"/>
     </div>
   </div>
   <div class = "row delete-button" [hidden]="!editFlag">
     <div class = "col-xs-12">
-      <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']"
-         class = "btn btn-danger btn-block" (click)="deleteWidget(widget._id)">Delete</a>
+      <a class = "btn btn-danger btn-block" (click)="deleteWidget(widget._id)">Delete</a>
     </div>
   </div>
   <div class="row errorBlock" [hidden]="!showError">

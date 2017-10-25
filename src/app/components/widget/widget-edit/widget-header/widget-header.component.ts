@@ -16,9 +16,12 @@ export class WidgetHeaderComponent implements OnInit {
   widget: Widget;
   editFlag: Boolean;
   showError: Boolean;
+  widgetText: String;
+  widgetSize: String;
+  widgets: Widget[];
   constructor(private route: ActivatedRoute,
               private widgetService: WidgetService,
-              private  router: Router) { }
+              private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -26,15 +29,17 @@ export class WidgetHeaderComponent implements OnInit {
       this.websiteId = params['wid'];
       this.pageId = params['pid'];
       this.widgetId = params['wgid'];
-      this.widget = new Widget('0', 'HEADING', this.pageId);
-      this.widget.text = '';
-      this.widget.size = '';
       this.editFlag = false;
       this.showError = false;
-      if (this.widgetId) {
-        this.widget = this.widgetService.findWidgetById(this.widgetId);
-        this.editFlag = true;
-      }
+
+      this.widgetService
+        .findWidgetById(this.userId, this.websiteId, this.pageId, this.widgetId)
+        .subscribe((widget) => {
+          this.widget = widget;
+          this.widgetSize = widget.size;
+          this.widgetText = widget.text;
+          this.editFlag = true;
+        });
     });
   }
   createWidget(text: String, size: String) {
@@ -42,23 +47,37 @@ export class WidgetHeaderComponent implements OnInit {
         this.showError = true;
         return;
       }
-      let widget = new Widget('', '', this.pageId);
+      const widget = new Widget('', 'HEADING', this.pageId);
       widget.text = text;
       widget.size = size;
-      widget.type = 'HEADING';
-      widget = this.widgetService.createWidget(this.pageId, widget);
-      if (widget) {
-        this.router.navigate(['/user', this.userId, 'website',
-          this.websiteId, 'page', this.pageId, 'widget']);
-      }
+      this.widgetService
+        .createWidget(this.userId, this.websiteId, this.pageId, widget)
+        .subscribe((widgets) => {
+          this.widgets = widgets;
+          this.router.navigate(['/user', this.userId, 'website',
+            this.websiteId, 'page', this.pageId, 'widget']);
+        });
   }
+
   deleteWidget(widgetId: String) {
-    this.widgetService.deleteWidget(widgetId);
+    this.widgetService
+      .deleteWidget(this.userId, this.websiteId, this.pageId, widgetId)
+      .subscribe((widgets) => {
+        this.widgets = widgets;
+        this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
+      });
   }
+
+
   updateWidget(text: String, size: String, widgetId: String) {
     const widget = new Widget(widgetId, 'HEADING', this.pageId);
     widget.text = text;
     widget.size = size;
-    this.widgetService.updateWidget(widgetId, widget);
+    this.widgetService
+      .updateWidget(this.userId, this.websiteId, this.pageId, widgetId, widget)
+      .subscribe((widgets) => {
+        this.widgets = widgets;
+        this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
+      });
   }
 }

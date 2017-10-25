@@ -8,7 +8,7 @@
     <div class="navbar-text pull-right">
       <a  class="navbar-link">
         <span class="glyphicon glyphicon-ok website-nav-text"
-              (click)="updateUser(user.username, user.emailId, user.firstName, user.lastName)"></span>
+              (click)="updateUser(username, emailId, firstName, lastName)"></span>
       </a>
     </div>
   </div>
@@ -17,25 +17,25 @@
   <div class="row">
     <div class="form-group col-xs-12">
       <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" placeholder="username" [(ngModel)]="user.username">
+      <input type="text" class="form-control" id="username" placeholder="username" [(ngModel)]="username">
     </div>
   </div>
   <div class="row">
     <div class="form-group col-xs-12">
       <label for="email">Email address</label>
-      <input type="email" class="form-control" id="email" placeholder="emailid" [(ngModel)]="user.emailId">
+      <input type="email" class="form-control" id="email" placeholder="emailid" [(ngModel)]="emailId">
     </div>
   </div>
   <div class="row">
     <div class="form-group col-xs-12">
       <label for="first-name">First Name</label>
-      <input type="text" class="form-control" id="first-name" placeholder="firstname" [(ngModel)]="user.firstName">
+      <input type="text" class="form-control" id="first-name" placeholder="firstname" [(ngModel)]="firstName">
     </div>
   </div>
   <div class="row">
     <div class="form-group col-xs-12">
       <label for="last-name">Last Name</label>
-      <input type="text" class="form-control" id="last-name" placeholder="lastname" [(ngModel)]="user.lastName">
+      <input type="text" class="form-control" id="last-name" placeholder="lastname" [(ngModel)]="lastName">
     </div>
   </div>
   <a class="btn btn-primary btn-block"  [routerLink]="['/user', userId, 'website']">Websites</a>

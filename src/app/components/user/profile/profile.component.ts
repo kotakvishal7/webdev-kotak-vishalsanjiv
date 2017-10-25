@@ -12,6 +12,10 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit {
   userId: String;
   user: User;
+  username: String;
+  emailId: String;
+  firstName: String;
+  lastName: String;
   constructor(private userService: UserService,
               private route: ActivatedRoute) { }
 
@@ -21,6 +25,10 @@ export class ProfileComponent implements OnInit {
       this.userService.findUserById(this.userId)
         .subscribe((user: User) => {
           this.user = user;
+          this.username = user.username;
+          this.emailId = user.emailId;
+          this.firstName = user.firstName;
+          this.lastName = user.lastName;
       });
     });
   }

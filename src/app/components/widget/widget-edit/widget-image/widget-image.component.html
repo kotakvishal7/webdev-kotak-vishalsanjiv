@@ -12,9 +12,9 @@
         </a>
       </div>
       <div class="navbar-text pull-right">
-        <a class="navbar-link" [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">
+        <a class="navbar-link">
             <span class="glyphicon glyphicon-ok"
-                  (click)="updateWidget(widget.text, widget.name, widget.width, widget.url, widget._id)"></span>
+                  (click)="updateWidget(widgetText, widgetName, widgetWidth, widgetUrl, widget._id)"></span>
         </a>
       </div>
     </div>
@@ -36,7 +36,7 @@
       <div class="navbar-text pull-right">
         <a class="navbar-link">
           <span class="glyphicon glyphicon-ok"
-                (click)="createWidget(widget.text, widget.name, widget.width, widget.url)"></span>
+                (click)="createWidget(widgetText, widgetName, widgetWidth, widgetUrl)"></span>
         </a>
       </div>
     </div>
@@ -51,7 +51,7 @@
   <div class = "row">
     <div class = "col-xs-12">
       <input type = "text" placeholder = "Name" id = "widget-image-name" class = "form-control"
-      [(ngModel)]="widget.name"/>
+      [(ngModel)]="widgetName"/>
     </div>
   </div>
   <div class = "row widget-item">
@@ -62,7 +62,7 @@
   <div class = "row">
     <div class = "col-xs-12">
       <input class = "form-control" placeholder = "Text" id = "widget-image-text" type = "text"
-           [(ngModel)]="widget.text"/>
+           [(ngModel)]="widgetText"/>
     </div>
   </div>
   <div class = "row">
@@ -73,7 +73,7 @@
   <div class = "row">
     <div class = "col-xs-12">
       <input class = "form-control" placeholder = "Url" id = "widget-image-url" type = "text"
-             [(ngModel)]="widget.url">
+             [(ngModel)]="widgetUrl">
     </div>
   </div>
   <div class = "row">
@@ -84,7 +84,7 @@
   <div class = "row">
     <div class = "col-xs-12">
       <input class = "form-control" placeholder = "Width" id = "widget-image-width" type = "number"
-      [(ngModel)]="widget.width"/>
+      [(ngModel)]="widgetWidth"/>
     </div>
   </div>
   <div class = "row widget-item">
@@ -105,8 +105,7 @@
   </div>
   <div class = "row widget-item" [hidden]="!editFlag">
     <div class = "col-xs-12">
-      <a class = "btn btn-danger btn-block" (click)="deleteWidget(widget._id)"
-         [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">Delete</a>
+      <a class = "btn btn-danger btn-block" (click)="deleteWidget(widget._id)">Delete</a>
     </div>
   </div>
   <div class="row errorBlock" [hidden]="!showError">

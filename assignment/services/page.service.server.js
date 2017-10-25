@@ -9,7 +9,7 @@ module.exports = function(app) {
     {_id: '123', name: 'Post 6', websiteId: '567', description: 'lorem'}
   ];
 
-  app.get('/api/user/:uid/website/:wid/page', findPagebyWebsiteId);
+  app.get('/api/user/:uid/website/:wid/page', findPagesbyWebsiteId);
   app.post('/api/user/:uid/website/:wid/page', createPage);
   app.get('/api/user/:uid/website/:wid/page/:pid', findPageById);
   app.delete('/api/user/:uid/website/:wid/page/:pid', deletePage);
@@ -72,7 +72,7 @@ module.exports = function(app) {
     return pages;
   }
 
-  function findPagebyWebsiteId(request, response) {
+  function findPagesbyWebsiteId(request, response) {
     var websiteId = request.params['wid'];
     var pages = [];
     for (var x = 0; x < PAGES.length; x++) {
