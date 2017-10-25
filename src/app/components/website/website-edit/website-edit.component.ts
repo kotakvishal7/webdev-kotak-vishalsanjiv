@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WebsiteService} from '../../../services/website.service.client';
 import { Website} from '../../../models/website.model.client';
-import { ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 @Component({
@@ -17,26 +17,45 @@ export class WebsiteEditComponent implements OnInit {
   websiteName: String;
   websiteDescription: String;
   constructor(private websiteService: WebsiteService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private  router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params =>  {
       this.websiteId = params['wid'];
       this.userId = params['uid'];
-      this.website = this.websiteService.findWebsiteById(this.websiteId);
-      this.websites = this.websiteService.findWebsitesByUser(this.userId);
-      this.websiteName = this.website.name;
-      this.websiteDescription = this.website.description;
+      this.websiteService
+        .findWebsiteById(this.userId, this.websiteId)
+        .subscribe((website) => {
+          this.website = website;
+          this.websiteName = website.name;
+          this.websiteDescription = website.description;
+        });
+      this.websiteService
+        .findWebsitesByUser(this.userId)
+        .subscribe((websites) => {
+          this.websites = websites;
+        });
     });
   }
 
   deleteWebsite(websiteId: String) {
-    this.websiteService.deleteWebsite(websiteId);
+    this.websiteService
+      .deleteWebsite(this.userId, websiteId)
+      .subscribe((websites) => {
+          this.websites = websites;
+        this.router.navigate(['/user', this.userId, 'website']);
+      });
   }
-  updateWebsite(websiteName: String, websiteDescription: String, websiteId: String) {
-    this.website.name = websiteName;
-    this.website.description = websiteDescription;
-    this.websiteService.updateWebsite(websiteId, this.website);
+  updateWebsite(websiteName: String, websiteDescription: String) {
+    const website = new Website(websiteName, this.userId, websiteDescription);
+    website._id = this.websiteId;
+    this.websiteService
+      .updateWebsite(this.userId, website)
+      .subscribe((websites) => {
+        this.websites = websites;
+        this.router.navigate(['/user', this.userId, 'website']);
+      });
   }
 
 }

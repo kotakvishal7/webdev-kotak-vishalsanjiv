@@ -30,7 +30,6 @@ import {PageService} from './services/page.service.client';
 import {WidgetService} from './services/widget.service.client';
 import {SafePipe} from './components/safepipe';
 
-
 @NgModule({
   // Declare components here
   declarations: [

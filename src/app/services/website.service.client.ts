@@ -9,7 +9,7 @@ import { Website } from '../models/website.model.client';
 @Injectable()
 
 export class WebsiteService {
-  constructor() {}
+  constructor(private http: Http) {}
   websites: Website[] =  [
     {_id: '123', name: 'Facebook', developerId: '456', description: 'Lorem'},
     {_id: '234', name: 'Twitter', developerId: '456', description: 'Lorem'},
@@ -29,36 +29,44 @@ export class WebsiteService {
     deleteWebsite: this.deleteWebsite
   }
   createWebsite(userId: String, website: Website) {
-    website._id = '' + Math.floor(Math.random() * 20);
-    this.websites.push(website);
-    return website;
+    const url = 'http://localhost:3100/api/user/' + userId + '/website';
+    return this.http.post(url, website)
+      .map((response: Response) => {
+        return response.json();
+    });
   }
 
   findWebsitesByUser(userId: String) {
-    const userWebsites: Website[] = [];
-    for (let x = 0; x < this.websites.length; x++) {
-      if (this.websites[x].developerId === userId) {
-        userWebsites.push(this.websites[x]);
-      }
-    }
-    return userWebsites;
+    const url = 'http://localhost:3100/api/user/' + userId + '/website';
+    return this.http.get(url)
+      .map((response: Response) => {
+        return response.json();
+    });
   }
 
-  findWebsiteById(websiteId: String) {
-    for (let x = 0; x < this.websites.length; x++) {
-      if (this.websites[x]._id === websiteId) { return this.websites[x]; }
-    }
+
+  findWebsiteById(userId, websiteId: String) {
+    const url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId;
+    return this.http.get(url)
+      .map((response: Response) => {
+        return response.json();
+      });
   }
 
-  updateWebsite(websiteId: String, website: Website) {
-    for (let x = 0; x < this.websites.length; x++) {
-      if (this.websites[x]._id === websiteId) { this.websites[x] = website; }
-    }
+  updateWebsite(userId: String, website: Website) {
+    const url = 'http://localhost:3100/api/user/' + userId + '/website/' + website._id;
+    alert(website._id);
+    return this.http.put(url, website)
+      .map((response: Response) => {
+        return response.json();
+      });
   }
 
-  deleteWebsite(websiteId: String) {
-    for (let x = 0; x < this.websites.length; x++) {
-      if (this.websites[x]._id === websiteId) { this.websites.splice(x, 1); }
-    }
+  deleteWebsite(userId: String, websiteId: String) {
+    const url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId;
+    return this.http.delete(url)
+      .map((response: Response) => {
+        return response.json();
+      });
   }
 }

@@ -9,7 +9,7 @@ import { User } from '../models/user.model.client';
 @Injectable()
 
 export class UserService {
-  constructor() {}
+  constructor(private http: Http) {}
   users: User[] = [
     {_id: '123', username: 'alice', password: 'alice', firstName: 'Alice', lastName: 'Wonder', emailId: 'alice@gmail.com'},
     {_id: '234', username: 'bob', password: 'bob', firstName: 'Bob', lastName: 'Marley', emailId: 'bob@gmail.com'},
@@ -31,9 +31,11 @@ export class UserService {
   }
 
   findUserById(userId: String) {
-    return this.users.find(function(user) {
-      return user._id === userId;
-    });
+    const url = 'http://localhost:3100/api/user/' + userId;
+    return this.http.get(url)
+      .map((response: Response) => {
+        return response.json();
+      });
   }
 
   findUserByUsername(username: String) {
@@ -42,9 +44,12 @@ export class UserService {
     }
   }
   findUserByCredentials(username: String, password: String) {
-    return this.users.find(function(user) {
-      return user.username === username && user.password === password;
-    });
+    const url = 'http://localhost:3100/api/user?username=' + username + '&password=' + password;
+    return this.http.get(url)
+      .map(
+        (response: Response) => {
+          return response.json();
+        });
   }
   updateUser(userId: String, user: any) {
     for (let x = 0; x < this.users.length; x++) {
