@@ -843,7 +843,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user/profile/profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default navbar-fixed-top website-nav-background\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header pull-left\">\n      <a class=\"navbar-brand thick\">\n        <b class = \"website-nav-text\">Profile</b>\n      </a>\n    </div>\n    <div class=\"navbar-text pull-right\">\n      <a  class=\"navbar-link\">\n        <span class=\"glyphicon glyphicon-ok website-nav-text\"\n              (click)=\"updateUser(username, emailId, firstName, lastName)\"></span>\n      </a>\n    </div>\n  </div>\n</nav>\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"form-group col-xs-12\">\n      <label for=\"username\">Username</label>\n      <input type=\"text\" class=\"form-control\" id=\"username\" placeholder=\"username\" [(ngModel)]=\"username\">\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"form-group col-xs-12\">\n      <label for=\"email\">Email address</label>\n      <input type=\"email\" class=\"form-control\" id=\"email\" placeholder=\"emailid\" [(ngModel)]=\"emailId\">\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"form-group col-xs-12\">\n      <label for=\"first-name\">First Name</label>\n      <input type=\"text\" class=\"form-control\" id=\"first-name\" placeholder=\"firstname\" [(ngModel)]=\"firstName\">\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"form-group col-xs-12\">\n      <label for=\"last-name\">Last Name</label>\n      <input type=\"text\" class=\"form-control\" id=\"last-name\" placeholder=\"lastname\" [(ngModel)]=\"lastName\">\n    </div>\n  </div>\n  <a class=\"btn btn-primary btn-block\"  [routerLink]=\"['/user', userId, 'website']\">Websites</a>\n  <a class=\"btn btn-danger btn-block\"  [routerLink]=\"['/login']\">Logout</a>\n</div>\n<nav class=\"navbar navbar-default navbar-fixed-bottom website-nav-background\">\n  <div class=\"container-fluid\">\n    <p class=\"navbar-text pull-right\">\n      <a [routerLink]=\"['/user', userId]\">\n        <span class=\"glyphicon glyphicon-user website-nav-text\"></span>\n      </a>\n    </p>\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-default navbar-fixed-top website-nav-background\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header pull-left\">\n      <a class=\"navbar-brand thick\">\n        <b class = \"website-nav-text\">Profile</b>\n      </a>\n    </div>\n    <div class=\"navbar-text pull-right\">\n      <a  class=\"navbar-link\">\n        <span class=\"glyphicon glyphicon-ok website-nav-text\"\n              (click)=\"updateUser(username, emailId, firstName, lastName)\"></span>\n      </a>\n    </div>\n  </div>\n</nav>\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"form-group col-xs-12\">\n      <label for=\"username\">Username</label>\n      <input type=\"text\" class=\"form-control\" id=\"username\" placeholder=\"username\" [(ngModel)]=\"username\">\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"form-group col-xs-12\">\n      <label for=\"email\">Email address</label>\n      <input type=\"email\" class=\"form-control\" id=\"email\" placeholder=\"emailid\" [(ngModel)]=\"emailId\">\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"form-group col-xs-12\">\n      <label for=\"first-name\">First Name</label>\n      <input type=\"text\" class=\"form-control\" id=\"first-name\" placeholder=\"firstname\" [(ngModel)]=\"firstName\">\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"form-group col-xs-12\">\n      <label for=\"last-name\">Last Name</label>\n      <input type=\"text\" class=\"form-control\" id=\"last-name\" placeholder=\"lastname\" [(ngModel)]=\"lastName\">\n    </div>\n  </div>\n  <a class=\"btn btn-primary btn-block\"  [routerLink]=\"['/user', userId, 'website']\">Websites</a>\n  <a class=\"btn btn-danger btn-block\"  [routerLink]=\"['/login']\">Logout</a>\n  <a class = \"btn btn-danger btn-block form-control\" (click)=\"deleteUser(user._id)\">Delete</a>\n</div>\n<nav class=\"navbar navbar-default navbar-fixed-bottom website-nav-background\">\n  <div class=\"container-fluid\">\n    <p class=\"navbar-text pull-right\">\n      <a [routerLink]=\"['/user', userId]\">\n        <span class=\"glyphicon glyphicon-user website-nav-text\"></span>\n      </a>\n    </p>\n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -869,10 +869,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ProfileComponent = (function () {
-    function ProfileComponent(userService, route) {
+    function ProfileComponent(userService, route, router) {
         this.userService = userService;
         this.route = route;
+        this.router = router;
     }
     ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -889,11 +891,24 @@ var ProfileComponent = (function () {
         });
     };
     ProfileComponent.prototype.updateUser = function (userName, emailId, firstName, lastName) {
-        var user = new __WEBPACK_IMPORTED_MODULE_3__models_user_model_client__["a" /* User */](this.userId, userName, this.user.password);
-        user.emailId = emailId;
-        user.firstName = firstName;
-        user.lastName = lastName;
-        this.userService.updateUser(this.userId, user);
+        var _this = this;
+        var tempUser = new __WEBPACK_IMPORTED_MODULE_3__models_user_model_client__["a" /* User */](this.userId, userName, this.user.password);
+        tempUser.emailId = emailId;
+        tempUser.firstName = firstName;
+        tempUser.lastName = lastName;
+        this.userService
+            .updateUser(this.userId, tempUser)
+            .subscribe(function (user) {
+            _this.user = user;
+        });
+    };
+    ProfileComponent.prototype.deleteUser = function (userId) {
+        var _this = this;
+        this.userService
+            .deleteUser(this.userId)
+            .subscribe(function (user) {
+            _this.router.navigate(['/login']);
+        });
     };
     return ProfileComponent;
 }());
@@ -903,10 +918,10 @@ ProfileComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/user/profile/profile.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/user/profile/profile.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _c || Object])
 ], ProfileComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=profile.component.js.map
 
 /***/ }),
@@ -968,16 +983,19 @@ var RegisterComponent = (function () {
         this.showError = false;
     };
     RegisterComponent.prototype.createUser = function (username, password, verifyPassword) {
+        var _this = this;
         if (!username || !password || !verifyPassword) {
             this.showError = true;
             return;
         }
         if (password === verifyPassword) {
-            var user = new __WEBPACK_IMPORTED_MODULE_1__models_user_model_client__["a" /* User */]('0', username, password);
-            this.userService.createUser(user);
-            if (user) {
-                this.router.navigate(['/login']);
-            }
+            var tempUser = new __WEBPACK_IMPORTED_MODULE_1__models_user_model_client__["a" /* User */]('', username, password);
+            this.userService
+                .createUser(tempUser)
+                .subscribe(function (user) {
+                _this.user = user;
+                _this.router.navigate(['/login']);
+            });
         }
     };
     return RegisterComponent;
@@ -2146,19 +2164,13 @@ var UserService = (function () {
             { _id: '345', username: 'charly', password: 'charly', firstName: 'Charly', lastName: 'Garcia', emailId: 'charly@gmail.com' },
             { _id: '456', username: 'kotakv', password: 'kotak', firstName: 'Vishal', lastName: 'Kotak', emailId: 'kotakv@gmail.com' }
         ];
-        this.api = {
-            'createUser': this.createUser,
-            'findUserById': this.findUserById,
-            'findUserByUsername': this.findUserByUsername,
-            'findUserByCredentials': this.findUserByCredentials,
-            'updateUser': this.updateUser,
-            'deleteUser': this.deleteUser
-        };
     }
     UserService.prototype.createUser = function (user) {
-        user._id = '' + Math.floor(Math.random() * 20);
-        this.users.push(user);
-        return user;
+        var url = 'http://localhost:3100/api/user/';
+        return this.http.post(url, user)
+            .map(function (response) {
+            return response.json();
+        });
     };
     UserService.prototype.findUserById = function (userId) {
         var url = 'http://localhost:3100/api/user/' + userId;
@@ -2182,18 +2194,18 @@ var UserService = (function () {
         });
     };
     UserService.prototype.updateUser = function (userId, user) {
-        for (var x = 0; x < this.users.length; x++) {
-            if (this.users[x]._id === userId) {
-                this.users[x] = user;
-            }
-        }
+        var url = 'http://localhost:3100/api/user/' + userId;
+        return this.http.put(url, user)
+            .map(function (response) {
+            return response.json();
+        });
     };
     UserService.prototype.deleteUser = function (userId) {
-        for (var x = 0; x < this.users.length; x++) {
-            if (this.users[x]._id === userId) {
-                this.users.splice(x, 1);
-            }
-        }
+        var url = 'http://localhost:3100/api/user/' + userId;
+        return this.http.delete(url)
+            .map(function (response) {
+            return response.json();
+        });
     };
     return UserService;
 }());
@@ -2305,18 +2317,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var WidgetService = (function () {
     function WidgetService(http) {
         this.http = http;
-        this.widgets = [
-            { _id: '123', type: 'HEADING', pageId: '123', size: '2', text: 'Lorem', url: '', width: '', name: '' },
-            { _id: '234', type: 'HEADING', pageId: '123', size: '4', text: 'Lorem', url: '', width: '', name: '' },
-            { _id: '345', type: 'IMAGE', pageId: '321', width: '200', url: 'http://lorempixel.com/400/200/', size: '',
-                text: '', name: 'Test Image' },
-            { _id: '456', type: 'HTML', pageId: '321', text: 'Lorem', url: '', width: '', size: '', name: '' },
-            { _id: '567', type: 'HEADING', pageId: '789', size: '4', text: 'Lorem', url: '', width: '', name: '' },
-            { _id: '678', type: 'YOUTUBE', pageId: '789', width: '100%', text: 'Introduction to HTML',
-                url: 'https://www.youtube.com/embed/ekIRCLFFvBI', size: '', name: 'Web Development' },
-            { _id: '789', type: 'IMAGE', pageId: '789', text: 'Lorem', url: 'http://lorempixel.com/400/200/',
-                size: '', width: '200', name: 'Test Image' }
-        ];
     }
     WidgetService.prototype.createWidget = function (userId, websiteId, pageId, widget) {
         var url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId + '/page/' + pageId + '/widget';

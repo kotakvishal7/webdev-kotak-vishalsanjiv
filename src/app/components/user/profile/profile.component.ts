@@ -17,7 +17,8 @@ export class ProfileComponent implements OnInit {
   firstName: String;
   lastName: String;
   constructor(private userService: UserService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params =>  {
@@ -34,12 +35,22 @@ export class ProfileComponent implements OnInit {
   }
 
   updateUser(userName: String, emailId: String, firstName: String, lastName: String) {
-    const user = new User(this.userId, userName, this.user.password);
-    user.emailId = emailId;
-    user.firstName = firstName;
-    user.lastName = lastName;
-    this.userService.updateUser(this.userId, user);
+    const tempUser = new User(this.userId, userName, this.user.password);
+    tempUser.emailId = emailId;
+    tempUser.firstName = firstName;
+    tempUser.lastName = lastName;
+    this.userService
+      .updateUser(this.userId, tempUser)
+      .subscribe((user) => {
+        this.user = user;
+
+      });
   }
-
-
+  deleteUser(userId: String) {
+    this.userService
+      .deleteUser(this.userId)
+      .subscribe((user) => {
+        this.router.navigate(['/login']);
+      });
+  }
 }

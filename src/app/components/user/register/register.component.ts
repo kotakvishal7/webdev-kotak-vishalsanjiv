@@ -24,11 +24,13 @@ export class RegisterComponent implements OnInit {
        return;
     }
     if (password === verifyPassword) {
-      const user = new User('0', username, password);
-      this.userService.createUser(user);
-      if (user) {
-        this.router.navigate(['/login']);
-      }
+        const tempUser = new User('', username, password);
+        this.userService
+          .createUser(tempUser)
+          .subscribe((user) => {
+            this.user = user;
+            this.router.navigate(['/login']);
+          });
     }
   }
 

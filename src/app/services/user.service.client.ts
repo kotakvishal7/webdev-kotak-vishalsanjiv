@@ -16,18 +16,12 @@ export class UserService {
     {_id: '345', username: 'charly', password: 'charly', firstName: 'Charly', lastName: 'Garcia', emailId: 'charly@gmail.com'},
     {_id: '456', username: 'kotakv', password: 'kotak', firstName: 'Vishal', lastName: 'Kotak', emailId: 'kotakv@gmail.com'}
   ];
-  api = {
-    'createUser': this.createUser,
-    'findUserById': this.findUserById,
-    'findUserByUsername': this.findUserByUsername,
-    'findUserByCredentials': this.findUserByCredentials,
-    'updateUser': this.updateUser,
-    'deleteUser': this.deleteUser
-  };
-  createUser(user: User) {
-    user._id = '' + Math.floor(Math.random() * 20);
-    this.users.push(user);
-    return user;
+   createUser(user: User) {
+    const url = 'http://localhost:3100/api/user/';
+    return this.http.post(url, user)
+      .map((response: Response) => {
+        return response.json();
+      });
   }
 
   findUserById(userId: String) {
@@ -51,16 +45,18 @@ export class UserService {
           return response.json();
         });
   }
-  updateUser(userId: String, user: any) {
-    for (let x = 0; x < this.users.length; x++) {
-      if (this.users[x]._id === userId) {
-        this.users[x] = user;
-      }
-    }
+  updateUser(userId: String, user: User) {
+    const url = 'http://localhost:3100/api/user/' + userId;
+    return this.http.put(url, user)
+      .map((response: Response) => {
+        return response.json();
+      });
   }
   deleteUser(userId: String) {
-    for (let x = 0; x < this.users.length; x++) {
-      if (this.users[x]._id === userId) { this.users.splice(x, 1); }
-    }
+    const url = 'http://localhost:3100/api/user/' + userId;
+    return this.http.delete(url)
+      .map((response: Response) => {
+        return response.json();
+      });
   }
 }
