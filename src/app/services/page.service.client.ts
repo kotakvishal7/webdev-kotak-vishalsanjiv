@@ -10,36 +10,37 @@ import { Page } from '../models/page.model.client';
 
 export class PageService {
   constructor(private http: Http) {}
+  baseUrl = environment.baseUrl;
   createPage(userId: String, websiteId: String, page: Page) {
-    const url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId + '/page';
+    const url = this.baseUrl + '/api/user/' + userId + '/website/' + websiteId + '/page';
     return this.http.post(url, page)
       .map((response: Response) => {
         return response.json();
       });
   }
   findPagebyWebsiteId(userId: String, websiteId: String) {
-    const url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId + '/page';
+    const url = this.baseUrl + '/api/user/' + userId + '/website/' + websiteId + '/page';
     return this.http.get(url)
       .map((response: Response) => {
         return response.json();
       });
   }
   findPageById(userId: String, websiteId: String, pageId: String) {
-    const url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId + '/page/' + pageId;
+    const url = this.baseUrl + '/api/user/' + userId + '/website/' + websiteId + '/page/' + pageId;
     return this.http.get(url)
       .map((response: Response) => {
         return response.json();
       });
   }
   updatePage(userId: String, websiteId: String, page: Page) {
-    const url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId + '/page/' + page._id;
+    const url = this.baseUrl + '/api/user/' + userId + '/website/' + websiteId + '/page/' + page._id;
     return this.http.put(url, page)
       .map((response: Response) => {
         return response.json();
       });
   }
   deletePage(userId: String, websiteId: String, pageId: String) {
-    const url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId + '/page/' + pageId;
+    const url = this.baseUrl + '/api/user/' + userId + '/website/' + websiteId + '/page/' + pageId;
     return this.http.delete(url)
       .map((response: Response) => {
         return response.json();

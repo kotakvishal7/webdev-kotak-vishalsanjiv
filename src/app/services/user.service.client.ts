@@ -10,6 +10,8 @@ import { User } from '../models/user.model.client';
 
 export class UserService {
   constructor(private http: Http) {}
+  baseUrl = environment.baseUrl;
+
   users: User[] = [
     {_id: '123', username: 'alice', password: 'alice', firstName: 'Alice', lastName: 'Wonder', emailId: 'alice@gmail.com'},
     {_id: '234', username: 'bob', password: 'bob', firstName: 'Bob', lastName: 'Marley', emailId: 'bob@gmail.com'},
@@ -17,7 +19,7 @@ export class UserService {
     {_id: '456', username: 'kotakv', password: 'kotak', firstName: 'Vishal', lastName: 'Kotak', emailId: 'kotakv@gmail.com'}
   ];
    createUser(user: User) {
-    const url = 'http://localhost:3100/api/user/';
+    const url = this.baseUrl + '/api/user/';
     return this.http.post(url, user)
       .map((response: Response) => {
         return response.json();
@@ -25,7 +27,7 @@ export class UserService {
   }
 
   findUserById(userId: String) {
-    const url = 'http://localhost:3100/api/user/' + userId;
+    const url = this.baseUrl + '/api/user/' + userId;
     return this.http.get(url)
       .map((response: Response) => {
         return response.json();
@@ -38,7 +40,7 @@ export class UserService {
     }
   }
   findUserByCredentials(username: String, password: String) {
-    const url = 'http://localhost:3100/api/user?username=' + username + '&password=' + password;
+    const url = this.baseUrl + '/api/user?username=' + username + '&password=' + password;
     return this.http.get(url)
       .map(
         (response: Response) => {
@@ -46,14 +48,14 @@ export class UserService {
         });
   }
   updateUser(userId: String, user: User) {
-    const url = 'http://localhost:3100/api/user/' + userId;
+    const url = this.baseUrl + '/api/user/' + userId;
     return this.http.put(url, user)
       .map((response: Response) => {
         return response.json();
       });
   }
   deleteUser(userId: String) {
-    const url = 'http://localhost:3100/api/user/' + userId;
+    const url = this.baseUrl + '/api/user/' + userId;
     return this.http.delete(url)
       .map((response: Response) => {
         return response.json();

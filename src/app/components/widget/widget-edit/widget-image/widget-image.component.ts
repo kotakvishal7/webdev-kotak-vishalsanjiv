@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Widget} from '../../../../models/widget.model.client';
 import {WidgetService} from '../../../../services/widget.service.client';
+import {environment} from '../../../../../environments/environment';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class WidgetImageComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private widgetService: WidgetService,
               private router: Router) { }
-
+  baseUrl = environment.baseUrl;
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.userId = params['uid'];
@@ -47,10 +48,6 @@ export class WidgetImageComponent implements OnInit {
     });
   }
   createWidget(text: String, name: String, width: String, url: String) {
-    if (!text || !name || !width || !url) {
-      this.showError = true;
-      return;
-    }
     const widget = new Widget('', 'IMAGE', this.pageId);
     widget.text = text;
     widget.name = name;

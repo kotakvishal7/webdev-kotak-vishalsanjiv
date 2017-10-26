@@ -11,22 +11,23 @@ import {Widget} from '../models/widget.model.client';
 export class WidgetService {
   constructor(private http: Http) {
   }
+  baseUrl = environment.baseUrl;
   createWidget(userId: String, websiteId: String, pageId: String, widget: Widget) {
-    const url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId + '/page/' + pageId + '/widget';
+    const url = this.baseUrl + '/api/user/' + userId + '/website/' + websiteId + '/page/' + pageId + '/widget';
     return this.http.post(url, widget)
       .map((response: Response) => {
         return response.json();
       });
   }
   findWidgetsByPageId(userId: String, websiteId: String, pageId: String) {
-    const url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId + '/page/' + pageId + '/widget';
+    const url = this.baseUrl + '/api/user/' + userId + '/website/' + websiteId + '/page/' + pageId + '/widget';
     return this.http.get(url)
       .map((response: Response) => {
         return response.json();
       });
   }
   findWidgetById(userId: String, websiteId: String, pageId: String, widgetId: String) {
-    const url = 'http://localhost:3100/api/user/' + userId + '/website/'
+    const url = this.baseUrl + '/api/user/' + userId + '/website/'
       + websiteId + '/page/' + pageId + '/widget/' + widgetId;
     return this.http.get(url)
       .map((response: Response) => {
@@ -34,7 +35,7 @@ export class WidgetService {
       });
   }
   updateWidget(userId: String, websiteId: String, pageId: String, widgetId: String, widget: Widget) {
-    const url = 'http://localhost:3100/api/user/' + userId + '/website/'
+    const url = this.baseUrl + '/api/user/' + userId + '/website/'
       + websiteId + '/page/' + pageId + '/widget/' + widgetId;
     return this.http.put(url, widget)
       .map((response: Response) => {
@@ -42,7 +43,7 @@ export class WidgetService {
       });
   }
   deleteWidget(userId: String, websiteId: String, pageId: String, widgetId: String) {
-    const url = 'http://localhost:3100/api/user/' + userId + '/website/'
+    const url = this.baseUrl + '/api/user/' + userId + '/website/'
       + websiteId + '/page/' + pageId + '/widget/' + widgetId ;
     return this.http.delete(url)
       .map((response: Response) => {

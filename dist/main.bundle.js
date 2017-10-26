@@ -1602,7 +1602,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/widget/widget-edit/widget-image/widget-image.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div [hidden]=\"!editFlag\">\n  <nav class=\"navbar navbar-default navbar-fixed-top\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-text pull-left\">\n        <a [routerLink]=\"['/user', userId, 'website', websiteId, 'page', pageId, 'widget']\" class=\"navbar-link\">\n          <span class=\"glyphicon glyphicon-chevron-left\"></span>\n        </a>\n      </div>\n      <div class=\"navbar-header pull-left\">\n        <a class=\"navbar-brand thick\">\n          <b class = \"website-nav-header\">Widget Edit</b>\n        </a>\n      </div>\n      <div class=\"navbar-text pull-right\">\n        <a class=\"navbar-link\">\n            <span class=\"glyphicon glyphicon-ok\"\n                  (click)=\"updateWidget(widgetText, widgetName, widgetWidth, widgetUrl, widget._id)\"></span>\n        </a>\n      </div>\n    </div>\n  </nav>\n</div>\n<div [hidden]=\"editFlag\">\n  <nav class=\"navbar navbar-default navbar-fixed-top\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-text pull-left\">\n        <a [routerLink]=\"['/user', userId, 'website', websiteId, 'page', pageId, 'widget']\" class=\"navbar-link\">\n          <span class=\"glyphicon glyphicon-chevron-left\"></span>\n        </a>\n      </div>\n      <div class=\"navbar-header pull-left\">\n        <a class=\"navbar-brand thick\">\n          <b class = \"website-nav-header\">Widget New</b>\n        </a>\n      </div>\n      <div class=\"navbar-text pull-right\">\n        <a class=\"navbar-link\">\n          <span class=\"glyphicon glyphicon-ok\"\n                (click)=\"createWidget(widgetText, widgetName, widgetWidth, widgetUrl)\"></span>\n        </a>\n      </div>\n    </div>\n  </nav>\n</div>\n<div class = \"container-fluid\">\n  <div class = \"row widget-item\">\n    <div class = \"col-xs-6\">\n      <label for = \"widget-image-name\">Name</label>\n    </div>\n  </div>\n  <div class = \"row\">\n    <div class = \"col-xs-12\">\n      <input type = \"text\" placeholder = \"Name\" id = \"widget-image-name\" class = \"form-control\"\n      [(ngModel)]=\"widgetName\"/>\n    </div>\n  </div>\n  <div class = \"row widget-item\">\n    <div class = \"col-xs-6\">\n      <label for = \"widget-image-text\">Text</label>\n    </div>\n  </div>\n  <div class = \"row\">\n    <div class = \"col-xs-12\">\n      <input class = \"form-control\" placeholder = \"Text\" id = \"widget-image-text\" type = \"text\"\n           [(ngModel)]=\"widgetText\"/>\n    </div>\n  </div>\n  <div class = \"row\">\n    <div class = \"col-sm-6 widget-item\">\n      <label for = \"widget-image-url\">URL</label>\n    </div>\n  </div>\n  <div class = \"row\">\n    <div class = \"col-xs-12\">\n      <input class = \"form-control\" placeholder = \"Url\" id = \"widget-image-url\" type = \"text\"\n             [(ngModel)]=\"widgetUrl\">\n    </div>\n  </div>\n  <div class = \"row\">\n    <div class = \"col-xs-6 widget-item\">\n      <label for = \"widget-image-width\">Width</label>\n    </div>\n  </div>\n  <div class = \"row\">\n    <div class = \"col-xs-12\">\n      <input class = \"form-control\" placeholder = \"Width\" id = \"widget-image-width\" type = \"number\"\n      [(ngModel)]=\"widgetWidth\"/>\n    </div>\n  </div>\n  <div class = \"row widget-item\">\n    <div class = \"col-xs-6\">\n      <label for = \"widget-image-upload\">Upload</label>\n    </div>\n  </div>\n  <div class = \"row\">\n    <div class = \"col-xs-12\">\n      <input type = \"file\" class = \"form-control\" id = \"widget-image-upload\"/>\n    </div>\n  </div>\n  <div class = \"row widget-item\">\n    <div class = \"col-xs-12\">\n      <button class = \"btn btn-primary btn-block\"\n              [routerLink]=\"['/user', userId, 'website', websiteId, 'page', pageId, 'widget']\">Upload Image</button>\n    </div>\n  </div>\n  <div class = \"row widget-item\" [hidden]=\"!editFlag\">\n    <div class = \"col-xs-12\">\n      <a class = \"btn btn-danger btn-block\" (click)=\"deleteWidget(widget._id)\">Delete</a>\n    </div>\n  </div>\n  <div class=\"row errorBlock\" [hidden]=\"!showError\">\n    <div class = \"col-xs-12 col-sm-12 col-sm-offset-3\">\n      <span class=\"errorMessage\">Image data missing</span>\n    </div>\n  </div>\n</div>\n<nav class = \"navbar navbar-default navbar-fixed-bottom\">\n  <div class = \"container-fluid\">\n    <p class=\"navbar-text pull-right\">\n      <a [routerLink]=\"['/user', userId]\">\n        <span class = \"glyphicon glyphicon-user\"></span>\n      </a>\n    </p>\n  </div>\n</nav>\n"
+module.exports = "<div [hidden]=\"!editFlag\">\n  <nav class=\"navbar navbar-default navbar-fixed-top\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-text pull-left\">\n        <a [routerLink]=\"['/user', userId, 'website', websiteId, 'page', pageId, 'widget']\" class=\"navbar-link\">\n          <span class=\"glyphicon glyphicon-chevron-left\"></span>\n        </a>\n      </div>\n      <div class=\"navbar-header pull-left\">\n        <a class=\"navbar-brand thick\">\n          <b class = \"website-nav-header\">Widget Edit</b>\n        </a>\n      </div>\n      <div class=\"navbar-text pull-right\">\n        <a class=\"navbar-link\">\n            <span class=\"glyphicon glyphicon-ok\"\n                  (click)=\"updateWidget(widgetText, widgetName, widgetWidth, widgetUrl, widget._id)\"></span>\n        </a>\n      </div>\n    </div>\n  </nav>\n</div>\n<div [hidden]=\"editFlag\">\n  <nav class=\"navbar navbar-default navbar-fixed-top\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-text pull-left\">\n        <a [routerLink]=\"['/user', userId, 'website', websiteId, 'page', pageId, 'widget']\" class=\"navbar-link\">\n          <span class=\"glyphicon glyphicon-chevron-left\"></span>\n        </a>\n      </div>\n      <div class=\"navbar-header pull-left\">\n        <a class=\"navbar-brand thick\">\n          <b class = \"website-nav-header\">Widget New</b>\n        </a>\n      </div>\n      <div class=\"navbar-text pull-right\">\n        <a class=\"navbar-link\">\n          <span class=\"glyphicon glyphicon-ok\"\n                (click)=\"createWidget(widgetText, widgetName, widgetWidth, widgetUrl)\"></span>\n        </a>\n      </div>\n    </div>\n  </nav>\n</div>\n<div class = \"container-fluid\">\n  <form ngNoForm action=\"{{baseUrl}}/api/upload\" method=\"post\" enctype=\"multipart/form-data\">\n    <div class = \"row widget-item\">\n      <div class = \"col-xs-6\">\n        <label for = \"widget-image-name\">Name</label>\n      </div>\n    </div>\n    <div class = \"row\">\n      <div class = \"col-xs-12\">\n        <input type = \"text\" placeholder = \"Name\" id = \"widget-image-name\" class = \"form-control\"\n        [(ngModel)]=\"widgetName\"/>\n      </div>\n    </div>\n    <div class = \"row widget-item\">\n      <div class = \"col-xs-6\">\n        <label for = \"widget-image-text\">Text</label>\n      </div>\n    </div>\n    <div class = \"row\">\n      <div class = \"col-xs-12\">\n        <input class = \"form-control\" placeholder = \"Text\" id = \"widget-image-text\" type = \"text\"\n             [(ngModel)]=\"widgetText\"/>\n      </div>\n    </div>\n    <div class = \"row\">\n      <div class = \"col-sm-6 widget-item\">\n        <label for = \"widget-image-url\">URL</label>\n      </div>\n    </div>\n    <div class = \"row\">\n      <div class = \"col-xs-12\">\n        <input class = \"form-control\" placeholder = \"Url\" id = \"widget-image-url\" type = \"text\"\n               [(ngModel)]=\"widgetUrl\">\n      </div>\n    </div>\n    <div class = \"row\">\n      <div class = \"col-xs-6 widget-item\">\n        <label for = \"widget-image-width\">Width</label>\n      </div>\n    </div>\n    <div class = \"row\">\n      <div class = \"col-xs-12\">\n        <input class = \"form-control\" placeholder = \"Width\" id = \"widget-image-width\" type = \"number\"\n        [(ngModel)]=\"widgetWidth\"/>\n      </div>\n    </div>\n    <div class = \"row widget-item\">\n      <div class = \"col-xs-6\">\n        <label for = \"myFile\">Upload</label>\n      </div>\n    </div>\n    <div class = \"row\">\n      <div class = \"col-xs-12\">\n        <input type = \"file\" class = \"form-control\" id=\"myFile\" required\n               name=\"myFile\"/>\n      </div>\n    </div>\n    <div class=\"form-group\">\n      <input  name=\"widgetId\" value=\"{{widgetId}}\"   style=\"display: none\"/>\n      <input  name=\"websiteId\" value=\"{{websiteId}}\"   style=\"display: none\"/>\n      <input  name=\"pageId\" value=\"{{pageId}}\"   style=\"display: none\"/>\n      <input  name=\"userId\" value=\"{{userId}}\"   style=\"display: none\"/>\n      <button type=\"submit\" class=\"form-control btn btn-primary\">\n        Upload Image\n      </button>\n    </div>\n    <div class = \"row widget-item\" [hidden]=\"!editFlag\">\n      <div class = \"col-xs-12\">\n        <a class = \"btn btn-danger btn-block\" (click)=\"deleteWidget(widget._id)\">Delete</a>\n      </div>\n    </div>\n    <div class=\"row errorBlock\" [hidden]=\"!showError\">\n      <div class = \"col-xs-12 col-sm-12 col-sm-offset-3\">\n        <span class=\"errorMessage\">Image data missing</span>\n      </div>\n    </div>\n  </form>\n</div>\n<nav class = \"navbar navbar-default navbar-fixed-bottom\">\n  <div class = \"container-fluid\">\n    <p class=\"navbar-text pull-right\">\n      <a [routerLink]=\"['/user', userId]\">\n        <span class = \"glyphicon glyphicon-user\"></span>\n      </a>\n    </p>\n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -1614,6 +1614,7 @@ module.exports = "<div [hidden]=\"!editFlag\">\n  <nav class=\"navbar navbar-def
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_widget_model_client__ = __webpack_require__("../../../../../src/app/models/widget.model.client.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_widget_service_client__ = __webpack_require__("../../../../../src/app/services/widget.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WidgetImageComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1628,11 +1629,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var WidgetImageComponent = (function () {
     function WidgetImageComponent(route, widgetService, router) {
         this.route = route;
         this.widgetService = widgetService;
         this.router = router;
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].baseUrl;
     }
     WidgetImageComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1657,10 +1660,6 @@ var WidgetImageComponent = (function () {
     };
     WidgetImageComponent.prototype.createWidget = function (text, name, width, url) {
         var _this = this;
-        if (!text || !name || !width || !url) {
-            this.showError = true;
-            return;
-        }
         var widget = new __WEBPACK_IMPORTED_MODULE_2__models_widget_model_client__["a" /* Widget */]('', 'IMAGE', this.pageId);
         widget.text = text;
         widget.name = name;
@@ -2003,6 +2002,7 @@ var Widget = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PageService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2016,41 +2016,43 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 // injecting service into module
 var PageService = (function () {
     function PageService(http) {
         this.http = http;
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].baseUrl;
     }
     PageService.prototype.createPage = function (userId, websiteId, page) {
-        var url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId + '/page';
+        var url = this.baseUrl + '/api/user/' + userId + '/website/' + websiteId + '/page';
         return this.http.post(url, page)
             .map(function (response) {
             return response.json();
         });
     };
     PageService.prototype.findPagebyWebsiteId = function (userId, websiteId) {
-        var url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId + '/page';
+        var url = this.baseUrl + '/api/user/' + userId + '/website/' + websiteId + '/page';
         return this.http.get(url)
             .map(function (response) {
             return response.json();
         });
     };
     PageService.prototype.findPageById = function (userId, websiteId, pageId) {
-        var url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId + '/page/' + pageId;
+        var url = this.baseUrl + '/api/user/' + userId + '/website/' + websiteId + '/page/' + pageId;
         return this.http.get(url)
             .map(function (response) {
             return response.json();
         });
     };
     PageService.prototype.updatePage = function (userId, websiteId, page) {
-        var url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId + '/page/' + page._id;
+        var url = this.baseUrl + '/api/user/' + userId + '/website/' + websiteId + '/page/' + page._id;
         return this.http.put(url, page)
             .map(function (response) {
             return response.json();
         });
     };
     PageService.prototype.deletePage = function (userId, websiteId, pageId) {
-        var url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId + '/page/' + pageId;
+        var url = this.baseUrl + '/api/user/' + userId + '/website/' + websiteId + '/page/' + pageId;
         return this.http.delete(url)
             .map(function (response) {
             return response.json();
@@ -2141,6 +2143,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2154,10 +2157,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 // injecting service into module
 var UserService = (function () {
     function UserService(http) {
         this.http = http;
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].baseUrl;
         this.users = [
             { _id: '123', username: 'alice', password: 'alice', firstName: 'Alice', lastName: 'Wonder', emailId: 'alice@gmail.com' },
             { _id: '234', username: 'bob', password: 'bob', firstName: 'Bob', lastName: 'Marley', emailId: 'bob@gmail.com' },
@@ -2166,14 +2171,14 @@ var UserService = (function () {
         ];
     }
     UserService.prototype.createUser = function (user) {
-        var url = 'http://localhost:3100/api/user/';
+        var url = this.baseUrl + '/api/user/';
         return this.http.post(url, user)
             .map(function (response) {
             return response.json();
         });
     };
     UserService.prototype.findUserById = function (userId) {
-        var url = 'http://localhost:3100/api/user/' + userId;
+        var url = this.baseUrl + '/api/user/' + userId;
         return this.http.get(url)
             .map(function (response) {
             return response.json();
@@ -2187,21 +2192,21 @@ var UserService = (function () {
         }
     };
     UserService.prototype.findUserByCredentials = function (username, password) {
-        var url = 'http://localhost:3100/api/user?username=' + username + '&password=' + password;
+        var url = this.baseUrl + '/api/user?username=' + username + '&password=' + password;
         return this.http.get(url)
             .map(function (response) {
             return response.json();
         });
     };
     UserService.prototype.updateUser = function (userId, user) {
-        var url = 'http://localhost:3100/api/user/' + userId;
+        var url = this.baseUrl + '/api/user/' + userId;
         return this.http.put(url, user)
             .map(function (response) {
             return response.json();
         });
     };
     UserService.prototype.deleteUser = function (userId) {
-        var url = 'http://localhost:3100/api/user/' + userId;
+        var url = this.baseUrl + '/api/user/' + userId;
         return this.http.delete(url)
             .map(function (response) {
             return response.json();
@@ -2227,6 +2232,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WebsiteService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2240,41 +2246,43 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 // injecting service into module
 var WebsiteService = (function () {
     function WebsiteService(http) {
         this.http = http;
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].baseUrl;
     }
     WebsiteService.prototype.createWebsite = function (userId, website) {
-        var url = 'http://localhost:3100/api/user/' + userId + '/website';
+        var url = this.baseUrl + '/api/user/' + userId + '/website';
         return this.http.post(url, website)
             .map(function (response) {
             return response.json();
         });
     };
     WebsiteService.prototype.findWebsitesByUser = function (userId) {
-        var url = 'http://localhost:3100/api/user/' + userId + '/website';
+        var url = this.baseUrl + '/api/user/' + userId + '/website';
         return this.http.get(url)
             .map(function (response) {
             return response.json();
         });
     };
     WebsiteService.prototype.findWebsiteById = function (userId, websiteId) {
-        var url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId;
+        var url = this.baseUrl + '/api/user/' + userId + '/website/' + websiteId;
         return this.http.get(url)
             .map(function (response) {
             return response.json();
         });
     };
     WebsiteService.prototype.updateWebsite = function (userId, website) {
-        var url = 'http://localhost:3100/api/user/' + userId + '/website/' + website._id;
+        var url = this.baseUrl + '/api/user/' + userId + '/website/' + website._id;
         return this.http.put(url, website)
             .map(function (response) {
             return response.json();
         });
     };
     WebsiteService.prototype.deleteWebsite = function (userId, websiteId) {
-        var url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId;
+        var url = this.baseUrl + '/api/user/' + userId + '/website/' + websiteId;
         return this.http.delete(url)
             .map(function (response) {
             return response.json();
@@ -2300,6 +2308,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WidgetService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2313,27 +2322,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 // injecting service into module
 var WidgetService = (function () {
     function WidgetService(http) {
         this.http = http;
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].baseUrl;
     }
     WidgetService.prototype.createWidget = function (userId, websiteId, pageId, widget) {
-        var url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId + '/page/' + pageId + '/widget';
+        var url = this.baseUrl + '/api/user/' + userId + '/website/' + websiteId + '/page/' + pageId + '/widget';
         return this.http.post(url, widget)
             .map(function (response) {
             return response.json();
         });
     };
     WidgetService.prototype.findWidgetsByPageId = function (userId, websiteId, pageId) {
-        var url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId + '/page/' + pageId + '/widget';
+        var url = this.baseUrl + '/api/user/' + userId + '/website/' + websiteId + '/page/' + pageId + '/widget';
         return this.http.get(url)
             .map(function (response) {
             return response.json();
         });
     };
     WidgetService.prototype.findWidgetById = function (userId, websiteId, pageId, widgetId) {
-        var url = 'http://localhost:3100/api/user/' + userId + '/website/'
+        var url = this.baseUrl + '/api/user/' + userId + '/website/'
             + websiteId + '/page/' + pageId + '/widget/' + widgetId;
         return this.http.get(url)
             .map(function (response) {
@@ -2341,7 +2352,7 @@ var WidgetService = (function () {
         });
     };
     WidgetService.prototype.updateWidget = function (userId, websiteId, pageId, widgetId, widget) {
-        var url = 'http://localhost:3100/api/user/' + userId + '/website/'
+        var url = this.baseUrl + '/api/user/' + userId + '/website/'
             + websiteId + '/page/' + pageId + '/widget/' + widgetId;
         return this.http.put(url, widget)
             .map(function (response) {
@@ -2349,7 +2360,7 @@ var WidgetService = (function () {
         });
     };
     WidgetService.prototype.deleteWidget = function (userId, websiteId, pageId, widgetId) {
-        var url = 'http://localhost:3100/api/user/' + userId + '/website/'
+        var url = this.baseUrl + '/api/user/' + userId + '/website/'
             + websiteId + '/page/' + pageId + '/widget/' + widgetId;
         return this.http.delete(url)
             .map(function (response) {

@@ -10,8 +10,10 @@ import { Website } from '../models/website.model.client';
 
 export class WebsiteService {
   constructor(private http: Http) {}
+  baseUrl = environment.baseUrl;
+
   createWebsite(userId: String, website: Website) {
-    const url = 'http://localhost:3100/api/user/' + userId + '/website';
+    const url = this.baseUrl + '/api/user/' + userId + '/website';
     return this.http.post(url, website)
       .map((response: Response) => {
         return response.json();
@@ -19,7 +21,7 @@ export class WebsiteService {
   }
 
   findWebsitesByUser(userId: String) {
-    const url = 'http://localhost:3100/api/user/' + userId + '/website';
+    const url = this.baseUrl + '/api/user/' + userId + '/website';
     return this.http.get(url)
       .map((response: Response) => {
         return response.json();
@@ -28,7 +30,7 @@ export class WebsiteService {
 
 
   findWebsiteById(userId, websiteId: String) {
-    const url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId;
+    const url = this.baseUrl + '/api/user/' + userId + '/website/' + websiteId;
     return this.http.get(url)
       .map((response: Response) => {
         return response.json();
@@ -36,7 +38,7 @@ export class WebsiteService {
   }
 
   updateWebsite(userId: String, website: Website) {
-    const url = 'http://localhost:3100/api/user/' + userId + '/website/' + website._id;
+    const url = this.baseUrl + '/api/user/' + userId + '/website/' + website._id;
     return this.http.put(url, website)
       .map((response: Response) => {
         return response.json();
@@ -44,7 +46,7 @@ export class WebsiteService {
   }
 
   deleteWebsite(userId: String, websiteId: String) {
-    const url = 'http://localhost:3100/api/user/' + userId + '/website/' + websiteId;
+    const url = this.baseUrl + '/api/user/' + userId + '/website/' + websiteId;
     return this.http.delete(url)
       .map((response: Response) => {
         return response.json();

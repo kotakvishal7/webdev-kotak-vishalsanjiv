@@ -43,76 +43,82 @@
   </nav>
 </div>
 <div class = "container-fluid">
-  <div class = "row widget-item">
-    <div class = "col-xs-6">
-      <label for = "widget-image-name">Name</label>
+  <form ngNoForm action="{{baseUrl}}/api/upload" method="post" enctype="multipart/form-data">
+    <div class = "row widget-item">
+      <div class = "col-xs-6">
+        <label for = "widget-image-name">Name</label>
+      </div>
     </div>
-  </div>
-  <div class = "row">
-    <div class = "col-xs-12">
-      <input type = "text" placeholder = "Name" id = "widget-image-name" class = "form-control"
-      [(ngModel)]="widgetName"/>
+    <div class = "row">
+      <div class = "col-xs-12">
+        <input type = "text" placeholder = "Name" id = "widget-image-name" class = "form-control"
+        [(ngModel)]="widgetName"/>
+      </div>
     </div>
-  </div>
-  <div class = "row widget-item">
-    <div class = "col-xs-6">
-      <label for = "widget-image-text">Text</label>
+    <div class = "row widget-item">
+      <div class = "col-xs-6">
+        <label for = "widget-image-text">Text</label>
+      </div>
     </div>
-  </div>
-  <div class = "row">
-    <div class = "col-xs-12">
-      <input class = "form-control" placeholder = "Text" id = "widget-image-text" type = "text"
-           [(ngModel)]="widgetText"/>
+    <div class = "row">
+      <div class = "col-xs-12">
+        <input class = "form-control" placeholder = "Text" id = "widget-image-text" type = "text"
+             [(ngModel)]="widgetText"/>
+      </div>
     </div>
-  </div>
-  <div class = "row">
-    <div class = "col-sm-6 widget-item">
-      <label for = "widget-image-url">URL</label>
+    <div class = "row">
+      <div class = "col-sm-6 widget-item">
+        <label for = "widget-image-url">URL</label>
+      </div>
     </div>
-  </div>
-  <div class = "row">
-    <div class = "col-xs-12">
-      <input class = "form-control" placeholder = "Url" id = "widget-image-url" type = "text"
-             [(ngModel)]="widgetUrl">
+    <div class = "row">
+      <div class = "col-xs-12">
+        <input class = "form-control" placeholder = "Url" id = "widget-image-url" type = "text"
+               [(ngModel)]="widgetUrl">
+      </div>
     </div>
-  </div>
-  <div class = "row">
-    <div class = "col-xs-6 widget-item">
-      <label for = "widget-image-width">Width</label>
+    <div class = "row">
+      <div class = "col-xs-6 widget-item">
+        <label for = "widget-image-width">Width</label>
+      </div>
     </div>
-  </div>
-  <div class = "row">
-    <div class = "col-xs-12">
-      <input class = "form-control" placeholder = "Width" id = "widget-image-width" type = "number"
-      [(ngModel)]="widgetWidth"/>
+    <div class = "row">
+      <div class = "col-xs-12">
+        <input class = "form-control" placeholder = "Width" id = "widget-image-width" type = "number"
+        [(ngModel)]="widgetWidth"/>
+      </div>
     </div>
-  </div>
-  <div class = "row widget-item">
-    <div class = "col-xs-6">
-      <label for = "widget-image-upload">Upload</label>
+    <div class = "row widget-item">
+      <div class = "col-xs-6">
+        <label for = "myFile">Upload</label>
+      </div>
     </div>
-  </div>
-  <div class = "row">
-    <div class = "col-xs-12">
-      <input type = "file" class = "form-control" id = "widget-image-upload"/>
+    <div class = "row">
+      <div class = "col-xs-12">
+        <input type = "file" class = "form-control" id="myFile" required
+               name="myFile"/>
+      </div>
     </div>
-  </div>
-  <div class = "row widget-item">
-    <div class = "col-xs-12">
-      <button class = "btn btn-primary btn-block"
-              [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">Upload Image</button>
+    <div class="form-group">
+      <input  name="widgetId" value="{{widgetId}}"   style="display: none"/>
+      <input  name="websiteId" value="{{websiteId}}"   style="display: none"/>
+      <input  name="pageId" value="{{pageId}}"   style="display: none"/>
+      <input  name="userId" value="{{userId}}"   style="display: none"/>
+      <button type="submit" class="form-control btn btn-primary">
+        Upload Image
+      </button>
     </div>
-  </div>
-  <div class = "row widget-item" [hidden]="!editFlag">
-    <div class = "col-xs-12">
-      <a class = "btn btn-danger btn-block" (click)="deleteWidget(widget._id)">Delete</a>
+    <div class = "row widget-item" [hidden]="!editFlag">
+      <div class = "col-xs-12">
+        <a class = "btn btn-danger btn-block" (click)="deleteWidget(widget._id)">Delete</a>
+      </div>
     </div>
-  </div>
-  <div class="row errorBlock" [hidden]="!showError">
-    <div class = "col-xs-12 col-sm-12 col-sm-offset-3">
-      <span class="errorMessage">Image data missing</span>
+    <div class="row errorBlock" [hidden]="!showError">
+      <div class = "col-xs-12 col-sm-12 col-sm-offset-3">
+        <span class="errorMessage">Image data missing</span>
+      </div>
     </div>
-  </div>
+  </form>
 </div>
 <nav class = "navbar navbar-default navbar-fixed-bottom">
   <div class = "container-fluid">
