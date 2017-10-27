@@ -28,11 +28,18 @@ Assignment 2 Link: [User Interface Development](https://docs.google.com/document
 
 Assignment 3 Link: [Client Side development](https://docs.google.com/document/d/1weLoMKGV1ALlpNUk6oVPUFRC1MX7wqyt9kRZ9hedZxA/edit)
 
+Assignment 4 Link: [Server Side Development](https://docs.google.com/document/d/1a_AVIscfYwlJORj85s9Lc-znHlWZczGP6wLQYuTO3N4/edit)
+
 ## Assignment 3
 
 The static pages for page, user, website, widgets have been made dynamic by creating components, services and single page routing.
 
 Steps related to the project:
+
+## Assignment 4
+
+This assignment focuses on creating Web services with the Express Node.js module. Web services will expose server side data sources through HTTP endpoints. The angular services will access the data from the Web services through various HTTP requests such as POST, GET, PUT, and DELETE.
+
 
 # AngularFourMEANSeed
 
