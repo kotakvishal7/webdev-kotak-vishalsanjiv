@@ -59,7 +59,7 @@ module.exports = function(app) {
         res.send(user);
       }
       else {
-        res.send({});
+        res.status(401).send("No user found");
       }
       return;
     } else if(username) {
@@ -70,11 +70,11 @@ module.exports = function(app) {
         res.send(user);
       }
       else {
-        res.status(404).send("No user found");
+        res.status(401).send("No user found");
       }
       return;
     }
-    res.json(users);
+    res.json(USERS);
   }
 
   function findUserById(req, res) {

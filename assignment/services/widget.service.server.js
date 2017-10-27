@@ -24,36 +24,39 @@ module.exports = function(app) {
 
   app.post("/api/upload", upload.single('myFile'), uploadImage);
 
-  function uploadImage(req, res) {
-    var widgetId = req.body.widgetId;
-    var width = req.body.width;
-    var myFile = req.file;
+  function uploadImage(request, response) {
+    var widgetId = request.body.widgetId;
+    // var width = request.body.widgetWidth;
+    var width = '100';
+    var name = 'Upload';
+    var myFile = request.file;
+    var text = 'Upload';
+    var userId = request.body.userId;
+    var websiteId = request.body.websiteId;
+    var pageId = request.body.pageId;
 
-    var userId = req.body.userId;
-    var websiteId = req.body.websiteId;
-    var pageId = req.body.pageId;
-
-    var originalname = myFile.originalname; // file name on user's computer
     var filename = myFile.filename;     // new file name in upload folder
-    var path = myFile.path;         // full path of uploaded file
-    var destination = myFile.destination;  // folder where file is saved to
-    var size = myFile.size;
-    var mimetype = myFile.mimetype;
 
     if(!widgetId) {
       widgetId = (new Date()).getTime() + '';
     }
-    widget = {
-      '_id': widgetId,
-      'widgetType': 'IMAGE',
-      'pageId': pageId,
-      'width': '100'
+
+    console.log(width);
+    console.log(name);
+    console.log(text);
+    var widget = {
+        '_id': widgetId,
+        'type': 'IMAGE',
+        'pageId': pageId,
+        'width': width,
+        'name': name,
+        'text': text
     };
     widget['url'] = 'assets/uploads/'+filename;
     WIDGETS.push(widget);
-    console.log(WIDGETS);
+
     var callbackUrl = "/user/" + userId + "/website/" + websiteId + '/page/' + pageId + '/widget';
-    res.redirect(callbackUrl);
+    response.redirect(callbackUrl);
   }
 
   function updateWidget(request, response) {
