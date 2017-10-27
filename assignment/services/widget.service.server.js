@@ -27,7 +27,7 @@ module.exports = function(app) {
   function uploadImage(request, response) {
     var widgetId = request.body.widgetId;
     // var width = request.body.widgetWidth;
-    var width = '100';
+    var width = request.body.width + '';
     var name = 'Upload';
     var myFile = request.file;
     var text = 'Upload';
