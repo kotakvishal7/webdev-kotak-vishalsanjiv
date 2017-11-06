@@ -12,6 +12,9 @@ import { Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   user = User;
   showError: Boolean;
+  username: String;
+  password: String;
+  verifyPassword: String;
   constructor(private userService: UserService, private  router: Router) { }
 
   ngOnInit() {
@@ -19,6 +22,9 @@ export class RegisterComponent implements OnInit {
   }
 
   createUser(username: String, password: String, verifyPassword: String) {
+    this.username = username;
+    this.password = password;
+    this.verifyPassword = verifyPassword;
     if (!username || !password || !verifyPassword) {
        this.showError = true;
        return;
@@ -26,11 +32,20 @@ export class RegisterComponent implements OnInit {
     if (password === verifyPassword) {
         const tempUser = new User('', username, password);
         this.userService
-          .createUser(tempUser)
+          .findUserByUsername(username)
           .subscribe((user) => {
-            this.user = user;
-            this.router.navigate(['/login']);
-          });
+          if  (user === null) {
+            this.userService
+              .createUser(tempUser)
+              .subscribe((newUser) => {
+                this.user = newUser;
+              });
+          }else {
+            this.showError = true;
+            return;
+          }
+          this.router.navigate(['/login']);
+        });
     }
   }
 

@@ -17,31 +17,38 @@ module.exports = function(app) {
     {_id: '456', username: 'kotakv', password: 'kotak', firstName: 'Vishal', lastName: 'Kotak', emailId: 'kotakv@gmail.com'}
   ];
 
+  var userModel = require('../models/user/user.model.server');
+
+  function createUser(request, response) {
+    var newUser = request.body;
+    delete newUser._id;
+    userModel
+      .createUser(newUser)
+      .then(function(user) {
+        res.json(user);
+      }, function(error) {
+        console.log(error);
+      });
+
+  }
+
   function deleteUser(request, response) {
     var userId = request.params['uid'];
-    for(var x = 0; x < USERS.length; x++) {
-      if(USERS[x]._id === userId) {
-        USERS.splice(x, 1);
-        response.json({});
-      }
-    }
+    userModel
+      .deleteUser(userId)
+      .then(function(status) {
+        response.send(status);
+      });
   }
 
   function updateUser(request, response) {
     var userId = request.params['uid'];
     var user = request.body;
-    for(var x = 0; x < USERS.length; x++) {
-      if (USERS[x]._id === userId) {
-        USERS[x] = user;
-        response.json(user);
-      }
-    }
-  }
-  function createUser(request, response) {
-    var user = request.body;
-    user._id = (new Date()).getTime() + '';
-    USERS.push(user);
-    response.json(user);
+    userModel
+      .updateUser(userId, user)
+      .then(function(status) {
+        response.send(status);
+      });
   }
 
   function helloUser(req, res) {
@@ -52,26 +59,19 @@ module.exports = function(app) {
     var username = req.query['username'];
     var password = req.query['password'];
     if(username && password) {
-      var user = USERS.find(function (user) {
-        return user.username === username && user.password === password;
+      var promise = userModel
+        .findUserByCredentials(username, password);
+      promise
+        .then(function(user) {
+        res.json(user);
       });
-      if (user) {
-        res.send(user);
-      }
-      else {
-        res.status(401).send("No user found");
-      }
       return;
     } else if(username) {
-      var user = USERS.find(function (user) {
-        return user.username === username;
-      });
-      if (user) {
-        res.send(user);
-      }
-      else {
-        res.status(401).send("No user found");
-      }
+      userModel
+        .findUserByUsername(username)
+        .then(function(user) {
+          res.json(user);
+         });
       return;
     }
     res.json(USERS);
@@ -79,9 +79,10 @@ module.exports = function(app) {
 
   function findUserById(req, res) {
     var userId = req.params['uid'];
-    var user = USERS.find(function (user) {
-      return user._id === userId;
-    });
-    res.json(user);
+    userModel
+      .findUserById(userId)
+      .then(function(user) {
+        res.json(user);
+      });
   }
 }

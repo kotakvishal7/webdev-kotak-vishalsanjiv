@@ -35,9 +35,11 @@ export class UserService {
   }
 
   findUserByUsername(username: String) {
-    for (let x = 0; x < this.users.length; x++) {
-      if (this.users[x].username === username) { return this.users[x]; }
-    }
+    const url = this.baseUrl + '/api/user?username=' + username;
+    return this.http.get(url)
+      .map((response: Response) => {
+        return response.json();
+      });
   }
   findUserByCredentials(username: String, password: String) {
     const url = this.baseUrl + '/api/user?username=' + username + '&password=' + password;

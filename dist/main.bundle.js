@@ -946,7 +946,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user/register/register.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n\n  <div class = \"row regitser-elements\">\n    <div class = \"col-xs-12\">\n      <h1>Register</h1>\n    </div>\n  </div>\n  <div class = \"row regitser-elements\">\n    <div class = \"col-xs-12\">\n      <input placeholder=\"username\" type=\"text\"class=\"form-control\" [(ngModel)]=\"username\"/>\n    </div>\n  </div>\n  <div class = \"row regitser-elements\">\n    <div class = \"col-xs-12\">\n      <input placeholder=\"password\" type=\"password\" class=\"form-control\" [(ngModel)]=\"password\"/>\n    </div>\n  </div>\n  <div class = \"row regitser-elements\">\n    <div class = \"col-xs-12\">\n      <input placeholder=\"verify password\" type=\"password\" class=\"form-control\" [(ngModel)]=\"verifypassword\"/>\n    </div>\n  </div>\n  <div class = \"row regitser-elements\">\n    <div class = \"col-xs-12\">\n      <a class=\"btn btn-primary btn-block\" (click)=\"createUser(username, password, verifypassword)\">Register</a>\n    </div>\n  </div>\n  <div class = \"row regitser-elements\">\n    <div class = \"col-xs-12\">\n      <a class=\"btn btn-danger btn-block\" [routerLink]=\"['/login']\">Cancel</a>\n    </div>\n  </div>\n  <div class=\"row errorBlock\" [hidden]=\"!showError\">\n    <div class = \"col-sm-12 col-xs-12 col-sm-offset-4 col-xs-offset-1\">\n      <span class=\"errorMessage\">Please enter Username and Passwords</span>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n\n  <div class = \"row regitser-elements\">\n    <div class = \"col-xs-12\">\n      <h1>Register</h1>\n    </div>\n  </div>\n  <div class = \"row regitser-elements\">\n    <div class = \"col-xs-12\">\n      <input placeholder=\"username\" type=\"text\"class=\"form-control\" [(ngModel)]=\"username\"/>\n    </div>\n  </div>\n  <div class = \"row regitser-elements\">\n    <div class = \"col-xs-12\">\n      <input placeholder=\"password\" type=\"password\" class=\"form-control\" [(ngModel)]=\"password\"/>\n    </div>\n  </div>\n  <div class = \"row regitser-elements\">\n    <div class = \"col-xs-12\">\n      <input placeholder=\"verify password\" type=\"password\" class=\"form-control\" [(ngModel)]=\"verifyPassword\"/>\n    </div>\n  </div>\n  <div class = \"row regitser-elements\">\n    <div class = \"col-xs-12\">\n      <a class=\"btn btn-primary btn-block\" (click)=\"createUser(username, password, verifyPassword)\">Register</a>\n    </div>\n  </div>\n  <div class = \"row regitser-elements\">\n    <div class = \"col-xs-12\">\n      <a class=\"btn btn-danger btn-block\" [routerLink]=\"['/login']\">Cancel</a>\n    </div>\n  </div>\n  <div class=\"row errorBlock\" [hidden]=\"!showError\">\n    <div class = \"col-sm-12 col-xs-12 col-sm-offset-4 col-xs-offset-1\">\n      <span class=\"errorMessage\">Please enter Username and Passwords</span>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -983,16 +983,29 @@ var RegisterComponent = (function () {
     };
     RegisterComponent.prototype.createUser = function (username, password, verifyPassword) {
         var _this = this;
+        this.username = username;
+        this.password = password;
+        this.verifyPassword = verifyPassword;
         if (!username || !password || !verifyPassword) {
             this.showError = true;
             return;
         }
         if (password === verifyPassword) {
-            var tempUser = new __WEBPACK_IMPORTED_MODULE_1__models_user_model_client__["a" /* User */]('', username, password);
+            var tempUser_1 = new __WEBPACK_IMPORTED_MODULE_1__models_user_model_client__["a" /* User */]('', username, password);
             this.userService
-                .createUser(tempUser)
+                .findUserByUsername(username)
                 .subscribe(function (user) {
-                _this.user = user;
+                if (user === null) {
+                    _this.userService
+                        .createUser(tempUser_1)
+                        .subscribe(function (newUser) {
+                        _this.user = newUser;
+                    });
+                }
+                else {
+                    _this.showError = true;
+                    return;
+                }
                 _this.router.navigate(['/login']);
             });
         }
@@ -2184,11 +2197,11 @@ var UserService = (function () {
         });
     };
     UserService.prototype.findUserByUsername = function (username) {
-        for (var x = 0; x < this.users.length; x++) {
-            if (this.users[x].username === username) {
-                return this.users[x];
-            }
-        }
+        var url = this.baseUrl + '/api/user?username=' + username;
+        return this.http.get(url)
+            .map(function (response) {
+            return response.json();
+        });
     };
     UserService.prototype.findUserByCredentials = function (username, password) {
         var url = this.baseUrl + '/api/user?username=' + username + '&password=' + password;
