@@ -19,6 +19,8 @@ module.exports = function(app) {
   app.get('/api/user/:uid/website/:wid/page/:pid/widget/:wgid', findWidgetById);
   app.put('/api/user/:uid/website/:wid/page/:pid/widget/:wgid', updateWidget);
 
+  var widgetModel = require('../models/widget/widget.model.server');
+
   var multer = require('multer');
   var upload = multer({ dest: __dirname+ '/../../dist/assets/uploads' });
 
@@ -37,13 +39,6 @@ module.exports = function(app) {
 
     var filename = myFile.filename;     // new file name in upload folder
 
-    if(!widgetId) {
-      widgetId = (new Date()).getTime() + '';
-    }
-
-    console.log(width);
-    console.log(name);
-    console.log(text);
     var widget = {
         '_id': widgetId,
         'type': 'IMAGE',
@@ -53,77 +48,82 @@ module.exports = function(app) {
         'text': text
     };
     widget['url'] = 'assets/uploads/'+filename;
-    WIDGETS.push(widget);
+    delete widget._id;
+    widgetModel
+      .createWidget(widget)
+      .then(function(newWidget) {
+        console.log(newWidget);
+      });
 
     var callbackUrl = "/user/" + userId + "/website/" + websiteId + '/page/' + pageId + '/widget';
     response.redirect(callbackUrl);
   }
 
   function updateWidget(request, response) {
-    var pageId = request.params['pid'];
     var widgetId = request.params['wgid'];
     var widget = request.body;
-    for(var x = 0; x < WIDGETS.length; x++) {
-      if (WIDGETS[x]._id === widgetId) {
-        WIDGETS[x] = widget;
-        var widgets = getWidgetsForPageId(pageId);
-        response.json(widgets);
-      }
-    }
+    widgetModel
+      .updateWidget(widgetId, widget)
+      .then(function(status) {
+        response.send(status);
+      });
   }
 
   function findWidgetById(request, response) {
     var widgetId = request.params['wgid'];
-    var widget = {};
-    for (var x = 0; x < WIDGETS.length; x++) {
-      if (WIDGETS[x]._id === widgetId) {
-        widget = WIDGETS[x];
+    widgetModel
+      .findWidgetById(widgetId)
+      .then(function(widget) {
         response.json(widget);
-      }
-    }
+      });
   }
 
   function deleteWidget(request, response) {
     var pageId = request.params['pid'];
     var widgetId = request.params['wgid'];
-    for(var x = 0; x < WIDGETS.length; x++) {
-      if(WIDGETS[x]._id === widgetId) {
-        WIDGETS.splice(x, 1);
-        var widgets = getWidgetsForPageId(pageId);
-        response.json(widgets);
-      }
-    }
+    widgetModel
+      .deleteWidget(widgetId)
+      .then(function(status) {
+        response.send(status);
+        widgetModel
+          .findWidgetsByPageId(pageId)
+          .then(function(widgets) {
+            response.json(widgets);
+          }, function(error) {
+            console.log(error);
+          });
+      });
   }
 
   function createWidget(request, response) {
     var pageId = request.params['pid'];
-    var widget = request.body;
-    widget.pageId = pageId;
-    widget._id = (new Date()).getTime() + '';
-    WIDGETS.push(widget);
-    var widgets = getWidgetsForPageId(pageId);
-    response.json(widgets);
-  }
-
-  function getWidgetsForPageId(pageId) {
-    var widgets = [];
-    for (var x = 0; x < WIDGETS.length; x++) {
-      if (WIDGETS[x].pageId === pageId) {
-        widgets.push(WIDGETS[x]);
-      }
-    }
-    return widgets;
+    var newWidget = request.body;
+    newWidget.pageId = pageId;
+    delete newWidget._id;
+    widgetModel
+      .createWidget(newWidget)
+      .then(function(widget) {
+        widgetModel
+          .findWidgetsByPageId(pageId)
+          .then(function(widgets) {
+            response.json(widgets);
+          }, function(error) {
+            console.log(error);
+          });
+      }, function(error) {
+        console.log(error);
+      });
   }
 
   function findWidgetsByPageId(request, response) {
     var pageId = request.params['pid'];
-    var widgets = [];
-    for (var x = 0; x < WIDGETS.length; x++) {
-      if (WIDGETS[x].pageId === pageId) {
-        widgets.push(WIDGETS[x]);
-      }
-    }
-    response.json(widgets);
+    widgetModel
+      .findWidgetsByPageId(pageId)
+      .then(function(widgets) {
+        response.json(widgets);
+      }, function(error) {
+        console.log(error);
+      });
   }
 
 };

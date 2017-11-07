@@ -46,11 +46,11 @@ module.exports = function(app) {
 
   function createPage(request, response) {
     var websiteId = request.params['wid'];
-    var page = request.body;
-    delete page._id;
-    page.websiteId = websiteId;
+    var newPage = request.body;
+    delete newPage._id;
+    newPage.websiteId = websiteId;
     pageModel
-      .createPage(page)
+      .createPage(newPage)
       .then(function(page) {
         pageModel
           .findPagesByWebsiteId(websiteId)

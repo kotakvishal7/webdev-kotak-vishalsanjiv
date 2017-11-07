@@ -41,11 +41,11 @@ module.exports = function(app) {
 
   function createWebsite(request, response) {
     var userId = request.params['uid'];
-    var website = request.body;
-    website.developerId = userId;
-    delete website._id;
+    var newWebsite = request.body;
+    newWebsite.developerId = userId;
+    delete newWebsite._id;
     websiteModel
-      .createWebsite(website)
+      .createWebsite(newWebsite)
       .then(function(website) {
         websiteModel
           .findWebsitesByUserId(userId)
