@@ -10,13 +10,6 @@ module.exports = function(app) {
   app.put('/api/user/:uid', updateUser);
   app.delete('/api/user/:uid', deleteUser);
 
-  var USERS = [
-    {_id: '123', username: 'alice', password: 'alice', firstName: 'Alice', lastName: 'Wonder', emailId: 'alice@gmail.com'},
-    {_id: '234', username: 'bob', password: 'bob', firstName: 'Bob', lastName: 'Marley', emailId: 'bob@gmail.com'},
-    {_id: '345', username: 'charly', password: 'charly', firstName: 'Charly', lastName: 'Garcia', emailId: 'charly@gmail.com'},
-    {_id: '456', username: 'kotakv', password: 'kotak', firstName: 'Vishal', lastName: 'Kotak', emailId: 'kotakv@gmail.com'}
-  ];
-
   var userModel = require('../models/user/user.model.server');
 
   function createUser(request, response) {
@@ -74,7 +67,6 @@ module.exports = function(app) {
          });
       return;
     }
-    res.json(USERS);
   }
 
   function findUserById(req, res) {
