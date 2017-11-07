@@ -30,6 +30,8 @@ Assignment 3 Link: [Client Side development](https://docs.google.com/document/d/
 
 Assignment 4 Link: [Server Side Development](https://docs.google.com/document/d/1a_AVIscfYwlJORj85s9Lc-znHlWZczGP6wLQYuTO3N4/edit)
 
+Assignment 5 Link: [Database Development](https://docs.google.com/document/d/1DFLG8fIGnJ57NK5bkvD_qd6YLMWwlBSpVCqKJHkcvgg/edit)
+
 ## Assignment 3
 
 The static pages for page, user, website, widgets have been made dynamic by creating components, services and single page routing.
@@ -40,6 +42,9 @@ Steps related to the project:
 
 This assignment focuses on creating Web services with the Express Node.js module. Web services will expose server side data sources through HTTP endpoints. The angular services will access the data from the Web services through various HTTP requests such as POST, GET, PUT, and DELETE.
 
+## Assignment 5
+
+This assignment focuses on using mongoose to implement schemas and models for all the assignment's entities: users, websites, pages, and widgets.
 
 # AngularFourMEANSeed
 
