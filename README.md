@@ -15,36 +15,31 @@ Please refer the below points for some of the projects I have worked on:
 **2. Media Licensing Lab**
 - Developed a web platform using Java Spring - MVC, Angular.js, and MySQL for artists to collaborate, share compositions with followers and get their creations copyrighted
 
+Course Website Link: [http://portal-cs5610online.rhcloud.com/#/](http://portal-cs5610online.rhcloud.com/#/)
 
 Heroku Web Application Link: [https://webdev-kotak-vishalsanjiv.herokuapp.com](https://webdev-kotak-vishalsanjiv.herokuapp.com)
-
-MongoDB Test Link: [https://webdev-kotak-vishalsanjiv.herokuapp.com/test](https://webdev-kotak-vishalsanjiv.herokuapp.com/test)
-
-Course Website Link: [http://portal-cs5610online.rhcloud.com/#/](http://portal-cs5610online.rhcloud.com/#/)
 
 Assignment 1 Link: [Setting up Development Environment](https://docs.google.com/document/d/1rxZnIRpwCzqQVJwMm7HLfKHvXiI_GLpcfBjm0ymmWXI/edit)
 
 Assignment 2 Link: [User Interface Development](https://docs.google.com/document/d/1Xq-d8gEPmqGv3JElKocPiNsj8Ft82SY3yNOREHt6r2U/edit)
 
-Assignment 3 Link: [Client Side development](https://docs.google.com/document/d/1weLoMKGV1ALlpNUk6oVPUFRC1MX7wqyt9kRZ9hedZxA/edit)
-
-Assignment 4 Link: [Server Side Development](https://docs.google.com/document/d/1a_AVIscfYwlJORj85s9Lc-znHlWZczGP6wLQYuTO3N4/edit)
-
-Assignment 5 Link: [Database Development](https://docs.google.com/document/d/1DFLG8fIGnJ57NK5bkvD_qd6YLMWwlBSpVCqKJHkcvgg/edit)
-
 ## Assignment 3
 
 The static pages for page, user, website, widgets have been made dynamic by creating components, services and single page routing.
 
-Steps related to the project:
+Link: [Client Side development](https://docs.google.com/document/d/1weLoMKGV1ALlpNUk6oVPUFRC1MX7wqyt9kRZ9hedZxA/edit)
 
 ## Assignment 4
 
 This assignment focuses on creating Web services with the Express Node.js module. Web services will expose server side data sources through HTTP endpoints. The angular services will access the data from the Web services through various HTTP requests such as POST, GET, PUT, and DELETE.
 
+Link: [Server Side Development](https://docs.google.com/document/d/1a_AVIscfYwlJORj85s9Lc-znHlWZczGP6wLQYuTO3N4/edit)
+
 ## Assignment 5
 
 This assignment focuses on using mongoose to implement schemas and models for all the assignment's entities: users, websites, pages, and widgets.
+
+Link: [Database Development](https://docs.google.com/document/d/1DFLG8fIGnJ57NK5bkvD_qd6YLMWwlBSpVCqKJHkcvgg/edit)
 
 # AngularFourMEANSeed
 
