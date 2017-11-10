@@ -1949,7 +1949,6 @@ var WidgetTextComponent = (function () {
         widget.rows = widgetRows;
         widget.text = widgetText;
         widget.placeholder = widgetPlaceholder;
-        alert(widget.placeholder);
         this.widgetService
             .createWidget(this.userId, this.websiteId, this.pageId, widget)
             .subscribe(function (widgets) {
