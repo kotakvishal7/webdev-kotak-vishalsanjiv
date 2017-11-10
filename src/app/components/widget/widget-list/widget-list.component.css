@@ -18,8 +18,9 @@
 .youtube-widget iframe {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 2%;
+  right: 2%;
+  width: 96%;
   height: 100%;
 }
 

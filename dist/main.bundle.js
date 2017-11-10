@@ -2138,7 +2138,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".widget-toolbar-item {\n  position: absolute;\n  background-color: rgb(255, 255, 255);\n  border-bottom-left-radius: 10px;\n  padding: 5px;\n  float: right;\n  right: 15px;\n  top: 0px;\n}\n.settings-icon {\n  color: \t#428bca;\n}\n.youtube-widget {\n  position: relative;\n  padding-bottom: 56.25%; /* 16:9 */\n  height: 0;\n}\n.youtube-widget iframe {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n\n", ""]);
+exports.push([module.i, ".widget-toolbar-item {\n  position: absolute;\n  background-color: rgb(255, 255, 255);\n  border-bottom-left-radius: 10px;\n  padding: 5px;\n  float: right;\n  right: 15px;\n  top: 0px;\n}\n.settings-icon {\n  color: \t#428bca;\n}\n.youtube-widget {\n  position: relative;\n  padding-bottom: 56.25%; /* 16:9 */\n  height: 0;\n}\n.youtube-widget iframe {\n  position: absolute;\n  top: 0;\n  left: 2%;\n  right: 2%;\n  width: 96%;\n  height: 100%;\n}\n\n", ""]);
 
 // exports
 
