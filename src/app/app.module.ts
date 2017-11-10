@@ -24,11 +24,14 @@ import { WidgetListComponent } from './components/widget/widget-list/widget-list
 import { WidgetHeaderComponent } from './components/widget/widget-edit/widget-header/widget-header.component';
 import { WidgetImageComponent } from './components/widget/widget-edit/widget-image/widget-image.component';
 import { WidgetYoutubeComponent } from './components/widget/widget-edit/widget-youtube/widget-youtube.component';
+import { WidgetHtmlComponent} from './components/widget/widget-edit/widget-html/widget-html.component';
+import { WidgetTextComponent} from './components/widget/widget-edit/widget-text/widget-text.component';
 import {UserService} from './services/user.service.client';
 import {WebsiteService} from './services/website.service.client';
 import {PageService} from './services/page.service.client';
 import {WidgetService} from './services/widget.service.client';
 import {SafePipe} from './components/safepipe';
+import { QuillEditorModule } from 'ngx-quill-editor';
 
 @NgModule({
   // Declare components here
@@ -51,6 +54,8 @@ import {SafePipe} from './components/safepipe';
     WidgetHeaderComponent,
     WidgetImageComponent,
     WidgetYoutubeComponent,
+    WidgetHtmlComponent,
+    WidgetTextComponent,
     WebsiteNewComponent,
     SafePipe
   ],
@@ -58,6 +63,7 @@ import {SafePipe} from './components/safepipe';
     BrowserModule,
     HttpModule,
     FormsModule,
+    QuillEditorModule,
     Routing
   ],
   // Client Side services here

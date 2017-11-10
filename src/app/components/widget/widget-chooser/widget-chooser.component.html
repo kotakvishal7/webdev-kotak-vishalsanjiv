@@ -22,7 +22,7 @@
   </div>
   <div class = "row page-item">
     <div class = "col-xs-6">
-      <a>
+      <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget', 'new', 'html']">
         <span class = "text text-info">HTML</span>
       </a>
     </div>
@@ -36,7 +36,7 @@
   </div>
   <div class = "row page-item">
     <div class = "col-xs-6">
-      <a>
+      <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget', 'new', 'text']">
         <span class = "text text-info">Text</span>
       </a>
     </div>

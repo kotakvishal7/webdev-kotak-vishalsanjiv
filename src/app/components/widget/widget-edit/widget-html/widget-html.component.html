@@ -1,0 +1,67 @@
+<div [hidden]="!editFlag">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-text pull-left">
+        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+      </div>
+      <div class="navbar-header pull-left">
+        <a class="navbar-brand thick">
+          <b class = "website-nav-header">Edit HTML Widget</b>
+        </a>
+      </div>
+      <div class="navbar-text pull-right">
+        <a class="navbar-link">
+            <span class="glyphicon glyphicon-ok"
+                  (click)="updateWidget(widgetText, widget._id)"></span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+<div [hidden]="editFlag">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-text pull-left">
+        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+      </div>
+      <div class="navbar-header pull-left">
+        <a class="navbar-brand thick">
+          <b class = "website-nav-header">New HTML Widget</b>
+        </a>
+      </div>
+      <div class="navbar-text pull-right">
+        <a class="navbar-link">
+          <span class="glyphicon glyphicon-ok" (click)="createWidget(widgetText)"></span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+<div class="container-fluid">
+  <div class="row widget-item">
+    <div class="col-xs-12">
+      <label for="widget-html-text">Text</label>
+      <quill-editor [(ngModel)]="widgetText"
+                    name="textHtml"
+                    id="widget-html-text"></quill-editor>
+    </div>
+  </div>
+  <div class = "row delete-button" [hidden]="!editFlag">
+    <div class = "col-xs-12">
+      <a class = "btn btn-danger btn-block" (click)="deleteWidget(widget._id)">Delete</a>
+    </div>
+  </div>
+</div>
+<nav class = "navbar navbar-default navbar-fixed-bottom">
+  <div class = "container-fluid">
+    <p class="navbar-text pull-right">
+      <a [routerLink]="['/user', userId]">
+        <span class = "glyphicon glyphicon-user"></span>
+      </a>
+    </p>
+  </div>
+</nav>

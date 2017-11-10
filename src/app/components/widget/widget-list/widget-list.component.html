@@ -21,7 +21,7 @@
   <div *ngFor="let widget of widgets">
     <div [ngSwitch]="widget.type">
       <div *ngSwitchCase="'HEADING'">
-        <div class="row">
+        <div class = "row">
           <div class="col-xs-12">
             <div class = "widget-toolbar-item">
               <span class = "glyphicon glyphicon-menu-hamburger"></span>
@@ -51,8 +51,55 @@
             </div>
           </div>
         </div>
-      </div>
-      <div *ngSwitchCase="'YOUTUBE'" class="youtube-widget">
+      </div><!-- End of Heading-->
+      <div *ngSwitchCase="'HTML'">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class = "widget-toolbar-item">
+              <span class = "glyphicon glyphicon-menu-hamburger"></span>
+              <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget', widget._id]">
+                <span class = "glyphicon glyphicon-cog settings-icon"></span>
+              </a>
+            </div>
+            <div [innerHTML]="widget['text']">
+            </div>
+          </div>
+        </div>
+      </div><!-- End of HTML -->
+      <div *ngSwitchCase="'IMAGE'">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class = "widget-toolbar-item">
+              <span class = "glyphicon glyphicon-menu-hamburger"></span>
+              <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget', widget._id]">
+                <span class = "glyphicon glyphicon-cog settings-icon"></span>
+              </a>
+            </div>
+            <img [width]="widget.width"
+                 height="350"
+                 [src]="widget.url | safe" />
+          </div>
+        </div>
+      </div><!-- End of Image -->
+      <div *ngSwitchCase="'TEXT'">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class = "widget-toolbar-item">
+              <span class = "glyphicon glyphicon-menu-hamburger"></span>
+              <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget', widget._id]">
+                <span class = "glyphicon glyphicon-cog settings-icon"></span>
+              </a>
+            </div>
+            <div *ngIf="widget['formatted']">
+              <quill-editor [(ngModel)]="widget['text']" name="text"></quill-editor>
+            </div>
+
+            <textarea rows="{{widget['rows']}}"
+                      class="form-control">{{widget['text']}}</textarea>
+          </div>
+        </div>
+      </div> <!-- End of Text -->
+      <div *ngSwitchCase="'YOUTUBE'">
         <div class="row">
           <div class="col-xs-12">
             <div class = "widget-toolbar-item">
@@ -68,22 +115,7 @@
             </iframe>
           </div>
         </div>
-      </div>
-      <div *ngSwitchCase="'IMAGE'">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class = "widget-toolbar-item">
-              <span class = "glyphicon glyphicon-menu-hamburger"></span>
-              <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget', widget._id]">
-                <span class = "glyphicon glyphicon-cog settings-icon"></span>
-              </a>
-            </div>
-            <img [width]="widget.width"
-                 height="350"
-                 [src]="widget.url | safe" />
-          </div>
-        </div>
-      </div>
+      </div><!-- End of Youtube -->
     </div>
   </div>
 </div>

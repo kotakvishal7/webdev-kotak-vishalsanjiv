@@ -6,7 +6,9 @@ var WidgetSchema = mongoose.Schema ({
   width : String,
   text  : String,
   url   : String,
-  name  : String
+  rows  : Number,
+  name  : String,
+  formatted: Boolean
 }, {collection: 'widget'});
 
 module.exports = WidgetSchema;

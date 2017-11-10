@@ -1,0 +1,109 @@
+<div [hidden]="!editFlag">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-text pull-left">
+        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+      </div>
+      <div class="navbar-header pull-left">
+        <a class="navbar-brand thick">
+          <b class = "website-nav-header">Edit Text Widget</b>
+        </a>
+      </div>
+      <div class="navbar-text pull-right">
+        <a class="navbar-link">
+            <span class="glyphicon glyphicon-ok"
+                  (click)="updateWidget(widgetFormatted, widgetName, widgetRows,
+                  widgetText, widget._id)"></span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+<div [hidden]="editFlag">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-text pull-left">
+        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+      </div>
+      <div class="navbar-header pull-left">
+        <a class="navbar-brand thick">
+          <b class = "website-nav-header">New Text Widget</b>
+        </a>
+      </div>
+      <div class="navbar-text pull-right">
+        <a class="navbar-link">
+          <span class="glyphicon glyphicon-ok"
+                (click)="createWidget(widgetFormatted, widgetName, widgetRows, widgetText)"></span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+<div class = "container-fluid">
+  <div class = "row widget-item">
+    <div class = "col-xs-6">
+      <label for = "widget-text">Text</label>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-xs-12">
+      <input class = "form-control" placeholder = "Text" id = "widget-text"
+             type = "text" required [(ngModel)]="widgetText"/>
+    </div>
+  </div>
+  <div class = "row widget-item">
+    <div class = "col-xs-6">
+      <label for = "widget-text-rows">Rows</label>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-xs-12">
+      <input class = "form-control" placeholder = "Rows" id = "widget-text-rows"
+             type = "number" required [(ngModel)]="widgetRows"/>
+    </div>
+  </div>
+  <div class = "row widget-item">
+    <div class = "col-xs-6">
+      <label for = "widget-text-name">Name</label>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-xs-12">
+      <input class = "form-control" placeholder = "Name" id = "widget-text-name"
+             type = "text" required [(ngModel)]="widgetName"/>
+    </div>
+  </div>
+  <div class="row widget-item">
+    <div class = "col-xs-12">
+      <div class="input-group">
+        <input type="text" readonly value="Formatted" class="form-control"/>
+        <span class="input-group-addon">
+              <input [(ngModel)]="widgetFormatted" name="formatted" type="checkbox"/></span>
+      </div>
+    </div>
+  </div>
+  <div class = "row delete-button" [hidden]="!editFlag">
+    <div class = "col-xs-12">
+      <a class = "btn btn-danger btn-block" (click)="deleteWidget(widget._id)">Delete</a>
+    </div>
+  </div>
+  <div class="row errorBlock" [hidden]="!showError">
+    <div class = "col-xs-12 col-sm-9 col-sm-offset-3">
+      <span class="errorMessage">Text data missing</span>
+    </div>
+  </div>
+</div>
+<nav class = "navbar navbar-default navbar-fixed-bottom">
+  <div class = "container-fluid">
+    <p class="navbar-text pull-right">
+      <a [routerLink]="['/user', userId]">
+        <span class = "glyphicon glyphicon-user"></span>
+      </a>
+    </p>
+  </div>
+</nav>
+

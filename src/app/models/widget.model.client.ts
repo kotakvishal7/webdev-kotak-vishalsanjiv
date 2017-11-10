@@ -6,7 +6,9 @@ export class Widget {
   width: String;
   text: String;
   url: String;
+  rows: Number;
   name: String;
+  formatted: Boolean;
   constructor(_id: String, type: String, pageId: String) {
     this._id = _id;
     this.type = type;
