@@ -9,6 +9,7 @@ export class Widget {
   rows: Number;
   name: String;
   formatted: Boolean;
+  placeholder: String;
   constructor(_id: String, type: String, pageId: String) {
     this._id = _id;
     this.type = type;

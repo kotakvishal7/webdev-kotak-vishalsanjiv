@@ -15,7 +15,7 @@
         <a class="navbar-link">
             <span class="glyphicon glyphicon-ok"
                   (click)="updateWidget(widgetFormatted, widgetName, widgetRows,
-                  widgetText, widget._id)"></span>
+                  widgetText, widgetPlaceholder, widget._id)"></span>
         </a>
       </div>
     </div>
@@ -37,7 +37,7 @@
       <div class="navbar-text pull-right">
         <a class="navbar-link">
           <span class="glyphicon glyphicon-ok"
-                (click)="createWidget(widgetFormatted, widgetName, widgetRows, widgetText)"></span>
+                (click)="createWidget(widgetFormatted, widgetName, widgetRows, widgetText, widgetPlaceholder)"></span>
         </a>
       </div>
     </div>
@@ -74,7 +74,18 @@
   <div class = "row">
     <div class = "col-xs-12">
       <input class = "form-control" placeholder = "Name" id = "widget-text-name"
-             type = "text" required [(ngModel)]="widgetName"/>
+             type = "text" [(ngModel)]="widgetName"/>
+    </div>
+  </div>
+  <div class="row widget-item">
+    <div class="col-xs-6">
+      <label for="widget-text-placeholder">Placeholder</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <input class="form-control" placeholder="Placeholder" id="widget-text-placeholder"
+             type="text" [(ngModel)]="widgetPlaceholder"/>
     </div>
   </div>
   <div class="row widget-item">

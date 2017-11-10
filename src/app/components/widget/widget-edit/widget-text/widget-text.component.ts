@@ -20,6 +20,7 @@ export class WidgetTextComponent implements OnInit {
   widgetName: String;
   widgetRows: Number;
   widgetText: String;
+  widgetPlaceholder: String;
   widgets: Widget[];
   constructor(private route: ActivatedRoute,
               private widgetService: WidgetService,
@@ -42,12 +43,14 @@ export class WidgetTextComponent implements OnInit {
           this.widgetName = this.widget.name;
           this.widgetRows = this.widget.rows;
           this.widgetText = this.widget.text;
+          this.widgetPlaceholder = this.widget.placeholder;
           this.editFlag = true;
         });
     });
   }
 
-  createWidget(widgetFormatted: Boolean, widgetName: String, widgetRows: Number, widgetText: String) {
+  createWidget(widgetFormatted: Boolean, widgetName: String, widgetRows: Number,
+               widgetText: String, widgetPlaceholder: String) {
     if (!widgetName || !widgetRows) {
       this.showError = true;
       return;
@@ -57,6 +60,8 @@ export class WidgetTextComponent implements OnInit {
     widget.name = widgetName;
     widget.rows = widgetRows;
     widget.text = widgetText;
+    widget.placeholder = widgetPlaceholder;
+    alert(widget.placeholder);
     this.widgetService
       .createWidget(this.userId, this.websiteId, this.pageId, widget)
       .subscribe((widgets) => {
@@ -78,12 +83,13 @@ export class WidgetTextComponent implements OnInit {
 
 
   updateWidget(widgetFormatted: Boolean, widgetName: String,
-               widgetRows: Number, widgetText: String, widgetId: String) {
+               widgetRows: Number, widgetText: String, widgetPlaceholder: String, widgetId: String) {
     const widget = new Widget(widgetId, 'TEXT', this.pageId);
     widget.formatted = widgetFormatted;
     widget.name = widgetName;
     widget.rows = widgetRows;
     widget.text = widgetText;
+    widget.placeholder = widgetPlaceholder;
     this.widgetService
       .updateWidget(this.userId, this.websiteId, this.pageId, widgetId, widget)
       .subscribe((widgets) => {

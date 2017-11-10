@@ -8,7 +8,8 @@ var WidgetSchema = mongoose.Schema ({
   url   : String,
   rows  : Number,
   name  : String,
-  formatted: Boolean
+  formatted: Boolean,
+  placeholder: String
 }, {collection: 'widget'});
 
 module.exports = WidgetSchema;
