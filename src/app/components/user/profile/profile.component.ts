@@ -3,6 +3,7 @@ import { ActivatedRoute} from '@angular/router';
 import { UserService} from '../../../services/user.service.client';
 import { User} from '../../../models/user.model.client';
 import { Router } from '@angular/router';
+import { SharedService } from '../../../services/shared.service.client';
 
 @Component({
   selector: 'app-profile',
@@ -11,31 +12,29 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   userId: String;
-  user: User;
+  user: {};
   username: String;
   emailId: String;
   firstName: String;
   lastName: String;
   constructor(private userService: UserService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private sharedService: SharedService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params =>  {
-      this.userId = params['uid'];
-      this.userService.findUserById(this.userId)
-        .subscribe((user: User) => {
-          this.user = user;
-          this.username = user.username;
-          this.emailId = user.emailId;
-          this.firstName = user.firstName;
-          this.lastName = user.lastName;
-      });
+      this.user = this.sharedService.user || this.user;
+      this.userId = this.user['_id'];
+      this.username = this.user['username'];
+      this.emailId = this.user['emailId'];
+      this.firstName = this.user['firstName'];
+      this.lastName = this.user['lastName'];
     });
   }
 
   updateUser(userName: String, emailId: String, firstName: String, lastName: String) {
-    const tempUser = new User(this.userId, userName, this.user.password);
+    const tempUser = new User(this.userId, userName, this.user['password']);
     tempUser.emailId = emailId;
     tempUser.firstName = firstName;
     tempUser.lastName = lastName;

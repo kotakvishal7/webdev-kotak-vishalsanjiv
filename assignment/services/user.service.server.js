@@ -1,5 +1,15 @@
 module.exports = function(app) {
 
+  var userModel = require('../models/user/user.model.server');
+
+  var passport  = require('passport');
+  var LocalStrategy = require('passport-local').Strategy;
+  passport.use(new LocalStrategy(localStrategy));
+
+
+  passport.serializeUser(serializeUser);
+  passport.deserializeUser(deserializeUser);
+
   app.get('/api/user/hello', helloUser);
   // find all users
   app.get('/api/user', findUsers);
@@ -10,7 +20,58 @@ module.exports = function(app) {
   app.put('/api/user/:uid', updateUser);
   app.delete('/api/user/:uid', deleteUser);
 
-  var userModel = require('../models/user/user.model.server');
+  app.post('/api/register', register);
+  app.post('/api/login',
+    passport.authenticate('local'), login);
+
+
+
+  function login(request, response) {
+    response.json(request.user);
+  }
+
+  function localStrategy(username, password, done) {
+    userModel
+      .findUserByCredentials(username, password)
+      .then(
+        function(user) {
+          if(user) {
+            return done(null, user);
+          } else {
+            return done(null, false);
+          }
+        }
+      );
+  }
+
+
+  function register(request, response) {
+    var user = request.body;
+    userModel
+      .createUser(user)
+      .then(function(user){
+        request.login(user, function(error) {
+          response.json(user);
+        });
+      });
+  }
+
+  function serializeUser(user, done) {
+    done(null, user);
+  }
+
+  function deserializeUser(user, done) {
+    userModel
+      .findUserById(user._id)
+      .then(
+        function(user){
+          done(null, user);
+        },
+        function(err){
+          done(err, null);
+        }
+      );
+  }
 
   function createUser(request, response) {
     var newUser = request.body;

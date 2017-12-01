@@ -21,8 +21,9 @@ import {WidgetEditComponent} from './components/widget/widget-edit/widget-edit.c
 import {WidgetHeaderComponent} from './components/widget/widget-edit/widget-header/widget-header.component';
 import {WidgetImageComponent} from './components/widget/widget-edit/widget-image/widget-image.component';
 import {WidgetYoutubeComponent} from './components/widget/widget-edit/widget-youtube/widget-youtube.component';
-import {WidgetHtmlComponent} from "./components/widget/widget-edit/widget-html/widget-html.component";
-import {WidgetTextComponent} from "./components/widget/widget-edit/widget-text/widget-text.component";
+import {WidgetHtmlComponent} from './components/widget/widget-edit/widget-html/widget-html.component';
+import {WidgetTextComponent} from './components/widget/widget-edit/widget-text/widget-text.component';
+import {FlickrImageSearchComponent} from './components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
 
 // Array of routes describing how to navingate.
 // There will be no leading slashes in the path.
@@ -32,6 +33,7 @@ const APP_ROUTES: Routes = [
   {path: 'test', component: TestComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'profile', component: ProfileComponent},
   {path: 'user/:uid', component: ProfileComponent},
   {path: 'user/:uid/website', component: WebsiteListComponent},
   {path: 'user/:uid/website/new', component: WebsiteNewComponent},
@@ -46,7 +48,8 @@ const APP_ROUTES: Routes = [
   {path: 'user/:uid/website/:wid/page/:pid/widget/new/youtube', component: WidgetYoutubeComponent},
   {path: 'user/:uid/website/:wid/page/:pid/widget/new/image', component: WidgetImageComponent},
   {path: 'user/:uid/website/:wid/page/:pid/widget/new/html', component: WidgetHtmlComponent},
-  {path: 'user/:uid/website/:wid/page/:pid/widget/new/text', component: WidgetTextComponent}
+  {path: 'user/:uid/website/:wid/page/:pid/widget/new/text', component: WidgetTextComponent},
+  {path: 'user/:uid/website/:wid/page/:pid/widget/new/image/search', component: FlickrImageSearchComponent}
 ];
 
 // Export the routes as module providers and configure routers

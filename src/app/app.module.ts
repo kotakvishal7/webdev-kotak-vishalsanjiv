@@ -31,7 +31,10 @@ import {WebsiteService} from './services/website.service.client';
 import {PageService} from './services/page.service.client';
 import {WidgetService} from './services/widget.service.client';
 import {SafePipe} from './components/safepipe';
-import { QuillEditorModule } from 'ngx-quill-editor';
+import {QuillEditorModule} from 'ngx-quill-editor';
+import {SharedService} from './services/shared.service.client';
+import {FlickrImageSearchComponent} from './components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
+import {FlickrService} from './services/flickr.service.client';
 
 @NgModule({
   // Declare components here
@@ -57,7 +60,8 @@ import { QuillEditorModule } from 'ngx-quill-editor';
     WidgetHtmlComponent,
     WidgetTextComponent,
     WebsiteNewComponent,
-    SafePipe
+    SafePipe,
+    FlickrImageSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +71,7 @@ import { QuillEditorModule } from 'ngx-quill-editor';
     Routing
   ],
   // Client Side services here
-  providers: [ TestService, UserService, WebsiteService, PageService, WidgetService],
+  providers: [ TestService, UserService, WebsiteService, PageService, WidgetService, SharedService, FlickrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

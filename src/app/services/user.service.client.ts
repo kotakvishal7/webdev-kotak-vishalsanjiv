@@ -11,14 +11,37 @@ import { User } from '../models/user.model.client';
 export class UserService {
   constructor(private http: Http) {}
   baseUrl = environment.baseUrl;
+  options: RequestOptions = new RequestOptions();
 
-  users: User[] = [
-    {_id: '123', username: 'alice', password: 'alice', firstName: 'Alice', lastName: 'Wonder', emailId: 'alice@gmail.com'},
-    {_id: '234', username: 'bob', password: 'bob', firstName: 'Bob', lastName: 'Marley', emailId: 'bob@gmail.com'},
-    {_id: '345', username: 'charly', password: 'charly', firstName: 'Charly', lastName: 'Garcia', emailId: 'charly@gmail.com'},
-    {_id: '456', username: 'kotakv', password: 'kotak', firstName: 'Vishal', lastName: 'Kotak', emailId: 'kotakv@gmail.com'}
-  ];
-   createUser(user: User) {
+  // This method is for a user registering with the application
+  register(username, password) {
+    const url = this.baseUrl + '/api/register';
+    const credentials = {
+      username: username,
+      password: password
+    };
+    this.options.withCredentials = true;
+    return this.http.post(url, credentials, this.options)
+      .map((response: Response) => {
+        return response.json();
+      });
+  }
+
+  login(username, password) {
+    const url = this.baseUrl + '/api/login';
+    const credentials = {
+      username: username,
+      password: password
+    };
+    this.options.withCredentials = true;
+    return this.http.post(url, credentials, this.options)
+      .map((response: Response) => {
+        return response.json();
+      });
+  }
+
+  // This method will be used by System Administrator to create users for the application
+  createUser(user: User) {
     const url = this.baseUrl + '/api/user/';
     return this.http.post(url, user)
       .map((response: Response) => {

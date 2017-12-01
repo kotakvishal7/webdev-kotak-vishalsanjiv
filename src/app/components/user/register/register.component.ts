@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User} from '../../../models/user.model.client';
 import {UserService} from '../../../services/user.service.client';
 import { Router } from '@angular/router';
-import { Validators } from '@angular/forms';
+import {SharedService} from '../../../services/shared.service.client';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +15,9 @@ export class RegisterComponent implements OnInit {
   username: String;
   password: String;
   verifyPassword: String;
-  constructor(private userService: UserService, private  router: Router) { }
+  constructor(private userService: UserService,
+              private router: Router,
+              private sharedService: SharedService) { }
 
   ngOnInit() {
     this.showError = false;
@@ -36,15 +38,16 @@ export class RegisterComponent implements OnInit {
           .subscribe((user) => {
           if  (user === null) {
             this.userService
-              .createUser(tempUser)
+              .register(username, password)
               .subscribe((newUser) => {
-                this.user = newUser;
+                this.sharedService.user = newUser;
+                console.log(this.sharedService.user);
+                this.router.navigate(['/profile']);
               });
           }else {
             this.showError = true;
             return;
           }
-          this.router.navigate(['/login']);
         });
     }
   }
