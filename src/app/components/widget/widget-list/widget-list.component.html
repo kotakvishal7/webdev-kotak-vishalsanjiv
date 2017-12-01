@@ -21,7 +21,7 @@
   <div *ngFor="let widget of widgets">
     <div [ngSwitch]="widget.type">
       <div *ngSwitchCase="'HEADING'">
-        <div class = "row">
+        <div class = "row widget-item">
           <div class="col-xs-12">
             <div class = "widget-toolbar-item">
               <span class = "glyphicon glyphicon-menu-hamburger"></span>
@@ -53,7 +53,7 @@
         </div>
       </div><!-- End of Heading-->
       <div *ngSwitchCase="'HTML'">
-        <div class="row">
+        <div class="row widget-item">
           <div class="col-xs-12">
             <div class = "widget-toolbar-item">
               <span class = "glyphicon glyphicon-menu-hamburger"></span>
@@ -67,7 +67,7 @@
         </div>
       </div><!-- End of HTML -->
       <div *ngSwitchCase="'IMAGE'">
-        <div class="row">
+        <div class="row widget-item">
           <div class="col-xs-12">
             <div class = "widget-toolbar-item">
               <span class = "glyphicon glyphicon-menu-hamburger"></span>
@@ -82,7 +82,7 @@
         </div>
       </div><!-- End of Image -->
       <div *ngSwitchCase="'TEXT'">
-        <div class="row">
+        <div class="row widget-item">
           <div class="col-xs-12">
             <div class = "widget-toolbar-item">
               <span class = "glyphicon glyphicon-menu-hamburger"></span>
@@ -100,7 +100,7 @@
         </div>
       </div> <!-- End of Text -->
       <div *ngSwitchCase="'YOUTUBE'">
-        <div class="row">
+        <div class="row widget-item">
           <div class="col-xs-12 youtube-widget">
             <iframe [width]="widget.width"
                     frameborder="0"

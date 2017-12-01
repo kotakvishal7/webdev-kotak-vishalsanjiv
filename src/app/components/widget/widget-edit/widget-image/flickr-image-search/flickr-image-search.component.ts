@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {WidgetService} from '../../../../../services/widget.service.client';
 import {FlickrService} from '../../../../../services/flickr.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Widget} from '../../../../../models/widget.model.client';
 
 @Component({
   selector: 'app-flickr-image-search',
@@ -29,20 +30,32 @@ export class FlickrImageSearchComponent implements OnInit {
     });
   }
 
-  searchPhotos() {
+  searchImages() {
     this.flickrService
-      .searchPhotos(this.searchText)
+      .searchImages(this.searchText)
       .subscribe(
         (data: any) => {
-          console.log(data);
           let val = data._body;
           val = val.replace('jsonFlickrApi(', '');
           val = val.substring(0, val.length - 1);
           val = JSON.parse(val);
-          console.log(val);
           this.photos = val.photos;
         }
       );
+  }
+  selectImage(photo) {
+    let url = 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server;
+    url += '/' + photo.id + '_' + photo.secret + '_b.jpg';
+    const widget = new Widget('', 'IMAGE', this.pageId);
+    widget.name = name;
+    widget.url = url;
+    widget.width = '100';
+    this.widgetService.createWidget(this.userId, this.websiteId, this.pageId, widget)
+      .subscribe((data) => {
+        if (data) {
+          this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
+        }
+      });
   }
 
 }

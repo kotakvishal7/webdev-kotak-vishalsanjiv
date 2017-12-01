@@ -100,17 +100,27 @@
         </div>
       </div>
     </div>
-    <div class="form-group">
-      <input  name="widgetId"  value="{{widgetId}}"    style="display: none"/>
-      <input  name="websiteId" value="{{websiteId}}"   style="display: none"/>
-      <input  name="pageId"    value="{{pageId}}"      style="display: none"/>
-      <input  name="userId"    value="{{userId}}"      style="display: none"/>
-      <input  name="width"     value="{{widgetWidth}}" style="display: none"/>
-      <button type="submit" class="form-control btn btn-primary">
-        Upload Image
-      </button>
+    <div class="row image-actions">
+      <div class = "col-xs-12">
+        <input  name="widgetId"  value="{{widgetId}}"    style="display: none"/>
+        <input  name="websiteId" value="{{websiteId}}"   style="display: none"/>
+        <input  name="pageId"    value="{{pageId}}"      style="display: none"/>
+        <input  name="userId"    value="{{userId}}"      style="display: none"/>
+        <input  name="width"     value="{{widgetWidth}}" style="display: none"/>
+        <button type="submit" class="form-control btn btn-primary">
+          Upload Image
+        </button>
+      </div>
     </div>
-    <div class = "row widget-item" [hidden]="!editFlag">
+    <div class="row image-actions">
+      <div class = "col-xs-12">
+        <button type="submit" class="form-control btn btn-primary"
+                [routerLink]="['/user/',userId,'website',websiteId,'page',pageId,'widget','new','image','search']">
+          Search Image
+        </button>
+      </div>
+    </div>
+    <div class="row image-actions" [hidden]="!editFlag">
       <div class = "col-xs-12">
         <a class = "btn btn-danger btn-block" (click)="deleteWidget(widget._id)">Delete</a>
       </div>
@@ -119,12 +129,6 @@
       <div class = "col-xs-12 col-sm-9 col-sm-offset-3">
         <span class="errorMessage">Image data missing</span>
       </div>
-    </div>
-    <div class="form-group">
-      <button type="submit" class="form-control btn btn-primary"
-              [routerLink]="['/user/',userId,'website',websiteId,'page',pageId,'widget','new','image','search']">
-        Search Image
-      </button>
     </div>
   </form>
 </div>

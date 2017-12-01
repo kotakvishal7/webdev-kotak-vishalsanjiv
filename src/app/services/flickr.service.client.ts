@@ -13,10 +13,10 @@ export class FlickrService {
     'flickr.photos.search&format=json&api_key=API_KEY&text=TEXT';
   constructor(private _http: Http) {}
 
-  searchPhotos(searchTerm: any) {
+  searchImages(term: any) {
     const url = this.urlBase
       .replace('API_KEY', this.key)
-      .replace('TEXT', searchTerm);
+      .replace('TEXT', term);
     return this._http.get(url);
   }
 }
