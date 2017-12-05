@@ -15,7 +15,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 app.use(cookieParser());
-app.use(session({ secret: 'vishalsanjivkotak' }));
+app.use(session({ secret: process.env.SESSION_SECRET || 'vishalsanjivkotak' }));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // Allow http requests to be handled only from the server it was downloaded
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+  res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   res.header("Access-Control-Allow-Credentials", "true");
