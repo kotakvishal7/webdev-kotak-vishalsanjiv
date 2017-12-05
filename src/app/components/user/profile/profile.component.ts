@@ -25,6 +25,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params =>  {
       this.user = this.sharedService.user || this.user;
+      // console.log('Profile Page');
+      // console.log(this.user);
       this.userId = this.user['_id'];
       this.username = this.user['username'];
       this.emailId = this.user['emailId'];
@@ -42,7 +44,7 @@ export class ProfileComponent implements OnInit {
       .updateUser(this.userId, tempUser)
       .subscribe((user) => {
         this.user = user;
-
+        this.router.navigate(['/profile']);
       });
   }
   deleteUser(userId: String) {
