@@ -29,4 +29,6 @@ export class WidgetListComponent implements OnInit {
     });
   }
 
+  reorderWidgets(index) {}
+
 }

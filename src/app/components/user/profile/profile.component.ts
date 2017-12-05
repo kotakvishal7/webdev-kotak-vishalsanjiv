@@ -47,6 +47,10 @@ export class ProfileComponent implements OnInit {
     tempUser.emailId = emailId;
     tempUser.firstName = firstName;
     tempUser.lastName = lastName;
+    this.sharedService.user['username'] = userName;
+    this.sharedService.user['emailId'] = emailId;
+    this.sharedService.user['firstName'] = firstName;
+    this.sharedService.user['lastName'] = lastName;
     this.userService
       .updateUser(this.userId, tempUser)
       .subscribe((user) => {

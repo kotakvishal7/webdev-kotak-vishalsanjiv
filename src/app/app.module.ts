@@ -36,6 +36,7 @@ import {SharedService} from './services/shared.service.client';
 import {FlickrImageSearchComponent} from './components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
 import {FlickrService} from './services/flickr.service.client';
 import {AuthGuard} from './services/auth-guard.service';
+import {SortableDirective} from './directives/sortable.directive';
 
 @NgModule({
   // Declare components here
@@ -62,7 +63,8 @@ import {AuthGuard} from './services/auth-guard.service';
     WidgetTextComponent,
     WebsiteNewComponent,
     SafePipe,
-    FlickrImageSearchComponent
+    FlickrImageSearchComponent,
+    SortableDirective
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,8 @@ import {AuthGuard} from './services/auth-guard.service';
     Routing
   ],
   // Client Side services here
-  providers: [ TestService, UserService, WebsiteService, PageService, WidgetService, SharedService, FlickrService, AuthGuard],
+  providers: [ TestService, UserService, WebsiteService, PageService, WidgetService, SharedService, FlickrService,
+    AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
