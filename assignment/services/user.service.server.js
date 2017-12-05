@@ -30,6 +30,7 @@ module.exports = function(app) {
   app.post ('/api/loggedIn', loggedin);
   app.post('/api/register', register);
   app.post('/api/login', passport.authenticate('local'), login);
+  app.post('/api/logout', logout);
   app.get("/facebook/login", passport.authenticate('facebook', { scope : 'email' }));
   app.get('/auth/facebook/callback',
     passport.authenticate('facebook', {
@@ -43,6 +44,11 @@ module.exports = function(app) {
 
   function loggedin(req, res) {
     res.send(req.isAuthenticated() ? req.user : '0');
+  }
+
+  function logout(req, res) {
+    req.logOut();
+    res.send(200);
   }
 
   function localStrategy(username, password, done) {

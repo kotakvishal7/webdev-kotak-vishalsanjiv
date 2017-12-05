@@ -47,6 +47,16 @@ export class UserService {
       );
   }
 
+  logout() {
+    this.options.withCredentials = true;
+    return this.http.post(this.baseUrl + '/api/logout', '', this.options)
+      .map(
+        (res: Response) => {
+          const data = res;
+        }
+      );
+  }
+
   login(username, password) {
     const url = this.baseUrl + '/api/login';
     const credentials = {

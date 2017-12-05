@@ -39,7 +39,7 @@
     </div>
   </div>
   <a class="btn btn-primary btn-block"  [routerLink]="['/user', userId, 'website']">Websites</a>
-  <a class="btn btn-danger btn-block"  [routerLink]="['/login']">Logout</a>
+  <a class="btn btn-danger btn-block" (click)="logout()">Logout</a>
   <a class = "btn btn-danger btn-block form-control" (click)="deleteUser(user._id)">Delete</a>
 </div>
 <nav class="navbar navbar-default navbar-fixed-bottom website-nav-background">

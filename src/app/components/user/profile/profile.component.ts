@@ -35,6 +35,13 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  logout() {
+    this.userService.logout()
+      .subscribe(
+        (data: any) => this.router.navigate(['/login'])
+      );
+  }
+
   updateUser(userName: String, emailId: String, firstName: String, lastName: String) {
     const tempUser = new User(this.userId, userName, this.user['password']);
     tempUser.emailId = emailId;
