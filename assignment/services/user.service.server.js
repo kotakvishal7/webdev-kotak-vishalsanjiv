@@ -3,9 +3,9 @@ module.exports = function(app) {
   var userModel = require('../models/user/user.model.server');
 
   var facebookConfig = {
-     clientID     : process.env.FACEBOOK_CLIENT_ID,
-     clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
-     callbackURL  : process.env.FACEBOOK_CALLBACK_URL
+     clientID     : process.env.FACEBOOK_CLIENT_ID || '123456',
+     clientSecret : process.env.FACEBOOK_CLIENT_SECRET || 'abc123',
+     callbackURL  : process.env.FACEBOOK_CALLBACK_URL || 'http://127.0.0.1:3000/auth/facebook/callback'
 
   };
 
@@ -27,7 +27,7 @@ module.exports = function(app) {
   app.post('/api/user', createUser);
   app.put('/api/user/:uid', updateUser);
   app.delete('/api/user/:uid', deleteUser);
-
+  app.post ('/api/loggedIn', loggedin);
   app.post('/api/register', register);
   app.post('/api/login', passport.authenticate('local'), login);
   app.get("/facebook/login", passport.authenticate('facebook', { scope : 'email' }));
@@ -39,6 +39,10 @@ module.exports = function(app) {
 
   function login(request, response) {
     response.json(request.user);
+  }
+
+  function loggedin(req, res) {
+    res.send(req.isAuthenticated() ? req.user : '0');
   }
 
   function localStrategy(username, password, done) {
