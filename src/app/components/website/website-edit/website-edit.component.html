@@ -73,6 +73,11 @@
                         placeholder = "Description"></textarea>
         </div>
       </div>
+      <div class="row errorBlock" [hidden]="!showError">
+        <div class="col-sm-12 col-xs-12">
+          <span class="errorMessage">Missing Website Details</span>
+        </div>
+      </div>
       <div class = "row delete-button">
         <div class = "col-sm-12 col-xs-12">
           <a type = "button"

@@ -16,6 +16,7 @@ export class WebsiteEditComponent implements OnInit {
   websites: Website[];
   websiteName: String;
   websiteDescription: String;
+  showError: Boolean;
   constructor(private websiteService: WebsiteService,
               private route: ActivatedRoute,
               private  router: Router) { }
@@ -24,6 +25,7 @@ export class WebsiteEditComponent implements OnInit {
     this.route.params.subscribe(params =>  {
       this.websiteId = params['wid'];
       this.userId = params['uid'];
+      this.showError = false;
       this.websiteService
         .findWebsiteById(this.userId, this.websiteId)
         .subscribe((website) => {
@@ -48,6 +50,10 @@ export class WebsiteEditComponent implements OnInit {
       });
   }
   updateWebsite(websiteName: String, websiteDescription: String) {
+    if (!websiteName || !websiteDescription) {
+      this.showError = true;
+      return;
+    }
     const website = new Website(websiteName, this.userId, websiteDescription);
     website._id = this.websiteId;
     this.websiteService
