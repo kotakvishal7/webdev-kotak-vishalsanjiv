@@ -36,7 +36,7 @@ import {SharedService} from './services/shared.service.client';
 import {FlickrImageSearchComponent} from './components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
 import {FlickrService} from './services/flickr.service.client';
 import {AuthGuard} from './services/auth-guard.service';
-import {SortableDirective} from './directives/sortable.directive';
+import {SortableDirective} from '../../assignment/directives/sortable.directive';
 
 @NgModule({
   // Declare components here

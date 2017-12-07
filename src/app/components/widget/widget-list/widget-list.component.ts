@@ -29,6 +29,12 @@ export class WidgetListComponent implements OnInit {
     });
   }
 
-  reorderWidgets(index) {}
+  reorderWidgets(index) {
+    this.widgetService.reorderWidgets(this.pageId, this.widgets[index['initial']], index['initial'], index['final'])
+      .subscribe(
+        (widgets) => {},
+        (error) => {}
+      );
+  }
 
 }

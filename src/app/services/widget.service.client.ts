@@ -50,4 +50,12 @@ export class WidgetService {
         return response.json();
       });
   }
+  reorderWidgets(pageId: String, widget: any, initial: Number, final: Number) {
+    const body = {widget: widget};
+    return this.http.put(this.baseUrl + '/' + pageId + '/widget?initial=' + initial + '&final=' + final, body)
+      .map((res: Response) => {
+          return res.json();
+        }
+      );
+  }
 }

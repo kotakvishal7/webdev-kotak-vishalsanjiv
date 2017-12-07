@@ -18,7 +18,8 @@
   </div>
 </nav>
 <div class = "container-fluid">
-  <div *ngFor="let widget of widgets">
+  <ul class="widget-list" appSortable (newIndexes)="reorderWidgets($event)">
+  <li *ngFor="let widget of widgets">
     <div [ngSwitch]="widget.type">
       <div *ngSwitchCase="'HEADING'">
         <div class = "row widget-item">
@@ -116,7 +117,8 @@
         </div>
       </div><!-- End of Youtube -->
     </div>
-  </div>
+  </li>
+  </ul>
 </div>
 <nav class = "navbar navbar-default navbar-fixed-bottom">
   <div class = "container-fluid">
