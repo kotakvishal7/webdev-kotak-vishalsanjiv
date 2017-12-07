@@ -3,9 +3,9 @@ module.exports = function(app) {
   var userModel = require('../models/user/user.model.server');
 
   var facebookConfig = {
-     clientID     : process.env.FACEBOOK_CLIENT_ID || '1868107783216561',
-     clientSecret : process.env.FACEBOOK_CLIENT_SECRET || '5fff051a36f5b3f598d6241bafd2b3a1',
-     callbackURL  : process.env.FACEBOOK_CALLBACK_URL || 'https://webdev-kotak-vishalsanjiv.herokuapp.com/auth/facebook/callback'
+     clientID     : process.env.FACEBOOK_CLIENT_ID || 'abc',
+     clientSecret : process.env.FACEBOOK_CLIENT_SECRET || '123',
+     callbackURL  : process.env.FACEBOOK_CALLBACK_URL || 'abcdef'
 
   };
 
@@ -80,14 +80,18 @@ module.exports = function(app) {
             return done(null, user);
           } else {
             var names = profile.displayName.split(" ");
+            console.log(names);
+            var firstName = names[0];
+            var lastName = names[1];
+            // var email = profile.emails[0].value;
             var newFacebookUser = {
-              firstName:  names[0],
-              lastName:  names[1],
+              firstName:  firstName,
+              lastName:  lastName,
               facebook: {
                 id:    profile.id,
                 token: token
               },
-              email: profile.emails[0].value
+              email: ''
             };
             userModel
               .createUser(newFacebookUser)
