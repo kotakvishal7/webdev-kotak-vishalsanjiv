@@ -3,9 +3,9 @@ module.exports = function(app) {
   var userModel = require('../models/user/user.model.server');
 
   var facebookConfig = {
-     clientID     : process.env.FACEBOOK_CLIENT_ID || '123456',
-     clientSecret : process.env.FACEBOOK_CLIENT_SECRET || 'abc123',
-     callbackURL  : process.env.FACEBOOK_CALLBACK_URL || 'http://127.0.0.1:3000/auth/facebook/callback'
+     clientID     : process.env.FACEBOOK_CLIENT_ID || '1868107783216561',
+     clientSecret : process.env.FACEBOOK_CLIENT_SECRET || '5fff051a36f5b3f598d6241bafd2b3a1',
+     callbackURL  : process.env.FACEBOOK_CALLBACK_URL || 'https://webdev-kotak-vishalsanjiv.herokuapp.com/auth/facebook/callback'
 
   };
 

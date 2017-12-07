@@ -35,15 +35,18 @@ module.exports = function(app) {
         'name': name,
         'text': text
     };
+    var callbackUrl = "/user/" + userId + "/website/" + websiteId + '/page/' + pageId + '/widget';
     widget['url'] = 'assets/uploads/'+filename;
     delete widget._id;
     widgetModel
       .createWidget(widget)
-      .then(function(newWidget) {
-        console.log(newWidget);
+      .then(function (resp) {
+        res.redirect(callbackUrl);
+      }, function (err) {
+        res.status(500).send(err);
       });
 
-    var callbackUrl = "/user/" + userId + "/website/" + websiteId + '/page/' + pageId + '/widget';
+
     response.redirect(callbackUrl);
   }
 
