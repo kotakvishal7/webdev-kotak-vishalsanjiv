@@ -16,6 +16,7 @@ export class PageEditComponent implements OnInit {
   page: Page;
   pageName: String;
   pageDescription: String;
+  showError: Boolean;
   constructor(private pageService: PageService,
               private route: ActivatedRoute,
               private router: Router) { }
@@ -25,6 +26,7 @@ export class PageEditComponent implements OnInit {
       this.userId = params['uid'];
       this.websiteId = params['wid'];
       this.pageId = params['pid'];
+      this.showError = false;
       this.pageService
         .findPagebyWebsiteId(this.userId, this.websiteId)
         .subscribe((pages) => {
@@ -50,6 +52,10 @@ export class PageEditComponent implements OnInit {
   }
 
   updatePage(pageName: String, pageTitle: String) {
+    if (!pageName || !pageTitle) {
+      this.showError = true;
+      return;
+    }
     const page = new Page(pageName, pageTitle, this.websiteId);
     page._id = this.pageId;
     this.pageService

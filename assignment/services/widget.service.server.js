@@ -31,7 +31,7 @@ module.exports = function(app) {
         '_id': widgetId,
         'type': 'IMAGE',
         'pageId': pageId,
-        'width': 100,
+        'width': width,
         'name': name,
         'text': text
     };

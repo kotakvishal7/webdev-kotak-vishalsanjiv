@@ -71,6 +71,11 @@
                  [(ngModel)]="pageDescription" value = "A Blogging application"/>
         </div>
       </div>
+      <div class="row errorBlock" [hidden]="!showError">
+        <div class = "col-xs-12 col-sm-9 col-sm-offset-3">
+          <span class="errorMessage">Missing Page Name/Title</span>
+        </div>
+      </div>
       <div class = "row delete-button">
         <div class = "col-sm-12">
           <a class = "btn btn-danger btn-block" (click)="deletePage(page._id)">Delete</a>
