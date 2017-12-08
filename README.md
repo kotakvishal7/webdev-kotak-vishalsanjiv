@@ -41,6 +41,12 @@ This assignment focuses on using mongoose to implement schemas and models for al
 
 Link: [Database Development](https://docs.google.com/document/d/1DFLG8fIGnJ57NK5bkvD_qd6YLMWwlBSpVCqKJHkcvgg/edit)
 
+## Assignment 6
+
+This assignment adds security to the ongoing class assignment. Previous assignments implemented login and registration, but did not enforce security.
+
+Link: [Security](https://docs.google.com/document/d/14CiS9ikV1eNTQYObHWLSvoULrUsf0sUqhhfBKrzHB5A/edit)
+
 # AngularFourMEANSeed
 
 After you clone this repository and run "npm install"
