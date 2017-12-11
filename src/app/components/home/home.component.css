@@ -1,0 +1,235 @@
+.header {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.name {
+  color: white;
+  font-family: Helvetica;
+  font-size: 20px;
+
+}
+.categories {
+  color: white;
+  font-family: Helvetica;
+  font-size: 15px;
+}
+.email {
+  font-size: 20px;
+  color: white;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+.about-me {
+  color: white;
+}
+.work-experience-item{
+  margin-top: 15px;
+}
+.work-experience-description {
+  margin-top: 8px;
+}
+.work-position {
+  font-size: 22px;
+  font-family: Helvetica;
+  color: black;
+}
+.location {
+  font-size: 16px;
+  font-family: Helvetica;
+  color: #404040;
+}
+.dates {
+  font-size: 14px;
+  font-family: Helvetica;
+  color: #707070;
+}
+.education-item {
+  margin-top: 15px;
+}
+.attributes {
+  text-align: center;
+}
+.company-link {
+  font-family: Helvetica;
+  font-size: 16px;
+  color: #484848;
+}
+.description{
+  font-family: Helvetica;
+  font-size: 14px;
+  color: #707070;
+}
+.vishal-attributes {
+  font-size: 30px;
+  font-family: Helvetica;
+}
+.project-item {
+  margin-top: 15px;
+}
+.research-item {
+  margin-top: 15px;
+}
+#work {
+  padding-top:50px;
+  padding-bottom:50px;
+  background-color: white;
+}
+#education {
+  padding-top:50px;
+  padding-bottom:50px;
+  background-color: #f4f4f4;
+}
+#research {
+  padding-top:50px;
+  padding-bottom:50px;
+  background-color: #f4f4f4
+}
+#projects {
+  padding-top:50px;
+  padding-bottom:30px;
+  background-color: white;
+}
+#courses {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+#skills {
+  background-color: #f4f4f4;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.mobile-number {
+  margin-bottom: 20px;
+}
+.contact-methods {
+  margin-bottom: 30px;
+}
+#javaProgress {
+  width: 100%;
+  background-color: white;
+}
+#javaBar {
+  width: 70%;
+  height: 15px;
+  background-color: #404040;
+  color: white;
+  text-align: center;
+}
+#csharpProgress {
+  width: 100%;
+  background-color: white;
+}
+#csharpBar {
+  width: 60%;
+  height: 15px;
+  background-color: #404040;
+  color: white;
+  text-align: center;
+}
+#pythonProgress {
+  width: 100%;
+  background-color: white;
+}
+#pythonBar {
+  width: 40%;
+  height: 15px;
+  background-color: #404040;
+  color: white;
+  text-align: center;
+}
+#htmlProgress {
+  width: 100%;
+  background-color: white;
+}
+#htmlBar {
+  width: 90%;
+  height: 15px;
+  background-color: #404040;
+  color: white;
+  text-align: center;
+}
+#cssProgress {
+  width: 100%;
+  background-color: white;
+}
+#cssBar {
+  width: 90%;
+  height: 15px;
+  background-color: #404040;
+  color: white;
+  text-align: center;
+}
+#jsProgress {
+  width: 100%;
+  background-color: white;
+}
+#jsBar {
+  width: 70%;
+  height: 15px;
+  background-color: #404040;
+  color: white;
+  text-align: center;
+}
+#angularProgress {
+  width: 100%;
+  background-color: white;
+}
+#angularBar {
+  width: 60%;
+  height: 15px;
+  background-color: #404040;
+  color: white;
+  text-align: center;
+}
+#swiftProgress {
+  width: 100%;
+  background-color: white;
+}
+#swiftBar {
+  width: 10%;
+  height: 15px;
+  background-color: #404040;
+  color: white;
+  text-align: center;
+}
+#androidProgress {
+  width: 100%;
+  background-color: white;
+}
+#androidBar {
+  width: 60%;
+  height: 15px;
+  background-color: #404040;
+  color: white;
+  text-align: center;
+}
+#sqldProgress {
+  width: 100%;
+  background-color: white;
+}
+#sqlBar {
+  width: 60%;
+  height: 15px;
+  background-color: #404040;
+  color: white;
+  text-align: center;
+}
+.skill-item {
+  margin-top: 15px;
+}
+.skill {
+  font-size: 15px;
+}
+.footer {
+  font-size: 10px;
+  font-family: Helvetica;
+  text-align: center;
+
+}
+.linkedin  {
+  color: white;
+}
